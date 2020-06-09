@@ -4,8 +4,6 @@ import Helper from '../../helpers/PostHelper';
 import Author from './Author';
 import Img from 'gatsby-image';
 
-import '../../styles/components/Post.scss';
-
 export default class Post extends Component {
   render() {
     return (

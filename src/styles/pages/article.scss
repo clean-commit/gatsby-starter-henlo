@@ -1,5 +1,5 @@
-@import "../abstracts/include";
-@import "../base/typography";
+@import '../abstracts/include';
+@import '../base/typography';
 
 .article {
   &__title {
@@ -22,26 +22,13 @@
     max-width: 900px;
     margin: 0 auto;
 
-    a {
-      color: lighten(color(primary, 3), 13%);
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 2px solid rgba(color(primary, 3), 0.09);
-      &:hover {
-        color: color(primary, 3);
-        background: rgba(color(primary, 3), 0.02);
-        border-bottom: 2px solid color(primary, 3);
-        text-decoration: none;
-      }
-    }
-
     img {
       margin: 0 auto;
     }
 
     @include font-size(7, mobile, true, true, true);
-    @if ( get-font-size(7, desktop) != get-font-size(7, mobile) ) {
-      @include media( '>medium' ) {
+    @if (get-font-size(7, desktop) != get-font-size(7, mobile)) {
+      @include media('>medium') {
         @include font-size(7, desktop, true, true, true);
       }
     }
@@ -50,74 +37,78 @@
       margin-bottom: 32px;
     }
 
-    p, li {
-      color: color(typography,1);
+    p,
+    li {
       @include font-size(7, mobile, true, true, true);
-    	@if ( get-font-size(7, desktop) != get-font-size(7, mobile) ) {
-    		@include media( '>medium' ) {
-    			@include font-size(7, desktop, true, true, true);
-    		}
-    	}
+      @if (get-font-size(7, desktop) != get-font-size(7, mobile)) {
+        @include media('>medium') {
+          @include font-size(7, desktop, true, true, true);
+        }
+      }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-  		margin-top: 55px !important;
-  	}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 55px !important;
+    }
 
     h1 {
-    	@include font-size(2, mobile, true, true, true);
-    	@if ( get-font-size(2, desktop) != get-font-size(1, mobile) ) {
-    		@include media( '>medium' ) {
-    			@include font-size(2, desktop, true, true, true);
-    		}
-    	}
+      @include font-size(2, mobile, true, true, true);
+      @if (get-font-size(2, desktop) != get-font-size(1, mobile)) {
+        @include media('>medium') {
+          @include font-size(2, desktop, true, true, true);
+        }
+      }
     }
 
     h2 {
-    	@include font-size(3, mobile, true, true, true);
-    	@if ( get-font-size(3, desktop) != get-font-size(3, mobile) ) {
-    		@include media( '>medium' ) {
-    			@include font-size(3, desktop, true, true, true);
-    		}
-    	}
+      @include font-size(3, mobile, true, true, true);
+      @if (get-font-size(3, desktop) != get-font-size(3, mobile)) {
+        @include media('>medium') {
+          @include font-size(3, desktop, true, true, true);
+        }
+      }
     }
 
     h3,
     blockquote {
-    	@include font-size(4, mobile, true, true, true);
-    	@if ( get-font-size(4, desktop) != get-font-size(3, mobile) ) {
-    		@include media( '>medium' ) {
-    			@include font-size(4, desktop, true, true, true);
-    		}
-    	}
+      @include font-size(4, mobile, true, true, true);
+      @if (get-font-size(4, desktop) != get-font-size(3, mobile)) {
+        @include media('>medium') {
+          @include font-size(4, desktop, true, true, true);
+        }
+      }
     }
 
     h4 {
-    	@include font-size(5, mobile, true, true, true);
-    	@if ( get-font-size(5, desktop) != get-font-size(5, mobile) ) {
-    		@include media( '>medium' ) {
-    			@include font-size(5, desktop, true, true, true);
-    		}
-    	}
+      @include font-size(5, mobile, true, true, true);
+      @if (get-font-size(5, desktop) != get-font-size(5, mobile)) {
+        @include media('>medium') {
+          @include font-size(5, desktop, true, true, true);
+        }
+      }
     }
 
-
     h5 {
-    	@include font-size(6, mobile, true, true, true);
-    	@if ( get-font-size(6, desktop) != get-font-size(6, mobile) ) {
-    		@include media( '>medium' ) {
-    			@include font-size(6, desktop, true, true, true);
-    		}
-    	}
+      @include font-size(6, mobile, true, true, true);
+      @if (get-font-size(6, desktop) != get-font-size(6, mobile)) {
+        @include media('>medium') {
+          @include font-size(6, desktop, true, true, true);
+        }
+      }
     }
 
     h6 {
-    	@include font-size(6, mobile, true, true, true);
-    	@if ( get-font-size(6, desktop) != get-font-size(6, mobile) ) {
-    		@include media( '>medium' ) {
-    			@include font-size(6, desktop, true, true, true);
-    		}
-    	}
+      @include font-size(6, mobile, true, true, true);
+      @if (get-font-size(6, desktop) != get-font-size(6, mobile)) {
+        @include media('>medium') {
+          @include font-size(6, desktop, true, true, true);
+        }
+      }
     }
   }
 

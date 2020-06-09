@@ -1,5 +1,5 @@
-@import "../abstracts/include";
-@import "../base/typography";
+@import '../abstracts/include';
+@import '../base/typography';
 
 .blog {
   &__hero {
@@ -17,7 +17,7 @@
       flex-direction: column;
     }
 
-    @include media ('<tablet') {
+    @include media('<tablet') {
       &__left,
       &__right {
         width: 100%;
@@ -93,12 +93,10 @@
   width: 100%;
   height: 1px;
   display: block;
-  background-color: color(bg, 5);
   &::before {
     content: '';
     display: block;
     height: 4px;
     width: 65px;
-    background-color: color(primary, 1);
   }
 }

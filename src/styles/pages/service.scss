@@ -86,7 +86,6 @@
     height: 380px;
   }
   &-item {
-    background: color(bg, 2);
     width: calc(100% - 10px);
     height: 50%;
     margin: 5px;
@@ -136,7 +135,6 @@
 
 .perk {
   padding: 35px 0;
-  border-bottom: 1px solid color(bg, 2);
   &__title {
     margin-top: 0;
   }

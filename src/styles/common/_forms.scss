@@ -1,90 +1,39 @@
-@import "../abstracts/include";
-.service-form {
-  .input {
-    background: transparent;
-    flex: 1;
-    border: 1px solid color(typography, 1);
-    border-radius: 8px;
-    &--large {
-      padding: 9px 20px;
-      height: 58px;
-      @include font-weight(regular);
-    	color: color(typography, 2);
-    	@include font-size(4, mobile, true, true, true);
-    	@if ( get-font-size(4, desktop) != get-font-size(4, mobile) ) {
-    		@include media( '>medium' ) {
-    			@include font-size(4, desktop, true, true, true);
-    		}
-    	}
-    }
-  }
-
-  .send {
-    flex: 0;
-    white-space: nowrap;
-    padding: 7px 14px;
-    border-radius: 8px;
-    background: color(primary, 1);
-    border: none;
-    color: color(typography, 1);
-    transition: background .3s ease-in-out;
-    cursor: pointer;
-    &--large {
-      padding: 13px 29px;
-      height: 58px;
-      @include font-size(5, mobile, true, true);
-      @if ( get-font-size(5, desktop) != get-font-size(5, mobile) ) {
-        @include media( '>medium' ) {
-          @include font-size(5, desktop, true, true, true);
-        }
-      }
-    }
-
-    &:hover {
-      background: lighten(color(bg, 2), 4%);
-    }
-  }
-}
-
-
+@import '../abstracts/include';
 .input,
 .textarea {
-  background-color: color(bg, 1);
   border-width: 1px;
   border-style: solid;
-  border-color: color(bg, 3);
   border-radius: 2px;
-  color: color(typography, 1);
   max-width: 100%;
   width: 100%;
   transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
   &::placeholder {
-    color: darken(color(bg, 3), 8%);
+    // color: darken(color(bg, 3), 8%);
   }
 
   &::-ms-input-placeholder {
-    color: darken(color(bg, 3), 8%);
+    // color: darken(color(bg, 3), 8%);
   }
 
   &:-ms-input-placeholder {
-    color: darken(color(bg, 3), 8%);
+    // color: darken(color(bg, 3), 8%);
   }
 
   &:hover {
-    border-color: darken(color(primary, 1), 10%);
+    // border-color: darken(color(primary, 1), 10%);
   }
 
   &:active,
   &:focus {
     outline: none;
-    border-color: color(primary, 1);
+    // border-color: color(primary, 1);
   }
 
   &[disabled] {
     cursor: not-allowed;
-    background-color: color(bg, 3);
-    border-color: color(bg, 3);
+    // background-color: color(bg, 3);
+    // border-color: color(bg, 3);
   }
 }
 
@@ -97,13 +46,12 @@
     z-index: 9;
     width: 100%;
     height: 100%;
-    background-color: color(bg, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     transform: translateY(100%);
     opacity: 0;
-    transition: opacity .4s ease, transform .4s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 
     h1 {
       margin: 0;
@@ -120,7 +68,6 @@
 .label {
   @include font-weight(bold);
   padding-left: 2px;
-  color: color(typography, 1);
   margin-bottom: 4px;
   @include font-size(8, mobile, true, true, true);
 }
@@ -135,7 +82,6 @@
 
   .inline-input {
     display: inline;
-    width: auto;
   }
 }
 
@@ -148,7 +94,6 @@
 
   .inline-textarea {
     display: inline;
-    width: auto;
   }
 }
 
@@ -158,7 +103,7 @@
   margin-bottom: 15px;
   &__error {
     padding-left: 2px;
-    color: color(primary, 2);
+
     @include font-weight(bold);
   }
 }

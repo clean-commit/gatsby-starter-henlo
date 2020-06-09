@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
 import { Link } from 'gatsby';
 
-import '../styles/components/CookiesBar.scss';
-
 const cookies = new Cookies();
 const analyticsCookie = 'gatsby-gdpr-google-analytics';
 const pixelCookie = 'gatsby-gdpr-facebook-pixel';

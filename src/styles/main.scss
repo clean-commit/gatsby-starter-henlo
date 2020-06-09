@@ -1,18 +1,17 @@
-@import "base/normalize";
-@import "base/base";
-@import "base/typography";
+@import 'base/normalize';
+@import 'base/base';
+@import 'base/typography';
 
-@import "common/global";
-@import "common/fonts";
-@import "common/grid";
-@import "common/buttons";
-@import "common/forms";
-@import "common/buttons";
-@import "common/prism";
+@import 'common/global';
+@import 'common/fonts';
+@import 'common/grid';
+@import 'common/buttons';
+@import 'common/forms';
+@import 'common/buttons';
 
-@import "layout/navigation";
-@import "layout/footer";
-@import "layout/cols";
-@import "layout/availability";
+@import 'layout/navigation';
+@import 'layout/footer';
+@import 'layout/cols';
+@import 'layout/availability';
 
-@import "base/helpers";
+@import 'base/helpers';

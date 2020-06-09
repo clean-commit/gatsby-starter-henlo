@@ -2,82 +2,38 @@
 // Colors -------------------------------------
 // Usage example: color(primary, main)
 // --------------------------------------------
-$white: #fff;
-$white-light: rgba($white, 0.60);
-$black: #000000;
-$dark-blue: #02111B;
-$grey-light: #444444;
-$dark-blue-lighter: #011623;
-$grey: #212121;
-$cyan: #00A2ED;
-
-$mr-white: $white;
-$mr-grey--light: #e8e8e8;
-$mr-green: #26b7a0;
-$mr-blue: #1641FF;
-$mr-dark: #3D3F4C;
-$mr-darker: #292f36;
-$mr-red: #FE5461;
-$mr-yellow: #FEB64D;
-$mr-grey: #CDCDCD;
 
 // Fonts
-$main-font: "'Source Sans Pro', sans-serif";
-$secondary-font: "'Abril Fatface', serif";
-
+$main-font: "'Archia', serif";
+$secondary-font: "'Marcellus', sans-serif";
 
 $color: (
-	typography: (
-		1: $mr-dark,
-		2: $mr-green,
-		3: $white,
-	),
-	bg: (
-		1: $white,
-		2: $mr-grey--light,
-		3: $mr-grey,
-		4: $mr-dark,
-		5: $grey-light,
-		6: $mr-darker,
-	),
-	primary: (
-		1: $mr-green,
-		2: $mr-red,
-		3: $mr-blue,
-		4: $mr-yellow,
-		5: $mr-dark,
- 	),
- 	secondary: (
-		1: #FF6381,
-		2: #FF97AA,
-		3: #FF3058,
-		4: #FFD2DA
- 	),
-	name: (
-		white: #fff,
-		dark: #394052,
-		lightdark: #565678,
-		black: #02111B,
-		almostblack: #191919,
-		almostwhite: #FCFCFC,
-		lightgrey: #F2F2F2,
-		darkblue: #11103E,
-		blue: #261FB6,
-		green: #1ADAB7,
-		red: #FF3058,
-		orange: #FC8464,
-		yellow: #FFD151,
-	)
+  base: (
+    white: #fff,
+    black: #000000,
+    red: #fe302a,
+  ),
+  grey: (
+    regular: rgb(128, 128, 128),
+    dark: #141414,
+    darker: rgb(18, 18, 18),
+  ),
+  gradients: (
+    default: linear-gradient(90deg, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, 0.8) 8.33%, rgba(20, 20, 20, 0.8) 49.96%, rgba(20, 20, 20, 0.8) 92.71%, rgba(20, 20, 20, 0) 100%),
+  ),
 );
 
 // --------------------------------------------
 // Typography ---------------------------------
 // --------------------------------------------
 $font__family: (
-	base: $main-font, // font-family(base)
-	heading: $secondary-font, // font-family(heading)
-	code: '"Surce Code Pro", Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace', // font-family(code)
-	pre: '"Courier 10 Pitch", Courier, monospace' // font-family(pre)
+  base: $main-font,
+  // font-family(base)
+    heading: $secondary-font,
+  // font-family(heading)
+    code: '"Surce Code Pro", Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace',
+  // font-family(code)
+    pre: '"Courier 10 Pitch", Courier, monospace' // font-family(pre),,,,,,,,
 );
 
 $font__sizes: (
@@ -95,50 +51,78 @@ $font__sizes: (
 );
 
 $font__scale: (
-	desktop: (                             // i.e. $breakpoint__m + $breakpoint__l (600 - 1024)
-		1: map-get($font__sizes, h1),   // H1
-		2: map-get($font__sizes, h2),    // H2
-		3: map-get($font__sizes, h3),   // H3
-		4: map-get($font__sizes, h4),   // H4, H5, H6
-		5: map-get($font__sizes, h5),   // H4, H5, H6
-		6: map-get($font__sizes, h6),   // H4, H5, H6
-		7: map-get($font__sizes, t3),    	 // Text large
-		8: map-get($font__sizes, t4),    	 // Text default
-		9: map-get($font__sizes, t5),      // Text smaller
-		10: map-get($font__sizes, caps),     // caps
-		11: map-get($font__sizes, lightcaps),     // lightcaps
-	),
-	mobile: (                              // i.e. $breakpoint__xs + $breakpoint__s (up to 600)
-		1: map-get($font__sizes, h2),   // H1
-		2: map-get($font__sizes, h3),    // H2
-		3: map-get($font__sizes, h4),   // H3
-		4: map-get($font__sizes, h5),   // H4, H5, H6
-		5: map-get($font__sizes, h6),   // H4, H5, H6
-		6: map-get($font__sizes, t3),   // H4, H5, H6
-		7: map-get($font__sizes, t4),    	 // Text large
-		8: map-get($font__sizes, t4),    	 // Text default
-		9: map-get($font__sizes, t5),      // Text smaller
-		10: map-get($font__sizes, caps),     // caps
-		11: map-get($font__sizes, lightcaps),     // lightcaps
-	)
+  desktop: (
+    // i.e. $breakpoint__m + $breakpoint__l (600 - 1024)
+      1: map-get($font__sizes, h1),
+    // H1
+      2: map-get($font__sizes, h2),
+    // H2
+      3: map-get($font__sizes, h3),
+    // H3
+      4: map-get($font__sizes, h4),
+    // H4, H5, H6
+      5: map-get($font__sizes, h5),
+    // H4, H5, H6
+      6: map-get($font__sizes, h6),
+    // H4, H5, H6
+      7: map-get($font__sizes, t3),
+    // Text large
+      8: map-get($font__sizes, t4),
+    // Text default
+      9: map-get($font__sizes, t5),
+    // Text smaller
+      10: map-get($font__sizes, caps),
+    // caps
+      11: map-get($font__sizes, lightcaps),
+    // lightcaps,,,,,,,,
+  ),
+  mobile: (
+    // i.e. $breakpoint__xs + $breakpoint__s (up to 600)
+      1: map-get($font__sizes, h2),
+    // H1
+      2: map-get($font__sizes, h3),
+    // H2
+      3: map-get($font__sizes, h4),
+    // H3
+      4: map-get($font__sizes, h5),
+    // H4, H5, H6
+      5: map-get($font__sizes, h6),
+    // H4, H5, H6
+      6: map-get($font__sizes, t3),
+    // H4, H5, H6
+      7: map-get($font__sizes, t4),
+    // Text large
+      8: map-get($font__sizes, t4),
+    // Text default
+      9: map-get($font__sizes, t5),
+    // Text smaller
+      10: map-get($font__sizes, caps),
+    // caps
+      11: map-get($font__sizes, lightcaps),
+    // lightcaps,,,,,,,,
+  ),
 );
 
 $font__weight: (
-	thin: 200,
-	light: 300,
-	regular: 400, 	// font__weight(regular)
-	medium: 500,	// font__weight(medium)
-	semibold: 600,	// font__weight(semi-bold)
-	bold: 700,		// font__weight(bold)
-	xbold: 900
+  thin: 200,
+  light: 300,
+  regular: 400,
+  // font__weight(regular)
+    medium: 500,
+  // font__weight(medium)
+    semibold: 600,
+  // font__weight(semi-bold)
+    bold: 700,
+  // font__weight(bold)
+    xbold: 900,
 );
 
 // --------------------------------------------
 // Structure ----------------------------------
 // --------------------------------------------
 $content__padding: (
-	mobile: 16px,
-	desktop:  24px
+  mobile: 16px,
+  desktop: 24px,
 );
 
 $main-wrapper-width: 1920px;
@@ -146,7 +130,6 @@ $container__width-full: 1920px;
 $container__width-lg: 1650px;
 $container__width: 1310px;
 $container__width-sm: 1100px;
-
 
 // Breakpoints
 $break-sm-down: 576px;
