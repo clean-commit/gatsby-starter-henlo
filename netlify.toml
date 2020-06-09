@@ -1,0 +1,40 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+  functions = "lambda"
+[build.environment]
+  YARN_VERSION = "1.9.4"
+  YARN_FLAGS = "--no-ignore-optional"
+
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
+
+[[redirects]]
+  from = "/how-to-deploy-any-project-using-ftp-with-gitlab-continous-integration-ci"
+  to = "/blog/how-to-deploy-any-project-using-ftp-with-gitlab-continous-integration-ci"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tic-tac-toe-javascript-game"
+  to = "/blog/tic-tac-toe-javascript-game"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pomodoro-clock-free-code-camp-project"
+  to = "/blog/pomodoro-clock-free-code-camp-project"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/create-simon-game-in-javascript"
+  to = "/blog/create-simon-game-in-javascript"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/front-end-certification-first-milestone-is-behind-me-and-how-i-started-to-code"
+  to = "/blog/front-end-certification-first-milestone-is-behind-me-and-how-i-started-to-code"
+  status = 301
+  force = true

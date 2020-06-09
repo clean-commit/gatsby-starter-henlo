@@ -1,0 +1,128 @@
+@import "../abstracts/include";
+@import "../base/typography";
+
+.navbar {
+  &__wrapper {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include media('<medium') {
+      min-height: 75px;
+    }
+  }
+
+  &__logo {
+    span {
+      color: color(typography, 2);
+    }
+    img {
+      width: 80px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    @include media('<tablet-lg') {
+      display: none;
+    }
+  }
+
+  &__button {
+    padding: 5px;
+    height: 27px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    div {
+      width: 42px;
+      height: 1px;
+      background: color(typography, 1);
+    }
+
+    @include media('>=tablet-lg') {
+      display: none;
+    }
+  }
+}
+
+.nav-link {
+  color: color(typography, 1);
+  @include font-weight(semibold);
+  transition: color 0.4s ease-in-out;
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: color(primary, 1);
+    transition: width 0.4s ease-in-out;
+  }
+
+  &:hover {
+    text-decoration: none;
+    &:not(.nav-link--active) {
+      color: color(typography, 2);
+    }
+    &::after {
+      width: 20%;
+    }
+  }
+
+  &--active {
+    &::after {
+      width: 20% !important;
+    }
+  }
+}
+
+.nav-mobile {
+  @include media('>=tablet') {
+    display: none;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: calc(100vh);
+  top: 0;
+  background-color: color(bg, 1);
+  z-index: 9;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-120%);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+  .nav-link {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 18px;
+    &::after {
+      margin: 0 auto;
+    }
+  }
+
+  &__top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    height: 75px;
+    width: 100%;
+  }
+
+  &--active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

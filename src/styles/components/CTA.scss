@@ -1,0 +1,33 @@
+@import "../abstracts/include";
+
+.cta {
+  padding: 50px 60px;
+  border: 2px solid color(primary,1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  &__title {
+    margin: 0 !important;
+    width: 55%;
+  }
+
+  &__text {
+    width: calc(45% - 30px);
+    margin-left: 30px;
+  }
+
+  @include media('<tablet') {
+    padding: 30px 20px;
+    flex-direction: column;
+
+    &__title {
+      width: 100%;
+      margin-bottom: 20px !important;
+    }
+    &__text {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

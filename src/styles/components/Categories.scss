@@ -1,0 +1,26 @@
+@import "../abstracts/include";
+.categories {
+  padding: 30px 0 0;
+  margin-bottom: -25px;
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @include media('>=tablet') {
+    margin-bottom: -60px;
+  }
+}
+
+.category-item {
+  padding: 10px 15px;
+  @include font-weight(bold);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  &--active {
+    color: $mr-green;
+  }
+}

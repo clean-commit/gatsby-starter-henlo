@@ -1,0 +1,38 @@
+@import "../abstracts/include";
+
+.author {
+  &__name {
+    font-weight: 600;
+  }
+
+  &--article {
+    display: inline-flex;
+    align-items: center;
+    margin: 30px auto 0;
+  }
+
+  &__photo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+
+  &__break {
+    display: inline-block;
+    height: 14px;
+    position: relative;
+    top: 2px;
+    margin: 0 8px;
+    width: 1.5px;
+    background-color: lighten(color(bg, 4), 32%);
+  }
+
+  &__details {
+    text-align: left;
+  }
+
+  &__publication {
+    color: lighten(color(bg, 4), 26%);
+  }
+}

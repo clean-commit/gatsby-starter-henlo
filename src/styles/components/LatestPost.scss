@@ -1,0 +1,11 @@
+@import "../abstracts/include";
+.LatestPost {
+  &__title {
+    margin-top: 0 !important;
+    margin-bottom: 10px;
+  }
+
+  &__excerpt {
+    margin-bottom: 10px;
+  }
+}

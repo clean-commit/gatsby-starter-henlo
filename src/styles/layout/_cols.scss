@@ -1,0 +1,39 @@
+.cols {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @include media('<tablet') {
+    flex-wrap: wrap;
+  }
+
+  &__left {
+    @include media('>=tablet') {
+      margin-right: 15px;
+      max-width: 445px;
+      h1 {
+        margin: 0 0 10px;
+      }
+    }
+    h1 {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__right {
+    @include media('>=tablet') {
+      margin-left: 15px;
+      max-width: 550px;
+      h1 {
+        margin: 0 0 10px;
+      }
+
+      &--50 {
+        width: 100%;
+      }
+    }
+    &--50 {
+      width: 50%;
+    }
+  }
+}

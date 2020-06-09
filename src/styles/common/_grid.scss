@@ -1,0 +1,15 @@
+@import "../abstracts/include";
+
+.wrapper {
+  max-width: $main-wrapper-width;
+  min-height: calc(100vh - 73px);
+  position: relative;
+  margin: 0 auto;
+  background-color: color(name, white);
+  box-shadow: 0 0 50px 0 rgba(color(name, dark), 0.05);
+  overflow: hidden;
+
+  @media screen and (min-width: 2020px) {
+    margin-bottom: 100px;
+  }
+}

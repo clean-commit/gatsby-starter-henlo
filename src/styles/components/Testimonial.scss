@@ -1,0 +1,40 @@
+@import "../abstracts/include";
+
+.TestimonialSlider {
+  .slick-slide {
+    outline: none;
+  }
+
+  .slick-track {
+    margin-bottom: 30px;
+  }
+
+  .TestimonialCard {
+    padding: 0 15px;
+  }
+}
+
+.TestimonialCard {
+  border-radius: 8px;
+  max-width: 540px;
+  &__quote {
+    margin-bottom: 10px;
+  }
+}
+
+.client {
+  display: flex;
+  align-items: center;
+  &__image {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  &__name {
+    margin: 0;
+    @include font-weight(semibold);
+  }
+}

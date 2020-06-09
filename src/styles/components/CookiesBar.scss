@@ -1,0 +1,65 @@
+@import "../abstracts/include";
+.cookies {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: color(bg,2);
+  width: 100%;
+  padding: 20px 0;
+  opacity: 1;
+  z-index: 9999;
+  transition: transform 0.4s ease-in-out, opacity .4s ease-in-out;
+}
+.cookies__hide {
+  position: absolute;
+  right: 22px;
+  z-index: 9999;
+  cursor: pointer;
+  &__icon {
+    height: 20px;
+    cursor: pointer;
+    width: 20px;
+    color: color(typography, 1);
+    fill: transparent;
+    stroke: color(typography, 1);
+  }
+}
+
+.cookies__content {
+  padding-right: 25px;
+  margin-bottom: 10px;
+  p {
+    margin: 0;
+    color: color(typography, 1);
+    a {
+      color: color(typography, 1);
+      text-decoration: underline;
+    }
+  }
+}
+
+.cookies--hide {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+
+.btn-decline {
+  cursor: pointer;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: color(typography, 1);
+}
+
+.btn-accept {
+  display: inline-block;
+  cursor: pointer;
+  background: color(primary, 1);
+  color: color(typography, 3);
+  @include font-weight(bold);
+  box-shadow: none;
+  text-align: center;
+  padding: 5px 15px;
+}
