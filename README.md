@@ -4,7 +4,7 @@
 
 **Note:** This starter uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
 
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://gatsby-netlify-cms.netlify.com/)**.
+This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org).
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
@@ -26,7 +26,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Prerequisites
 
-- Node (I recommend using v8.2.0 or higher)
+- Node (I recommend using v12.16.2 or higher)
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
 - [Netlify CLI](https://github.com/netlify/cli)
 
@@ -38,9 +38,19 @@ Netlify CMS can run in any frontend web environment, but the quickest way to try
 
 After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
 
+## Getting Started (Without Netlify)
+
+```
+$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/clean-commit/gatsby-starter
+$ cd [SITE_DIRECTORY_NAME]
+$ npm run build
+$ npm run serve
+```
+
 ### Access Locally
 
 Pulldown a local copy of the Github repository Netlify created for you, with the name you specified in the previous step
+
 ```
 $ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
 $ cd [REPO_NAME]
@@ -62,40 +72,35 @@ $ netlify dev # or ntl dev
 Media Libraries have been included in this starter as a default. If you are not planning to use `Uploadcare` or `Cloudinary` in your project, you **can** remove them from module import and registration in `src/cms/cms.js`. Here is an example of the lines to comment or remove them your project.
 
 ```javascript
-import CMS from 'netlify-cms-app'
+import CMS from 'netlify-cms-app';
 // import uploadcare from 'netlify-cms-media-library-uploadcare'
 // import cloudinary from 'netlify-cms-media-library-cloudinary'
 
-import AboutPagePreview from './preview-templates/AboutPagePreview'
-import BlogPostPreview from './preview-templates/BlogPostPreview'
-import ProductPagePreview from './preview-templates/ProductPagePreview'
-import IndexPagePreview from './preview-templates/IndexPagePreview'
+import AboutPagePreview from './preview-templates/AboutPagePreview';
+import BlogPostPreview from './preview-templates/BlogPostPreview';
+import ProductPagePreview from './preview-templates/ProductPagePreview';
+import IndexPagePreview from './preview-templates/IndexPagePreview';
 
 // CMS.registerMediaLibrary(uploadcare);
 // CMS.registerMediaLibrary(cloudinary);
 
-CMS.registerPreviewTemplate('index', IndexPagePreview)
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('products', ProductPagePreview)
-CMS.registerPreviewTemplate('blog', BlogPostPreview)
+CMS.registerPreviewTemplate('index', IndexPagePreview);
+CMS.registerPreviewTemplate('about', AboutPagePreview);
+CMS.registerPreviewTemplate('products', ProductPagePreview);
+CMS.registerPreviewTemplate('blog', BlogPostPreview);
 ```
 
 Note: Don't forget to also remove them from `package.json` and `yarn.lock` / `package-lock.json` using `yarn` or `npm`. During the build netlify-cms-app will bundle the media libraries as well, having them removed will save you build time.
 Example:
+
 ```
 yarn remove netlify-cms-media-library-uploadcare
 ```
+
 OR
-```
-yarn remove netlify-cms-media-library-cloudinary
-```
-## Getting Started (Without Netlify)
 
 ```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/netlify-templates/gatsby-starter-netlify-cms/
-$ cd [SITE_DIRECTORY_NAME]
-$ npm run build
-$ npm run serve
+yarn remove netlify-cms-media-library-cloudinary
 ```
 
 ### Setting up the CMS
