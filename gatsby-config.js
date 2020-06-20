@@ -2,12 +2,12 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    baseTitle: 'Top Developer & Designer',
+    baseTitle: 'Starter Pack',
     separator: '|',
-    siteUrl: `https://mrkaluzny.com`,
-    title: 'mrkaluzny',
-    image: '/img/meeting.jpg',
-    description: 'Crafting bespoke digital experiences. If your business needs a fast, responsive website or a web app with the clean code base and modern design you found a right place!',
+    siteUrl: `localhost:8000`,
+    title: '',
+    image: '',
+    description: 'Blazing fast static site with gatsby',
   },
   plugins: [
     'gatsby-plugin-sharp',
@@ -56,12 +56,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     `gatsby-plugin-advanced-sitemap`,
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `mrkaluzny-1`,
-      },
-    },
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {

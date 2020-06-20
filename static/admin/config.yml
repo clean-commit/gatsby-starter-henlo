@@ -11,170 +11,514 @@ backend:
 media_folder: static/img
 public_folder: /img
 
-display_url: https://mrkaluzny.com
+display_url: https://localhost:8000
 
 collections:
-  - name: "blog"
-    label: "Articles"
-    description: "Articles content"
-    folder: "content/blog"
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  - name: 'blog'
+    label: 'Articles'
+    description: 'Articles content'
+    folder: 'content/blog'
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     create: true
     fields:
-      - { label: "Type", name: "type", widget: "hidden", default: "article" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "Article" }
-      - { label: "Title", name: "title", widget: "string", default: ""}
-      - { label: "Featured Image", name: "thumbnail", widget: "image", default: "", required: false}
-      - { label: "Date", name: "date", widget: "datetime", default: "", required: false}
-      - { label: "Tags", name: "tag", widget: "string", default: "", required: false }
-      - { label: "Category", name: "category", widget: "relation", collection: "category", searchFields: ['title'], valueField: 'title', required: false }
-      - { label: "Excerpt", name: "excerpt", widget: "markdown", default: "", required: false}
-      - { label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["title"], valueField: 'title', default: 'Wojciech Kałużny', required: false}
-      - { label: "Body", name: "body", widget: "markdown", default: "", required: false}
-      - label: "SEO Settings"
-        name: "seo"
-        widget: "object"
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'article' }
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: 'Article',
+        }
+      - { label: 'Title', name: 'title', widget: 'string', default: '' }
+      - {
+          label: 'Featured Image',
+          name: 'thumbnail',
+          widget: 'image',
+          default: '',
+          required: false,
+        }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          default: '',
+          required: false,
+        }
+      - {
+          label: 'Tags',
+          name: 'tag',
+          widget: 'string',
+          default: '',
+          required: false,
+        }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'relation',
+          collection: 'category',
+          searchFields: ['title'],
+          valueField: 'title',
+          required: false,
+        }
+      - {
+          label: 'Excerpt',
+          name: 'excerpt',
+          widget: 'markdown',
+          default: '',
+          required: false,
+        }
+      - {
+          label: 'Author',
+          name: 'author',
+          widget: 'relation',
+          collection: 'authors',
+          searchFields: ['title'],
+          valueField: 'title',
+          default: 'Wojciech Kałużny',
+          required: false,
+        }
+      - {
+          label: 'Body',
+          name: 'body',
+          widget: 'markdown',
+          default: '',
+          required: false,
+        }
+      - label: 'SEO Settings'
+        name: 'seo'
+        widget: 'object'
         fields:
-        - {label: "SEO Title", name: "seotitle", widget: "string", required: false, default: ""}
-        - {label: "SEO Description", name: "seodescription", widget: "text", required: false, default: ""}
-        - {label: "SEO Image", name: "seoimage", widget: "image", required: false, default: ""}
+          - {
+              label: 'SEO Title',
+              name: 'seotitle',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'SEO Description',
+              name: 'seodescription',
+              widget: 'text',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'SEO Image',
+              name: 'seoimage',
+              widget: 'image',
+              required: false,
+              default: '',
+            }
 
-  - name: "team" # Used in routes, e.g., /admin/collections/blog
-    label: "Team Member" # Used in the UI
-    folder: "content/team" # The path to the folder where the documents are stored
+  - name: 'team' # Used in routes, e.g., /admin/collections/blog
+    label: 'Team Member' # Used in the UI
+    folder: 'content/team' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter.
-    # Remove any that aren't needed for posts
-      - {label: "Type", name: "type", widget: "hidden", default: "team-member"}
-      - {label: "Layout", name: "layout", widget: "hidden", default: "null"}
-      - {label: "Image", name: "image", widget: "image", default: ""}
-      - {label: "Team Member Name", name: "title", widget: "string", default: ""}
-      - {label: "Role", name: "role", widget: "string", default: ""}
-      - {label: "Core team?", name: "coreTeam", widget: "boolean", required: false}
+      # Remove any that aren't needed for posts
+      - {
+          label: 'Type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'team-member',
+        }
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'null' }
+      - { label: 'Image', name: 'image', widget: 'image', default: '' }
+      - {
+          label: 'Team Member Name',
+          name: 'title',
+          widget: 'string',
+          default: '',
+        }
+      - { label: 'Role', name: 'role', widget: 'string', default: '' }
+      - {
+          label: 'Core team?',
+          name: 'coreTeam',
+          widget: 'boolean',
+          required: false,
+        }
 
-  - name: "authors" # Used in routes, e.g., /admin/collections/blog
-    label: "Authors" # Used in the UI
-    folder: "content/authors" # The path to the folder where the documents are stored
+  - name: 'authors' # Used in routes, e.g., /admin/collections/blog
+    label: 'Authors' # Used in the UI
+    folder: 'content/authors' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter.
-    # Remove any that aren't needed for posts
-      - { label: "Type", name: "type", widget: "hidden", default: "author",}
-      - {label: "Image", name: "image", widget: "image", default: ""}
-      - {label: "Author name", name: "title", widget: "string", default: ""}
-      - {label: "Description", name: "description", widget: "text", default: ""}
+      # Remove any that aren't needed for posts
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'author' }
+      - { label: 'Image', name: 'image', widget: 'image', default: '' }
+      - { label: 'Author name', name: 'title', widget: 'string', default: '' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          default: '',
+        }
 
-  - name: "category" # Used in routes, e.g., /admin/collections/blog
-    label: "Category" # Used in the UI
-    folder: "content/blog/category" # The path to the folder where the documents are stored
+  - name: 'category' # Used in routes, e.g., /admin/collections/blog
+    label: 'Category' # Used in the UI
+    folder: 'content/blog/category' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter.
-      - {label: "Type", name: "type", widget: "hidden", default: "category",}
-      - {label: "Layout", name: "layout", widget: "hidden", default: "Category"}
-      - {label: "Category name", name: "title", widget: "string", default: ""}
-      - {label: "Image", name: "image", widget: "image", default: ""}
-      - {label: "Description", name: "description", widget: "text", default: ""}
-      - label: "SEO Settings"
-        name: "seo"
-        widget: "object"
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'category' }
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: 'Category',
+        }
+      - { label: 'Category name', name: 'title', widget: 'string', default: '' }
+      - { label: 'Image', name: 'image', widget: 'image', default: '' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          default: '',
+        }
+      - label: 'SEO Settings'
+        name: 'seo'
+        widget: 'object'
         fields:
-        - {label: "SEO Title", name: "seotitle", widget: "string", required: false, default: ""}
-        - {label: "SEO Description", name: "seodescription", widget: "text", required: false, default: ""}
-        - {label: "SEO Image", name: "seoimage", widget: "image", required: false, default: ""}
+          - {
+              label: 'SEO Title',
+              name: 'seotitle',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'SEO Description',
+              name: 'seodescription',
+              widget: 'text',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'SEO Image',
+              name: 'seoimage',
+              widget: 'image',
+              required: false,
+              default: '',
+            }
 
-  - name: "clients" # Used in routes, e.g., /admin/collections/blog
-    label: "Project" # Used in the UI
-    folder: "content/clients" # The path to the folder where the documents are stored
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  - name: 'clients' # Used in routes, e.g., /admin/collections/blog
+    label: 'Project' # Used in the UI
+    folder: 'content/clients' # The path to the folder where the documents are stored
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in front matter.
-    # Remove any that aren't needed for posts
-      - {label: "Type", name: "type", widget: "hidden", default: "project"}
-      - {label: "Layout", name: "layout", widget: "hidden", default: "Project"}
-      - {label: "Featured Image", name: "image", widget: "image", required: false, default: ""}
-      - {label: "Project Shot", name: "shot", widget: "image", required: false, default: ""}
-      - {label: "Date", name: "date", widget: "datetime", default: "", required: false}
-      - {label: "Title", name: "title", widget: "string", default: ""}
-      - {label: "Excerpt", name: "excerpt", widget: "text", required: false, default: ""}
-      - {label: "Company", name: "company", widget: "string", required: false, default: ""}
-      - {label: "Order", name: "order", widget: "number", default: "0", required: false}
-      - label: "Project type"
-        name: "projectcategory"
-        widget: "select"
+      # Remove any that aren't needed for posts
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'project' }
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: 'Project',
+        }
+      - {
+          label: 'Featured Image',
+          name: 'image',
+          widget: 'image',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Project Shot',
+          name: 'shot',
+          widget: 'image',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          default: '',
+          required: false,
+        }
+      - { label: 'Title', name: 'title', widget: 'string', default: '' }
+      - {
+          label: 'Excerpt',
+          name: 'excerpt',
+          widget: 'text',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Company',
+          name: 'company',
+          widget: 'string',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Order',
+          name: 'order',
+          widget: 'number',
+          default: '0',
+          required: false,
+        }
+      - label: 'Project type'
+        name: 'projectcategory'
+        widget: 'select'
         multiple: true
-        options: ["Web Development", "Mobile App", "UX & UI"]
-      - label: "Industry"
-        name: "industry"
-        widget: "select"
+        options: ['Web Development', 'Mobile App', 'UX & UI']
+      - label: 'Industry'
+        name: 'industry'
+        widget: 'select'
         multiple: true
-        options: ["Real Estate", "Technology Services", "Professional Services", "Media & Advertising", "Home Automation", "Lifestyle", "Education"]
-      - label: "Top Section"
-        name: "top"
-        widget: "object"
+        options:
+          [
+            'Real Estate',
+            'Technology Services',
+            'Professional Services',
+            'Media & Advertising',
+            'Home Automation',
+            'Lifestyle',
+            'Education',
+          ]
+      - label: 'Top Section'
+        name: 'top'
+        widget: 'object'
         fields:
-          - {label: "Title", name: "title", widget: "string", required: false, default: ""}
-          - {label: "Content", name: "topcontent", widget: "markdown", required: false, default: ""}
-      - {label: "First Image", name: "first_image", widget: "image", required: false, default: ""}
-      - label: "Project work"
-        name: "bottom"
-        widget: "object"
+          - {
+              label: 'Title',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'Content',
+              name: 'topcontent',
+              widget: 'markdown',
+              required: false,
+              default: '',
+            }
+      - {
+          label: 'First Image',
+          name: 'first_image',
+          widget: 'image',
+          required: false,
+          default: '',
+        }
+      - label: 'Project work'
+        name: 'bottom'
+        widget: 'object'
         fields:
-        - {label: "Content", name: "content", widget: "markdown", required: false, default: ""}
-      - label: "Tasks completed during project"
-        name: "workload"
-        widget: "list"
+          - {
+              label: 'Content',
+              name: 'content',
+              widget: 'markdown',
+              required: false,
+              default: '',
+            }
+      - label: 'Tasks completed during project'
+        name: 'workload'
+        widget: 'list'
         fields:
-          - {label: "Tasks", name: 'item', widget: "text"}
-      - {label: "Second Image", name: "second_image", widget: "image", required: false, default: ""}
-      - {label: "Testimonial", name: "testimonial", widget: "relation", collection: "testimonials", searchFields: ["title"], valueField: 'title', multiple: false, required: false, default: ""}
-      - label: "SEO Settings"
-        name: "seo"
-        widget: "object"
+          - { label: 'Tasks', name: 'item', widget: 'text' }
+      - {
+          label: 'Second Image',
+          name: 'second_image',
+          widget: 'image',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Testimonial',
+          name: 'testimonial',
+          widget: 'relation',
+          collection: 'testimonials',
+          searchFields: ['title'],
+          valueField: 'title',
+          multiple: false,
+          required: false,
+          default: '',
+        }
+      - label: 'SEO Settings'
+        name: 'seo'
+        widget: 'object'
         fields:
-        - {label: "SEO Title", name: "seotitle", widget: "string", required: false, default: ""}
-        - {label: "SEO Description", name: "seodescription", widget: "text", required: false, default: ""}
-        - {label: "SEO Image", name: "seoimage", widget: "image", required: false, default: ""}
+          - {
+              label: 'SEO Title',
+              name: 'seotitle',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'SEO Description',
+              name: 'seodescription',
+              widget: 'text',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'SEO Image',
+              name: 'seoimage',
+              widget: 'image',
+              required: false,
+              default: '',
+            }
 
-  - name: "testimonials" # Used in routes, e.g., /admin/collections/blog
-    label: "Testimonial" # Used in the UI
-    folder: "content/testimonials" # The path to the folder where the documents are stored
+  - name: 'testimonials' # Used in routes, e.g., /admin/collections/blog
+    label: 'Testimonial' # Used in the UI
+    folder: 'content/testimonials' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter.
-    # Remove any that aren't needed for posts
-      - { label: "Type", name: "type", widget: "hidden", default: "testimonial" }
-      - {label: "Person Image", name: "image", widget: "image", required: false}
-      - {label: "Person Name", name: "title", widget: "string", default: ""}
-      - {label: "Role", name: "role", widget: "string", required: false, default: ""}
-      - {label: "Company", name: "company", widget: "string", required: false, default: ""}
-      - {label: "Testimonial", name: "testimonial", widget: "text", default: ""}
+      # Remove any that aren't needed for posts
+      - {
+          label: 'Type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'testimonial',
+        }
+      - {
+          label: 'Person Image',
+          name: 'image',
+          widget: 'image',
+          required: false,
+        }
+      - { label: 'Person Name', name: 'title', widget: 'string', default: '' }
+      - {
+          label: 'Role',
+          name: 'role',
+          widget: 'string',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Company',
+          name: 'company',
+          widget: 'string',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Testimonial',
+          name: 'testimonial',
+          widget: 'text',
+          default: '',
+        }
 
-  - name: "services" # Used in routes, e.g., /admin/collections/blog
-    label: "Service" # Used in the UI
-    folder: "content/services" # The path to the folder where the documents are stored
+  - name: 'services' # Used in routes, e.g., /admin/collections/blog
+    label: 'Service' # Used in the UI
+    folder: 'content/services' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter.
-    # Remove any that aren't needed for posts
-      - { label: "Type", name: "type", widget: "hidden", default: "service" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "Service" }
-      - {label: "Order", name: "position", widget: "number", default: "0", required: false}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Page Title", name: "herotitle", widget: "string", required: false, default: ""}
-      - {label: "Page Subtitle", name: "herosubtitle", widget: "string", required: false, default: ""}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false, default: ""}
-      - {label: "Main page excerpt", name: "excerpt", widget: "string", required: false, default: ""}
-      - {label: "Subtitle", name: "subtitle", widget: "text", required: false, default: ""}
-      - {label: "Service Description", name: "body", widget: "markdown", required: false, default: ""}
-      - { label: "Testimonials", name: "testimonials", widget: "relation", collection: "opinie", searchFields: ["title"], valueField: 'title', multiple: true, required: false, default: ""}
-      - {label: "Projects Description", name: "projectsdescription", widget: "text", required: false, default: ""}
-      - { label: "Projects", name: "projects", widget: "relation", collection: "projekty", searchFields: ["title"], valueField: 'title', multiple: true, required: false, default: ""}
-      - label: "SEO Settings"
-        name: "seo"
-        widget: "object"
+      # Remove any that aren't needed for posts
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'service' }
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: 'Service',
+        }
+      - {
+          label: 'Order',
+          name: 'position',
+          widget: 'number',
+          default: '0',
+          required: false,
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Page Title',
+          name: 'herotitle',
+          widget: 'string',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Page Subtitle',
+          name: 'herosubtitle',
+          widget: 'string',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Featured Image',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Main page excerpt',
+          name: 'excerpt',
+          widget: 'string',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Subtitle',
+          name: 'subtitle',
+          widget: 'text',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Service Description',
+          name: 'body',
+          widget: 'markdown',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Testimonials',
+          name: 'testimonials',
+          widget: 'relation',
+          collection: 'opinie',
+          searchFields: ['title'],
+          valueField: 'title',
+          multiple: true,
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Projects Description',
+          name: 'projectsdescription',
+          widget: 'text',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Projects',
+          name: 'projects',
+          widget: 'relation',
+          collection: 'projekty',
+          searchFields: ['title'],
+          valueField: 'title',
+          multiple: true,
+          required: false,
+          default: '',
+        }
+      - label: 'SEO Settings'
+        name: 'seo'
+        widget: 'object'
         fields:
-          - {label: "SEO Title", name: "seotitle", widget: "string", required: false, default: ""}
-          - {label: "SEO Description", name: "seodescription", widget: "text", required: false, default: ""}
-          - {label: "SEO Image", name: "seoimage", widget: "image", required: false, default: ""}
+          - {
+              label: 'SEO Title',
+              name: 'seotitle',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'SEO Description',
+              name: 'seodescription',
+              widget: 'text',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'SEO Image',
+              name: 'seoimage',
+              widget: 'image',
+              required: false,
+              default: '',
+            }

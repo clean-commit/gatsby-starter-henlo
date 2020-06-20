@@ -1,7 +1,7 @@
 {
   "name": "gatsby-strater",
   "description": "Clean starter for gatsby website, with image optimization and GDPR cookies",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Wojciech Kałużny",
   "dependencies": {
     "bulma": "^0.8.0",
@@ -9,7 +9,6 @@
     "gatsby": "^2.23.1",
     "gatsby-image": "^2.0.23",
     "gatsby-plugin-advanced-sitemap": "^1.4.5",
-    "gatsby-plugin-disqus": "^1.1.4",
     "gatsby-plugin-gdpr-cookies": "^1.0.3",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-netlify-cms": "^4.1.6",
@@ -39,7 +38,6 @@
     "react-markdown": "^4.2.2",
     "react-slick": "^0.25.2",
     "react-svg": "^10.0.25",
-    "slick-carousel": "^1.8.1",
     "universal-cookie": "^4.0.2",
     "uuid": "^3.2.1"
   },
