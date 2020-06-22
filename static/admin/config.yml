@@ -522,3 +522,49 @@ collections:
               required: false,
               default: '',
             }
+
+  - name: 'settings'
+    label: 'Settings' # Used in the UI
+    files:
+      - file: 'content/settings/theme-settings.md'
+        label: 'Theme Settings'
+        name: 'theme-settings'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'theme-settings',
+            }
+          - {
+              label: 'Type',
+              name: 'type',
+              widget: 'hidden',
+              default: 'settings',
+            }
+          - {
+              label: 'Layout',
+              name: 'layout',
+              widget: 'hidden',
+              default: false,
+            }
+          - {
+              label: 'Contact Details',
+              name: contact,
+              widget: object,
+              fields:
+                [
+                  {
+                    label: 'Email',
+                    name: 'email',
+                    widget: string,
+                    required: false,
+                  },
+                  {
+                    label: 'Phone number',
+                    name: 'phone',
+                    widget: string,
+                    required: false,
+                  },
+                ],
+            }
