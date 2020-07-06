@@ -1,4 +1,3 @@
-@import '../abstracts/include';
 .input,
 .textarea {
   border-width: 1px;
@@ -66,10 +65,9 @@
 }
 
 .label {
-  @include font-weight(bold);
+  @apply font-bold text-base;
   padding-left: 2px;
   margin-bottom: 4px;
-  @include font-size(8, mobile, true, true, true);
 }
 
 .input {
@@ -104,7 +102,7 @@
   &__error {
     padding-left: 2px;
 
-    @include font-weight(bold);
+    @apply font-bold;
   }
 }
 
@@ -114,30 +112,6 @@
     margin-bottom: 0;
     &:not(:last-child) {
       margin-bottom: 8px;
-    }
-  }
-}
-@include media('>medium') {
-  .field-grouped {
-    display: flex;
-
-    > .control {
-      flex-shrink: 0;
-
-      &.control-expanded {
-        flex-grow: 1;
-        flex-shrink: 1;
-      }
-
-      &:not(:last-child) {
-        margin-bottom: 0;
-        margin-right: 8px;
-      }
-
-      .control__error {
-        max-width: 5px;
-        white-space: nowrap;
-      }
     }
   }
 }

@@ -1,4 +1,5 @@
 const path = require('path')
+const tailwind = require('tailwindcss')
 
 module.exports = {
   siteMetadata: {
@@ -58,12 +59,19 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       options: {
         postCssPlugins: [
-          require('tailwindcss'),
+          tailwind,
           require('./tailwind.config.js'), // Optional: Load custom Tailwind CSS configuration
         ],
       },
     },
-    `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: false, // Enable while using `gatsby develop`
+        tailwind: true, // Enable tailwindcss support
+      },
+    },
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
@@ -79,7 +87,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
-        src: path.join(__dirname, 'src'),
+        '@': path.join(__dirname, 'src'),
         styles: path.join(__dirname, 'src/styles'),
         img: path.join(__dirname, 'static/img'),
       },
@@ -90,6 +98,7 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
+    `gatsby-plugin-advanced-sitemap`,
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 }

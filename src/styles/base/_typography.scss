@@ -1,16 +1,8 @@
-@import '../abstracts/include';
-
 html {
-  @include font-size(8, mobile, true, true);
-  @if (get-font-size(8, desktop) != get-font-size(8, mobile)) {
-    @include media('>medium') {
-      @include font-size(8, desktop, true, true, true);
-    }
-  }
+  @apply text-base;
 }
 
 body {
-  color: color(base, black);
   font-size: 1rem;
 }
 
@@ -19,7 +11,7 @@ button,
 input,
 select,
 textarea {
-  @include font-family(base);
+  @apply text-base;
 }
 
 h1,
@@ -35,308 +27,35 @@ h6,
 .title-5,
 .title-6 {
   clear: both;
-  @include font-weight(xbold);
-  span {
-  }
-}
-
-.title-alt {
-  @if (get-font-family(heading) != get-font-family(base)) {
-    @include font-family(heading);
-    @include font-weight(regular);
-  }
 }
 
 h1,
 .title-1 {
-  @include font-size(1, mobile, true, true, true);
-  @if (get-font-size(1, desktop) != get-font-size(1, mobile)) {
-    @include media('>medium') {
-      @include font-size(1, desktop, true, true, true);
-    }
-  }
+  @apply text-h1;
 }
 
 h2,
 .title-2 {
-  @include font-size(2, mobile, true, true, true);
-  @if (get-font-size(2, desktop) != get-font-size(2, mobile)) {
-    @include media('>medium') {
-      @include font-size(2, desktop, true, true, true);
-    }
-  }
+  @apply text-h2;
 }
 
 h3,
 .title-3,
 blockquote {
-  @include font-size(3, mobile, true, true, true);
-  @if (get-font-size(3, desktop) != get-font-size(3, mobile)) {
-    @include media('>medium') {
-      @include font-size(3, desktop, true, true, true);
-    }
-  }
+  @apply text-h3;
 }
 
 h4,
 .title-4 {
-  @include font-size(4, mobile, true, true, true);
-  @if (get-font-size(4, desktop) != get-font-size(4, mobile)) {
-    @include media('>medium') {
-      @include font-size(4, desktop, true, true, true);
-    }
-  }
+  @apply text-h4;
 }
 
 h5,
 .title-5 {
-  @include font-size(5, mobile, true, true, true);
-  @if (get-font-size(5, desktop) != get-font-size(5, mobile)) {
-    @include media('>medium') {
-      @include font-size(5, desktop, true, true, true);
-    }
-  }
+  @apply text-h5;
 }
 
 h6,
 .title-6 {
-  @include font-size(6, mobile, true, true, true);
-  @if (get-font-size(6, desktop) != get-font-size(6, mobile)) {
-    @include media('>medium') {
-      @include font-size(6, desktop, true, true, true);
-    }
-  }
-}
-
-.title-uppercase {
-  text-transform: uppercase;
-  @include font-weight(semibold);
-  @include font-family(base);
-  @include font-size(6, mobile, true, true, true);
-  @if (get-font-size(6, desktop) != get-font-size(6, mobile)) {
-    @include media('>medium') {
-      @include font-size(6, desktop, true, true, true);
-    }
-  }
-}
-
-@include media('<=medium') {
-  .title-1-mobile {
-    @include font-size(1, mobile, true, true, true);
-  }
-
-  .title-2-mobile {
-    @include font-size(2, mobile, true, true, true);
-  }
-
-  .title-3-mobile {
-    @include font-size(3, mobile, true, true, true);
-  }
-
-  .title-4-mobile {
-    @include font-size(4, mobile, true, true, true);
-  }
-
-  .title-5-mobile {
-    @include font-size(5, mobile, true, true, true);
-  }
-
-  .title-6-mobile {
-    @include font-size(6, mobile, true, true, true);
-  }
-}
-
-.text-light {
-  a {
-  }
-}
-
-.text-2 {
-  @include font-weight(light);
-  @include font-size(4, mobile, true, true, true);
-  @if (get-font-size(4, desktop) != get-font-size(4, mobile)) {
-    @include media('>medium') {
-      @include font-size(4, desktop, true, true, true);
-    }
-  }
-}
-
-.text-lg {
-  @include font-weight(light);
-  @include font-size(7, mobile, true, true, true);
-  @if (get-font-size(7, desktop) != get-font-size(7, mobile)) {
-    @include media('>medium') {
-      @include font-size(7, desktop, true, true, true);
-    }
-  }
-}
-
-.text-md {
-  @include font-weight(light);
-  @include font-size(8, mobile, true, true, true);
-  @if (get-font-size(8, desktop) != get-font-size(8, mobile)) {
-    @include media('>medium') {
-      @include font-size(8, desktop, true, true, true);
-    }
-  }
-}
-
-.text-sm {
-  @include font-weight(light);
-  @include font-size(9, mobile, true, true, true);
-  @if (get-font-size(9, desktop) != get-font-size(6, mobile)) {
-    @include media('>medium') {
-      @include font-size(9, desktop, true, true, true);
-    }
-  }
-}
-
-.text-caps {
-  text-transform: uppercase;
-  margin: 0 0 10px;
-  @include font-size(10, mobile, true, true, true);
-  @if (get-font-size(10, desktop) != get-font-size(10, mobile)) {
-    @include media('>medium') {
-      @include font-size(10, desktop, true, true, true);
-    }
-  }
-}
-
-.caps {
-  text-transform: uppercase;
-  margin: 0;
-  @include font-size(11, mobile, true, true, true);
-  @if (get-font-size(11, desktop) != get-font-size(11, mobile)) {
-    @include media('>medium') {
-      @include font-size(11, desktop, true, true, true);
-    }
-  }
-
-  &--bold {
-    @include font-weight(bold);
-  }
-}
-
-h1,
-h2,
-.title-1,
-.title-2 {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-h3,
-.title-3 {
-  margin-top: 0;
-  margin-bottom: 12px;
-}
-
-h4,
-h5,
-h6,
-.title-4,
-.title-5,
-.title-6 {
-  margin-top: 0;
-  margin-bottom: 4px;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-dfn,
-cite,
-em,
-i {
-  font-style: italic;
-}
-
-blockquote {
-  font-style: italic;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  margin-left: 24px;
-
-  &::before {
-    content: '\201C';
-  }
-
-  &::after {
-    content: '\201D';
-  }
-
-  p {
-    display: inline;
-  }
-}
-
-address {
-  border-width: 1px 0;
-  border-style: solid;
-  padding: 24px 0;
-  margin: 0 0 24px;
-}
-
-pre,
-pre h1,
-pre h2,
-pre h3,
-pre h4,
-pre h5,
-pre h6,
-pre .title-1,
-pre .title-2,
-pre .title-3,
-pre .title-4,
-pre .title-5,
-pre .title-6 {
-  @include font-family(pre);
-}
-
-pre {
-  @include font-size(8, mobile, true, true);
-  margin-bottom: 1.6em;
-  max-width: 100%;
-  overflow: auto;
-  padding: 24px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-
-code,
-kbd,
-tt,
-var {
-  @include font-family(code);
-  @include font-size(8, mobile, true);
-  padding: 2px 4px;
-}
-
-abbr,
-acronym {
-  cursor: help;
-}
-
-mark,
-ins {
-  text-decoration: none;
-}
-
-small {
-  @include font-size(9, mobile, true, true, true);
-}
-
-b,
-strong {
-  @include font-weight(bold);
-}
-
-button,
-input,
-select,
-textarea,
-label {
-  @include font-size(8, mobile, true, true);
+  @apply text-h6;
 }
