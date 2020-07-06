@@ -7,9 +7,11 @@ module.exports = {
   theme: {
     screens: {
       sm: '640px',
+      '<md': { max: '767.99px' },
       md: '768px',
       lg: '1024px',
       xl: '1280px',
+      dark: { raw: '(prefers-color-scheme: dark)' },
     },
     colors: {
       transparent: 'transparent',

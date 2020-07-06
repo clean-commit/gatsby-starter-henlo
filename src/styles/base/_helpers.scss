@@ -7,7 +7,7 @@
   padding-left: 15px;
   padding-right: 15px;
 
-  @include media('>small') {
+  @>small {
     padding-left: 30px;
     padding-right: 30px;
   }
