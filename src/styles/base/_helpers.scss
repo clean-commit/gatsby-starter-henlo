@@ -1,3 +1,8 @@
+$container__width-sm: 950px;
+$container__width: 1190px;
+$container__width-lg: 1450px;
+$container__width-full: 100%;
+
 .container,
 .container-lg,
 .container-sm,
@@ -7,7 +12,7 @@
   padding-left: 15px;
   padding-right: 15px;
 
-  @>small {
+  @screen md {
     padding-left: 30px;
     padding-right: 30px;
   }

@@ -3,11 +3,13 @@ const tailwind = require('tailwindcss')
 
 module.exports = {
   siteMetadata: {
-    baseTitle: 'Starter Pack',
+    baseTitle: 'Henlo!',
     separator: '|',
     siteUrl: `localhost:8000`,
-    title: '',
+    title: 'Starter Pack',
     image: '',
+    themeColor: '#fff',
+    keyword: 'gatsby-starter, blazing fast static site',
     description: 'Blazing fast static site with gatsby',
   },
   plugins: [
@@ -88,6 +90,7 @@ module.exports = {
       resolve: 'gatsby-plugin-root-import',
       options: {
         '@': path.join(__dirname, 'src'),
+        '~': path.join(__dirname),
         styles: path.join(__dirname, 'src/styles'),
         img: path.join(__dirname, 'static/img'),
       },

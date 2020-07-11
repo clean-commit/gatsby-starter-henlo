@@ -3,15 +3,14 @@ import PropTypes from 'prop-types'
 
 import Layout from '@/components/Layout'
 
-import '../styles/pages/front-page.scss'
-
-function scroll() {
-  document.getElementById('services').scrollIntoView({ behavior: 'smooth' })
-}
 export const HomePageTemplate = ({}) => {
   return (
     <>
-      <section className='container mx-auto'>henlo</section>
+      <div className='min-h-screen flex items-center justify-center'>
+        <section className='container text-center mx-auto'>
+          <h1 className='title-h1'>Henlo.</h1>
+        </section>
+      </div>
     </>
   )
 }

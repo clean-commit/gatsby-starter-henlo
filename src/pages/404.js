@@ -1,26 +1,24 @@
-import React from 'react';
-import Layout from '../components/Layout';
-import '../styles/pages/404.scss';
+import React from 'react'
+import Layout from '@/components/Layout'
+import '@/styles/pages/404.scss'
 
 const NotFoundPage = () => (
   <Layout>
-    <section className='section section--large'>
-      <hr className='hr hr--right mb-32' />
-      <div className='container'>
-        <img src='/img/404.svg' className='illustration-404' />
-        <div className='section__title section__title--center text-center'>
-          <h1 className='title-alt'>
-            NOT FOUND<span>.</span>
-          </h1>
-          <h5>You just hit a route that doesn&#39;t exist... the sadness.</h5>
-          <a href='/' className='btn btn--standard mt-16'>
-            Go to home page!
+    <section>
+      <div className='container h-screen flex justify-center items-center text-center'>
+        <div>
+          <h1>404: Page Not Found</h1>
+          <div className='mt-6 text-lg'>
+            We can’t seem to find the page you’re looking for. Try going back to
+            the previous page.
+          </div>
+          <a href='/' className='btn-send max-w-md mx-auto mt-6'>
+            Back to Home
           </a>
         </div>
       </div>
     </section>
-    <hr className='hr hr--left' />
   </Layout>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage

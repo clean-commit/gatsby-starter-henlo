@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 
+import { siteMetadata } from '~/gatsby-config'
+
 import '@/styles/main.scss'
 
 import SEO from '@/helpers/SEOHelper'
@@ -13,16 +15,13 @@ const TemplateWrapper = ({ children }) => {
       <Helmet>
         <html lang='en' />
         <title>{SEO.title()}</title>
-        <meta
-          name='keywords'
-          content='poznań, javascript, software house, developer, freelancer'
-        />
+
         <meta name='description' content={SEO.description()} />
         <meta property='og:title' content={SEO.title()} />
         <meta property='og:description' content={SEO.description()} />
-        <meta name='theme-color' content='#fff' />
+        <meta name='theme-color' content={siteMetadata.themeColor} />
         <meta property='og:image' content={SEO.image()} />
-        <meta property='og:type' content='business.business' />
+        <meta name='keywords' content={siteMetadata.keywords} />
         <link
           rel='apple-touch-icon'
           sizes='180x180'

@@ -4,7 +4,11 @@ import ReactSVG from 'react-svg'
 
 const Footer = class extends React.Component {
   render() {
-    return <footer className='footer'>Footer</footer>
+    return (
+      <footer className='footer pt-5 pb-2'>
+        <div className='container'>Footer</div>
+      </footer>
+    )
   }
 }
 
