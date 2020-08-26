@@ -3,14 +3,14 @@ const tailwind = require('tailwindcss')
 
 module.exports = {
   siteMetadata: {
-    baseTitle: 'Henlo!',
+    baseTitle: 'Henlo.',
     separator: '|',
     siteUrl: `localhost:8000`,
-    title: 'Starter Pack',
+    title: 'Gatsby Starter',
     image: '',
     themeColor: '#fff',
     keyword: 'gatsby-starter, blazing fast static site',
-    description: 'Blazing fast static site with gatsby',
+    description: 'Blazing fast static site with Henlo',
   },
   plugins: [
     'gatsby-plugin-sharp',
