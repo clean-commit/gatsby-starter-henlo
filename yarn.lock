@@ -7348,6 +7348,11 @@ git-up@4.0.1:
     is-ssh "^1.3.0"
     parse-url "^5.0.0"
 
+github-buttons@^2.8.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.14.0.tgz#32ce381651091accda09217cd7a6e4c77f91e222"
+  integrity sha512-rAwKwFOiWoyhb3g5ZyXjI3XXprAa36jCd0tm467aEUYtiDZkqEXkepuzNg9LryLbnuLRQmcifIPTxLUBnuYpXQ==
+
 github-from-package@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
@@ -13161,6 +13166,13 @@ react-ga@^2.7.0:
   resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.7.0.tgz#24328f157f31e8cffbf4de74a3396536679d8d7c"
   integrity sha512-AjC7UOZMvygrWTc2hKxTDvlMXEtbmA0IgJjmkhgmQQ3RkXrWR11xEagLGFGaNyaPnmg24oaIiaNPnEoftUhfXA==
 
+react-github-btn@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-github-btn/-/react-github-btn-1.2.0.tgz#464066f999a77c0eed27980260601b51cbe15614"
+  integrity sha512-/b2TGTeek5Ky+KtuP5BxOaXgb1FGhbwgZNI6rkwkGk7+xtCtsNMkdchOcCnC3qU1JGTWPKzYZWpPBIouVhXAoQ==
+  dependencies:
+    github-buttons "^2.8.0"
+
 react-google-maps@^9.4.5:
   version "9.4.5"
   resolved "https://registry.yarnpkg.com/react-google-maps/-/react-google-maps-9.4.5.tgz#920c199bdc925e0ce93880edffb09428d263aafa"
@@ -15589,10 +15601,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.3.0.tgz#cc21de3320d5690dca2e2fa2a9e502495f51cc70"
-  integrity sha512-x1zEn7mOqtg/Iv8IUrbY5phNkIYiaISwLWLtTl3Vgy44fwrRr5zc4+h/pPsYLaMOIlbHWQpPkYpNz8lynpT0Gw==
+tailwindcss@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.3.1.tgz#bc852c3cb15fec244e249c0c05da28bd4dbfdc30"
+  integrity sha512-aKAfvPeoXl8mPkVAxuW9+KRsxhQTZ9u4CtmUIIXd9fwhSg4hZ/PnVkhNCDF43Hms2eaxVceZxe17mdCa/cME5g==
   dependencies:
     autoprefixer "^9.4.5"
     bytes "^3.0.0"

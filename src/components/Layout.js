@@ -9,7 +9,7 @@ import '@/styles/main.scss'
 
 import SEO from '@/helpers/SEOHelper'
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, hideNav }) => {
   return (
     <div>
       <Helmet>
@@ -42,7 +42,7 @@ const TemplateWrapper = ({ children }) => {
         <link rel='manifest' href='/img/favicons/site.webmanifest' />
       </Helmet>
       <div className='h-screen'>
-        <Navbar />
+        {hideNav === true ? '' : <Navbar />}
         <main className='wrapper'>{children}</main>
         <Footer />
       </div>

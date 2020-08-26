@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '@/components/Layout'
-import '@/styles/pages/404.scss'
 
 const NotFoundPage = () => (
   <Layout>
