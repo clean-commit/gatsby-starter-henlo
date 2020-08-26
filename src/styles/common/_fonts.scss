@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
-
 @font-face {
-  font-family: 'Archia';
-  src: url('/fonts/archia-regular-webfont.otf') format('opentype');
-  font-weight: 400;
+  font-family: 'Wotfard';
+  src: url('/fonts/Wotfard/wotfard-regular-webfont.eot');
+  src: url('/fonts/Wotfard/wotfard-regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('/fonts/Wotfard/wotfard-regular-webfont.woff2') format('woff2'),
+    url('/fonts/Wotfard/wotfard-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
 }

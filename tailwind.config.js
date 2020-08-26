@@ -131,6 +131,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Wotfard',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -147,7 +148,6 @@ module.exports = {
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
-        'Menlo',
         'Monaco',
         'Consolas',
         '"Liberation Mono"',
