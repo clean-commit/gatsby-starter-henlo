@@ -11,7 +11,6 @@ CMS.init({
       name: 'git-gateway',
       branch: 'master',
     },
-    publish_mode: 'editorial_workflow',
     media_folder: '/static/img',
     public_folder: '/img',
     collections: [
