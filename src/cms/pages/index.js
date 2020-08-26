@@ -7,4 +7,4 @@ const pages = {
 }
 
 
-export default posts
+export default pages

@@ -1,9 +1,8 @@
-window.CMS_MANUAL_INIT = true
-
 import CMS from 'netlify-cms-app'
-
 import pages from '@/cms/pages'
 import posts from '@/cms/collections/posts'
+
+window.CMS_MANUAL_INIT = true
 
 CMS.init({
   config: {

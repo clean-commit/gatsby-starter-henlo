@@ -53,8 +53,7 @@
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
     "build:prod": "netlify build",
-    "deploy": "netlify build && netlify deploy --prod",
-    "deploy:prod": "netlify deploy --prod",
+    "deploy:prod": "netlify build && netlify deploy --prod",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

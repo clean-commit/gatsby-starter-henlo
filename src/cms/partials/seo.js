@@ -1,4 +1,4 @@
-export const seo = {
+const seo = {
   label: 'SEO Settings',
   name: 'seo',
   widget: 'object',
@@ -24,3 +24,5 @@ export const seo = {
     },
   ]
 }
+
+export default seo

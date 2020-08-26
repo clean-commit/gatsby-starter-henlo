@@ -6,10 +6,16 @@ const posts = {
   name: 'Home',
   fields: [
     {
-      label: 'Template Key',
-      name: 'templateKey',
+      label: 'Layout',
+      name: 'layout',
       widget: 'hidden',
       default: 'index',
+    },
+    {
+      label: 'Type',
+      name: 'type',
+      widget: 'hidden',
+      default: 'page',
     },
     {
       label: "Title",
