@@ -10,17 +10,16 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Features
 
-- A simple landing page with blog functionality built with Netlify CMS
-- Editabe Pages: Landing, About, Product, Blog-Collection and Contact page with Netlify Form support
-- Create Blog posts from Netlify CMS
-- Tags: Separate page for posts under each tag
+- Starting point for all sorts of websites
+- Starter for pages and collections
+- Implemented more manageable admin area using Manual Initialization
 - Basic directory organization
-- Uses Bulma for styling, but size is reduced by `purge-css-plugin`
+- Built in Tailwind with SCSS and `purge-css-plugin`
 - Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
 - Uses `gatsby-image` with Netlify-CMS preview support
-- Separate components for everything
 - Netlify deploy configuration
 - Netlify function support, see `lambda` folder
+- Added basic reusable SEO fields
 - Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
 - ..and more
 
@@ -34,17 +33,16 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [One Click Hugo CMS](https://github.com/netlify-templates/one-click-hugo-cms)). Use the button below to build and deploy your own copy of the repository:
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/gatsby-starter-netlify-cms&amp;stack=cms"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/clean-commit/gatsby-starter-henlo"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
 After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
 
 ## Getting Started (Without Netlify)
 
 ```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/clean-commit/gatsby-starter
+$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/clean-commit/gatsby-starter-henlo
 $ cd [SITE_DIRECTORY_NAME]
-$ npm run build
-$ npm run serve
+$ yarn start
 ```
 
 ### Access Locally
@@ -63,49 +61,108 @@ This uses the new [Netlify Dev](https://www.netlify.com/products/dev/?utm_source
 To test the CMS locally, you'll need run a production build of the site:
 
 ```
-$ npm run build
+$ yarn build
 $ netlify dev # or ntl dev
 ```
 
-### Media Libraries (installed, but optional)
+### Deployment
 
-Media Libraries have been included in this starter as a default. If you are not planning to use `Uploadcare` or `Cloudinary` in your project, you **can** remove them from module import and registration in `src/cms/cms.js`. Here is an example of the lines to comment or remove them your project.
-
-```javascript
-import CMS from 'netlify-cms-app'
-// import uploadcare from 'netlify-cms-media-library-uploadcare'
-// import cloudinary from 'netlify-cms-media-library-cloudinary'
-
-import AboutPagePreview from './preview-templates/AboutPagePreview'
-import BlogPostPreview from './preview-templates/BlogPostPreview'
-import ProductPagePreview from './preview-templates/ProductPagePreview'
-import IndexPagePreview from './preview-templates/IndexPagePreview'
-
-// CMS.registerMediaLibrary(uploadcare);
-// CMS.registerMediaLibrary(cloudinary);
-
-CMS.registerPreviewTemplate('index', IndexPagePreview)
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('products', ProductPagePreview)
-CMS.registerPreviewTemplate('blog', BlogPostPreview)
-```
-
-Note: Don't forget to also remove them from `package.json` and `yarn.lock` / `package-lock.json` using `yarn` or `npm`. During the build netlify-cms-app will bundle the media libraries as well, having them removed will save you build time.
-Example:
+We've added additional commands for quick deployments with Netlify CLI. To deploy the website to netlify cms simply run.
 
 ```
-yarn remove netlify-cms-media-library-uploadcare
+$ yarn deploy:prod
 ```
 
-OR
-
-```
-yarn remove netlify-cms-media-library-cloudinary
-```
+The website will build locally and then deploy to production.
 
 ### Setting up the CMS
 
 Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting.
+
+Henlo uses Manual Initialization to take advantage of componetized approach to managing configuration for Netlify CMS. Thanks to that you don't have to control the CMS from centralized YAML file.
+
+```javascript
+import CMS from 'netlify-cms-app'
+import pages from '@/cms/pages'
+import posts from '@/cms/collections/posts'
+
+window.CMS_MANUAL_INIT = true
+
+CMS.init({
+  config: {
+    load_config_file: false,
+    backend: {
+      name: 'git-gateway',
+      branch: 'master',
+    },
+    media_folder: '/static/img',
+    public_folder: '/img',
+    collections: [pages, posts],
+  },
+})
+```
+
+#### Example configuration for Home Page
+
+```javascript
+import seo from '@/cms/partials/seo'
+
+const homePage = {
+  file: 'content/pages/home.md',
+  label: 'Home',
+  name: 'Home',
+  fields: [
+    {
+      label: 'Layout',
+      name: 'layout',
+      widget: 'hidden',
+      default: 'index',
+    },
+    {
+      label: 'Type',
+      name: 'type',
+      widget: 'hidden',
+      default: 'page',
+    },
+    {
+      label: 'Title',
+      name: 'title',
+      widget: 'string',
+      default: '',
+      required: false,
+    },
+    {
+      label: 'Links',
+      name: 'links',
+      widget: 'list',
+      fields: [
+        {
+          label: 'Link',
+          name: 'link',
+          widget: 'object',
+          fields: [
+            {
+              label: 'Content',
+              name: 'content',
+              widget: 'string',
+              required: false,
+            },
+            {
+              label: 'URL',
+              name: 'url',
+              widget: 'string',
+              required: false,
+            },
+          ],
+        },
+      ],
+    },
+    seo,
+  ],
+}
+
+export default homePage
+```
 
 ## Debugging
 

@@ -1,6 +1,6 @@
 import seo from '@/cms/partials/seo'
 
-const posts = {
+const homePage = {
   file: 'content/pages/home.md',
   label: "Home",
   name: 'Home',
@@ -55,4 +55,4 @@ const posts = {
 }
 
 
-export default posts
+export default homePage
