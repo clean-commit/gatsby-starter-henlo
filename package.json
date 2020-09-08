@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter",
   "description": "Clean starter for gatsby website, with image optimization and GDPR cookies",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Wojciech Kałużny",
   "dependencies": {
     "classnames": "^2.2.6",

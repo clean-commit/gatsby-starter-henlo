@@ -33,7 +33,10 @@ exports.createPages = ({ actions, graphql }) => {
 
     // Filter out the footer, navbar, and meetups so we don't create pages for those
     const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) => {
-      if (edge.node.frontmatter.layout == null) {
+      if (
+        edge.node.frontmatter.layout == null ||
+        edge.node.frontmatter.layout == 'hidden'
+      ) {
         return false
       } else {
         return true
