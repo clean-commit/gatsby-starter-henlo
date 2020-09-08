@@ -1,5 +1,5 @@
 ---
 type: article
-layout: article
+layout: Article
 title: Hello World
 ---

@@ -1,5 +1,4 @@
 ---
-templateKey: theme-settings
 layout: null
 type: settings
 contact:
