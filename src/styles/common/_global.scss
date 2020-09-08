@@ -1,13 +1,11 @@
 body {
-  margin: 0;
-  padding: 0;
+  @apply m-0 p-0;
 }
 
 a {
-  text-decoration: none;
-  font-weight: bold;
+  @apply font-bold no-underline;
 }
 
 img {
-  max-width: 100%;
+  @apply max-w-full;
 }

@@ -1,117 +1,82 @@
 .input,
 .textarea {
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 2px;
-  max-width: 100%;
-  width: 100%;
+  @apply border border-solid w-full;
   transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
-  &::placeholder {
-    // color: darken(color(bg, 3), 8%);
-  }
-
-  &::-ms-input-placeholder {
-    // color: darken(color(bg, 3), 8%);
-  }
-
+  &::placeholder,
+  &::-ms-input-placeholder,
   &:-ms-input-placeholder {
-    // color: darken(color(bg, 3), 8%);
+    @apply text-black;
   }
 
   &:hover {
-    // border-color: darken(color(primary, 1), 10%);
+    @apply border-grey-darker;
   }
 
   &:active,
   &:focus {
-    outline: none;
-    // border-color: color(primary, 1);
-  }
+    @apply outline-none;
 
   &[disabled] {
-    cursor: not-allowed;
-    // background-color: color(bg, 3);
-    // border-color: color(bg, 3);
+    @apply cursor-not-allowed;
   }
 }
 
 .form-container {
-  position: relative;
-  overflow: hidden;
+  @apply relative overflow-hidden;
+  
   &__status {
-    display: block;
-    position: absolute;
-    z-index: 9;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @apply flex items-center justify-center absolute z-10 w-full h-full opacity-0;
     transform: translateY(100%);
-    opacity: 0;
     transition: opacity 0.4s ease, transform 0.4s ease;
 
     h1 {
-      margin: 0;
-      text-align: center;
+      @apply m-0 text-center;
     }
 
     &--active {
+      @apply opacity-100;
       transform: translateY(0);
-      opacity: 1;
     }
   }
 }
 
 .label {
-  @apply font-bold text-base;
-  padding-left: 2px;
-  margin-bottom: 4px;
+  @apply font-bold text-base mb-2 pl-1;
 }
 
 .input {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  @apply appearance-none px-5 py-3 shadow-none;
   line-height: 20px;
-  padding: 13px 16px;
-  height: 48px;
-  box-shadow: none;
+  height: 48px; 
 
   .inline-input {
-    display: inline;
+    @apply inline;
   }
 }
 
 .textarea {
-  display: block;
-  min-width: 100%;
+  @apply block min-w-full resize-y px-5 py-3;
   min-height: 200px;
-  resize: vertical;
-  padding: 13px 16px;
 
   .inline-textarea {
-    display: inline;
+    @apply inline;
   }
 }
 
 .control {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+  @apply flex flex-col mb-4;
   &__error {
-    padding-left: 2px;
-
-    @apply font-bold;
+    @apply font-bold pl-1; 
   }
 }
 
 .field-grouped {
-  margin-bottom: 15px;
+  @apply mb-4;
   > .control {
-    margin-bottom: 0;
+    @apply mb-0;
     &:not(:last-child) {
-      margin-bottom: 8px;
+      @apply mb-2;
     }
   }
 }
