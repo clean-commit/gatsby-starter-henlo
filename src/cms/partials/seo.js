@@ -13,7 +13,7 @@ const seo = {
     {
       label: 'Meta Description',
       name: 'description',
-      widget: 'string',
+      widget: 'text',
       required: false,
     },
     {
@@ -22,7 +22,7 @@ const seo = {
       widget: 'image',
       required: false,
     },
-  ]
+  ],
 }
 
 export default seo
