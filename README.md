@@ -166,6 +166,10 @@ const homePage = {
 export default homePage
 ```
 
+### Adding Favicons
+
+Favicons can be generated using this [Favicon Generator](https://www.favicon-generator.org/) After generating the icons, drop the contents of downloaded file into `static/img/favicons` directory
+
 ## Debugging
 
 Windows users might encounter `node-gyp` errors when trying to npm install.
