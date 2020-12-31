@@ -1,8 +1,8 @@
 import seo from '@/cms/partials/seo'
 
-const homePage = {
+const page = {
   file: 'content/pages/home.md',
-  label: "Home",
+  label: 'Home',
   name: 'Home',
   fields: [
     {
@@ -18,10 +18,10 @@ const homePage = {
       default: 'page',
     },
     {
-      label: "Title",
-      name: "title",
-      widget: "string",
-      default: "",
+      label: 'Title',
+      name: 'title',
+      widget: 'string',
+      default: '',
       required: false,
     },
     {
@@ -45,14 +45,13 @@ const homePage = {
               name: 'url',
               widget: 'string',
               required: false,
-            }
-          ]
-        }
+            },
+          ],
+        },
       ],
     },
-    seo
-  ]
+    seo,
+  ],
 }
 
-
-export default homePage
+export default page
