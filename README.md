@@ -12,16 +12,15 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Features
 
-- Starting point for all sorts of websites
-- Starter for pages and collections
-- Implemented more manageable admin area using Manual Initialization
-- Basic directory organization
+- Battle-tested starting point for small & large web projects
+- Starter for pages and collections CMS configuration with Netlify CMS
+- Easy Netlify CMS configuration using [Manual Initialization](https://www.netlifycms.org/docs/beta-features/#manual-initialization)
 - Built in Tailwind with SCSS and `purge-css-plugin`
 - Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
-- Uses `gatsby-image` with Netlify-CMS preview support
+- Uses `gatsby-image` with Netlify CMS preview support
 - Netlify deploy configuration
 - Netlify function support, see `lambda` folder
-- Added basic reusable SEO fields
+- Added basic SEO configuration now with graphql fragment and reusable components
 - Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
 - ..and more
 
@@ -33,7 +32,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Getting Started (Recommended)
 
-Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [One Click Hugo CMS](https://github.com/netlify-templates/one-click-hugo-cms)). Use the button below to build and deploy your own copy of the repository:
+Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [Gatsby Starter Netlify CMS](https://github.com/netlify-templates/gatsby-starter-netlify-cms)). Use the button below to build and deploy your own copy of the repository:
 
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/clean-commit/gatsby-starter-henlo"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
@@ -55,7 +54,7 @@ Pulldown a local copy of the Github repository Netlify created for you, with the
 $ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
 $ cd [REPO_NAME]
 $ yarn
-$ netlify dev # or ntl dev
+$ netlify dev
 ```
 
 This uses the new [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=blog&utm_medium=netlifycms&utm_campaign=devex) CLI feature to serve any functions you have in the `lambda` folder.
@@ -109,7 +108,7 @@ CMS.init({
 ```javascript
 import seo from '@/cms/partials/seo'
 
-const homePage = {
+const page = {
   file: 'content/pages/home.md',
   label: 'Home',
   name: 'Home',
@@ -163,12 +162,25 @@ const homePage = {
   ],
 }
 
-export default homePage
+export default page
 ```
 
 ### Adding Favicons
 
 Favicons can be generated using this [Favicon Generator](https://www.favicon-generator.org/) After generating the icons, drop the contents of downloaded file into `static/img/favicons` directory
+
+### Preloading fonts
+
+Since 0.4.0 Henlo supports [`gatsby-plugin-preload-fonts`](https://www.gatsbyjs.com/plugins/gatsby-plugin-preload-fonts/) plugin out of the box. To create the preload cache you need to start development server and then run `preload-fonts` command. This will generate the `font-preload-cache.json` file in the root of your project. When your projects builds fonts will be added automatically to head of the document.
+
+```
+yarn start
+yarn preload-fonts
+```
+
+## Browser support
+
+Gatsby tends to add a lot of polyfills to support older browser versions. In package.json file you can adjust which sites your project should support. As default Henlo will use `defaults` setting. If you want to learn more about the browser support visit official [Gatsby How-To Guide on this subject](https://www.gatsbyjs.com/docs/how-to/custom-configuration/browser-support/)
 
 ## Debugging
 
@@ -184,9 +196,9 @@ npm install --global --production windows-build-tools
 
 MacOS users might also encounter some errors, for more info check [node-gyp](https://github.com/nodejs/node-gyp). We recommend using the latest stable node version.
 
-## Purgecss
+## PurgeCSS
 
-This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [bulma](https://bulma.io/). The bulma builds are usually ~170K but reduced 90% by purgecss.
+This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [Tailwind](https://tailwindcss.com/). The builds are usually ~780K but reduced 98% by purgecss. Normally our websites won't cross 20K of CSS.
 
 # CONTRIBUTING
 
