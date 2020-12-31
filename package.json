@@ -1,16 +1,21 @@
 {
   "name": "gatsby-starter",
   "description": "Clean starter for gatsby website, with image optimization and GDPR cookies",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "author": "Wojciech Kałużny",
+  "browserslist": [
+    "defaults"
+  ],
   "dependencies": {
     "classnames": "^2.2.6",
     "gatsby": "^2.23.1",
     "gatsby-image": "^2.0.23",
     "gatsby-plugin-advanced-sitemap": "^1.4.5",
+    "gatsby-plugin-brotli": "^2.0.0",
     "gatsby-plugin-gdpr-cookies": "^1.0.3",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-netlify-cms": "^4.1.6",
+    "gatsby-plugin-preload-fonts": "^1.6.1",
     "gatsby-plugin-purgecss": "^4.0.0",
     "gatsby-plugin-react-helmet": "^3.0.4",
     "gatsby-plugin-root-import": "^2.0.5",
@@ -33,7 +38,6 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-github-btn": "^1.2.0",
-    "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.0",
     "react-markdown": "^4.2.2",
     "react-slick": "^0.25.2",
@@ -55,7 +59,8 @@
     "build:prod": "netlify build",
     "deploy:prod": "netlify build && netlify deploy --prod",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "devDependencies": {
     "prettier": "^1.15.3",

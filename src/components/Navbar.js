@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import ReactSVG from 'react-svg'
 
-
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props)
@@ -53,7 +52,8 @@ export default class Navbar extends React.Component {
             <div className='container'>
               <div className='navigation__inner py-5 flex items-center justify-between'>
                 <Link className='brand' to='/'>
-                  <ReactSVG src="/img/logo.svg"></ReactSVG>
+                  <div className='sr-only'>Henlo</div>
+                  <ReactSVG src='/img/logo.svg'></ReactSVG>
                 </Link>
                 <div className={btnClass} onClick={this.activateMenu}>
                   <span></span>

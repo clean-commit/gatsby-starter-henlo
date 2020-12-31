@@ -1,4 +1,4 @@
-const seo = {
+const partial = {
   label: 'SEO Settings',
   name: 'seo',
   widget: 'object',
@@ -20,9 +20,10 @@ const seo = {
       label: 'Image',
       name: 'image',
       widget: 'image',
-      required: false,
+      required: true,
+      default: '/img/clean-commit-default.jpg',
     },
   ],
 }
 
-export default seo
+export default partial
