@@ -3,10 +3,11 @@ const tailwind = require('tailwindcss')
 
 module.exports = {
   siteMetadata: {
-    baseTitle: 'Henlo.',
-    separator: '|',
-    siteUrl: `localhost:8000`,
     title: 'Gatsby Starter',
+    separator: '|',
+    baseTitle: 'Henlo.',
+    lang: 'en',
+    siteUrl: `localhost:8000`,
     image: '',
     themeColor: '#fff',
     keyword: 'gatsby-starter, blazing fast static site',
@@ -15,6 +16,10 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-preload-fonts',
+    {
+      resolve: 'gatsby-plugin-brotli',
+    },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -32,13 +37,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/img`,
-        name: 'images',
       },
     },
     {
@@ -72,6 +70,8 @@ module.exports = {
         printRejected: true,
         develop: false, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
+        whitelistPatterns: [],
+        whitelistPatternsChildren: [],
       },
     },
     {
