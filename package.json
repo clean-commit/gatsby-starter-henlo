@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter",
   "description": "Clean starter for gatsby website, with image optimization and GDPR cookies",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": "Wojciech Kałużny",
   "browserslist": [
     "defaults"
@@ -52,12 +52,15 @@
   "main": "n/a",
   "scripts": {
     "init": "netlify init",
+    "link": "netlify link",
     "clean": "gatsby clean",
     "start": "npm run develop",
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
+    "serve:prod": "npm run clean && gatsby build && gatsby serve",
     "build:prod": "netlify build",
-    "deploy:prod": "netlify build && netlify deploy --prod",
+    "deploy": "npm run clean && netlify build && netlify deploy",
+    "deploy:prod": "npm run clean && netlify build && netlify deploy --prod",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "preload-fonts": "gatsby-preload-fonts"

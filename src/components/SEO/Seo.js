@@ -24,7 +24,7 @@ function SEO({ data, children }) {
   const metaDescription = data.description || metadata.description
   const title = data.title || metadata.title
   const image = data.image
-    ? data.image.childImageSharp.fluid.src
+    ? `${metadata.siteUrl}${data.image.childImageSharp.fluid.src}`
     : metadata.image
 
   const fullTitle = `${title} ${metadata.separator} ${metadata.baseTitle}`
@@ -39,6 +39,7 @@ function SEO({ data, children }) {
       <meta property='og:description' content={metaDescription} />
       <meta name='twitter:title' content={fullTitle} />
       <meta name='twitter:description' content={metaDescription} />
+      <meta name='twitter:image' content={image} />
       {children}
     </Helmet>
   )
