@@ -51,6 +51,7 @@ function DefaultSeo() {
       <meta name='msapplication-TileColor' content={metadata.themeColor} />
       <meta name='theme-color' content={metadata.themeColor} />
 
+      <link rel='canonical' href={`${metadata.siteUrl}${pathname}`} />
       <link rel='manifest' href='/img/favicons/manifest.json' />
       <link
         rel='apple-touch-icon'
