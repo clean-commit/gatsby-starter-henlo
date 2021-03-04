@@ -2,7 +2,6 @@ const _ = require('lodash')
 const path = require('path')
 const fs = require('fs')
 const { createFilePath } = require('gatsby-source-filesystem')
-const replacePath = (path) => (path === `/` ? path : path.replace(/\/$/, ``))
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 exports.createPages = ({ actions, graphql }) => {
@@ -70,7 +69,6 @@ exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
   const oldPage = Object.assign({}, page)
   // Remove trailing slash unless page is /
-  page.path = replacePath(page.path)
   if (page.path !== oldPage.path) {
     // Replace new page with old page
     deletePage(oldPage)

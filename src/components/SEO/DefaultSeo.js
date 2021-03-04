@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { useLocation } from '@reach/router'
 import { graphql, useStaticQuery } from 'gatsby'
 
 function DefaultSeo() {
@@ -10,6 +11,7 @@ function DefaultSeo() {
           title
           separator
           baseTitle
+          twitterHandle
           lang
           description
           keyword
@@ -22,6 +24,7 @@ function DefaultSeo() {
   const metadata = meta.site.siteMetadata
   const title = metadata.title
   const lang = metadata.lang
+  const { pathname } = useLocation()
   return (
     <Helmet
       title={title}
@@ -34,11 +37,21 @@ function DefaultSeo() {
       />
       <meta property='og:description' content={metadata.description} />
       <meta property='og:image' content={metadata.image} />
+      <meta property='og:url' content={`${metadata.siteUrl}${pathname}`} />
+      <meta name='twitter:card' content='summary_large_image' />
+      <meta
+        name='twitter:title'
+        content={`${metadata.title} ${metadata.separator} ${metadata.baseTitle}`}
+      />
+      <meta name='twitter:description' content={metadata.description} />
+      <meta name='twitter:image' content={metadata.image} />
+      <meta name='twitter:site' content={metadata.twitterHandle} />
       <meta name='keywords' content={metadata.keywords} />
 
       <meta name='msapplication-TileColor' content={metadata.themeColor} />
       <meta name='theme-color' content={metadata.themeColor} />
 
+      <link rel='canonical' href={`${metadata.siteUrl}${pathname}`} />
       <link rel='manifest' href='/img/favicons/manifest.json' />
       <link
         rel='apple-touch-icon'

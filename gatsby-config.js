@@ -7,6 +7,7 @@ module.exports = {
     separator: '|',
     baseTitle: 'Henlo.',
     lang: 'en',
+    twitterHandle: '@cleancommit',
     siteUrl: `localhost:8000`,
     image: '',
     themeColor: '#fff',
@@ -90,7 +91,7 @@ module.exports = {
       resolve: 'gatsby-plugin-root-import',
       options: {
         '@': path.join(__dirname, 'src'),
-        '~': path.join(__dirname),
+        '~': path.join(__dirname, ''),
         styles: path.join(__dirname, 'src/styles'),
         img: path.join(__dirname, 'static/img'),
       },
