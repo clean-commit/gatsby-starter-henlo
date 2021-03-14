@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import ReactSVG from 'react-svg'
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -47,13 +46,11 @@ export default class Navbar extends React.Component {
     return (
       <>
         <header className='header'>
-          <div className='navigation__ghost'></div>
           <nav className='navigation'>
             <div className='container'>
               <div className='navigation__inner py-5 flex items-center justify-between'>
                 <Link className='brand' to='/'>
                   <div className='sr-only'>Henlo</div>
-                  <ReactSVG src='/img/logo.svg'></ReactSVG>
                 </Link>
                 <div className={btnClass} onClick={this.activateMenu}>
                   <span></span>
