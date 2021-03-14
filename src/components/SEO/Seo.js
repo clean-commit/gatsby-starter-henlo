@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
+import { getSrc } from 'gatsby-plugin-image'
 
 function SEO({ data, children }) {
   const meta = useStaticQuery(graphql`
@@ -24,8 +25,8 @@ function SEO({ data, children }) {
   const metaDescription = data.description || metadata.description
   const title = data.title || metadata.title
   const image = data.image
-    ? `${metadata.siteUrl}${data.image.childImageSharp.fluid.src}`
-    : metadata.image
+    ? `${metadata.siteUrl}${getSrc(data.image)}`
+    : `${metadata.siteUrl}${metadata.image}`
 
   const fullTitle = `${title} ${metadata.separator} ${metadata.baseTitle}`
 
@@ -54,9 +55,12 @@ export const query = graphql`
       description
       image {
         childImageSharp {
-          fluid(maxWidth: 1200, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
+          gatsbyImageData(
+            width: 1200
+            quality: 100
+            formats: [AUTO]
+            placeholder: NONE
+          )
         }
       }
     }

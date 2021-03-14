@@ -25,6 +25,7 @@ function DefaultSeo() {
   const title = metadata.title
   const lang = metadata.lang
   const { pathname } = useLocation()
+  const image = `${metadata.siteUrl}${metadata.image}`
   return (
     <Helmet
       title={title}
@@ -36,7 +37,7 @@ function DefaultSeo() {
         content={`${metadata.title} ${metadata.separator} ${metadata.baseTitle}`}
       />
       <meta property='og:description' content={metadata.description} />
-      <meta property='og:image' content={metadata.image} />
+      <meta property='og:image' content={image} />
       <meta property='og:url' content={`${metadata.siteUrl}${pathname}`} />
       <meta name='twitter:card' content='summary_large_image' />
       <meta
@@ -44,7 +45,7 @@ function DefaultSeo() {
         content={`${metadata.title} ${metadata.separator} ${metadata.baseTitle}`}
       />
       <meta name='twitter:description' content={metadata.description} />
-      <meta name='twitter:image' content={metadata.image} />
+      <meta name='twitter:image' content={image} />
       <meta name='twitter:site' content={metadata.twitterHandle} />
       <meta name='keywords' content={metadata.keywords} />
 
