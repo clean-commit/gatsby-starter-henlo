@@ -19,8 +19,6 @@ function SEO({ data, children }) {
     }
   `)
 
-  console.log(data)
-
   const metadata = meta.site.siteMetadata
   const metaDescription = data.description || metadata.description
   const title = data.title || metadata.title
