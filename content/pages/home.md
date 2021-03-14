@@ -14,7 +14,7 @@ links:
       url: https://github.com/clean-commit/gatsby-starter-henlo#readme
   - link:
       content: Changelog
-      url: https://github.com/clean-commit/gatsby-starter-henlo#readme
+      url: https://github.com/clean-commit/gatsby-starter-henlo/blob/master/CHANGELOG.md
   - link:
       content: Clean Commit
       url: https://cleancommit.io

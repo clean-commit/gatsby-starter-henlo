@@ -1,12 +1,12 @@
-# Henlo
+# Henlo (v0.5.0)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
-[Live Demo](https://henlo.netlify.app/)
+[Official Website / Demo](https://henlo.netlify.app/)
 
-**Note:** This starter uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
+**Note:** This starter uses [Gatsby v3](https://www.gatsbyjs.com/blog/gatsby-v3/) with updated `gatsby-plugin-image`.
 
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org).
+This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.com/docs/), and [Netlify CMS](https://www.netlifycms.org).
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
@@ -16,17 +16,20 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 - Starter for pages and collections CMS configuration with Netlify CMS
 - Easy Netlify CMS configuration using [Manual Initialization](https://www.netlifycms.org/docs/beta-features/#manual-initialization)
 - Built in Tailwind with SCSS and `purge-css-plugin`
+- Built in sitemaps
 - Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
-- Uses `gatsby-image` with Netlify CMS preview support
+- Uses `gatsby-plugin-image`
 - Netlify deploy configuration
 - Netlify function support, see `lambda` folder
-- Added basic SEO configuration now with graphql fragment and reusable components
+- Support for async Netlify forms
+- Complete SEO configuration with graphql fragment and reusable components
 - Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
+- Readme template for custom projects
 - ..and more
 
 ## Prerequisites
 
-- Node (I recommend using v14.5.0 or higher)
+- Node 14.15.5
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
 - [Netlify CLI](https://github.com/netlify/cli)
 
@@ -198,9 +201,36 @@ MacOS users might also encounter some errors, for more info check [node-gyp](htt
 
 ## PurgeCSS
 
-This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [Tailwind](https://tailwindcss.com/). The builds are usually ~780K but reduced 98% by purgecss. Normally our websites won't cross 20K of CSS.
+This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [Tailwind](https://tailwindcss.com/). The builds are usually ~780K but reduced 98% by purgecss. Normally our websites won't cross 30Kb of CSS.
+
+Since Henlo v0.5.0 we use PurgeCSS v4, the default configuration is already included, to learn more [check purgecss docs](https://purgecss.com/configuration.html) or [check gatsby-plugin-purgecss documentation](https://www.gatsbyjs.com/plugins/gatsby-plugin-purgecss/)
+
+```javascript
+{
+  resolve: `gatsby-plugin-purgecss`,
+  options: {
+    printRejected: true,
+    develop: false,
+    tailwind: true,
+    purgeCSSOptions: {
+      safelist: {
+        standard: [],
+        deep: [],
+      },
+    },
+  },
+},
+```
 
 # CONTRIBUTING
 
 Contributions are always welcome, no matter how large or small. Before contributing,
 please read the [code of conduct](CODE_OF_CONDUCT.md).
+
+# Additional guides
+
+Here's a list of helpful articles that will help you with your first steps using Henlo!
+
+- [Efficient Netlify CMS config with Manual Initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization/)
+- [How to optimize SEO with Gatsby & Netlify](https://mrkaluzny.com/blog/how-to-optimize-seo-with-gatsby-netlify/)
+- [https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms/](https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms/)
