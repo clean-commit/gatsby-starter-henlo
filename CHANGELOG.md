@@ -2,11 +2,12 @@
 
 ## 0.5.0 - March 14, 2021
 
-**BREAKING CHANGEs**
+**BREAKING CHANGES**
 
 - Support for Gatsby v3 added
 - PurgeCSS switched to v4
 - Removed support for `react-svg`, inlined svg are used instead.
+- Node changed to v14.15.5
 
 **Features**
 
