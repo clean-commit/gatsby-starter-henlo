@@ -1,37 +1,20 @@
-# Henlo (v0.5.0)
+# PROJECT TITLE
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
-[Official Website / Demo](https://henlo.netlify.app/)
-
-**Note:** This starter uses [Gatsby v3](https://www.gatsbyjs.com/blog/gatsby-v3/) with updated `gatsby-plugin-image`.
-
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.com/docs/), and [Netlify CMS](https://www.netlifycms.org).
-
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
-
-## Features
-
-- Battle-tested starting point for small & large web projects
-- Starter for pages and collections CMS configuration with Netlify CMS
-- Easy Netlify CMS configuration using [Manual Initialization](https://www.netlifycms.org/docs/beta-features/#manual-initialization)
-- Built in Tailwind with SCSS and `purge-css-plugin`
-- Built in sitemaps
-- Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
-- Uses `gatsby-plugin-image`
-- Netlify deploy configuration
-- Netlify function support, see `lambda` folder
-- Support for async Netlify forms
-- Complete SEO configuration with graphql fragment and reusable components
-- Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
-- Readme template for custom projects
-- ..and more
+[Live Project](https://henlo.netlify.app/)
 
 ## Prerequisites
 
 - Node 14.15.5
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
 - [Netlify CLI](https://github.com/netlify/cli)
+
+## Gatsby packages used
+
+```
+gatsby-package-name      version
+```
 
 ## Getting Started (Recommended)
 
@@ -44,9 +27,9 @@ After clicking that button, you’ll authenticate with GitHub and choose a repos
 ## Getting Started (Without Netlify)
 
 ```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/clean-commit/gatsby-starter-henlo
+$ git pull [LINK]
 $ cd [SITE_DIRECTORY_NAME]
-$ yarn start
+$ yarn install && yarn start
 ```
 
 ### Access Locally
@@ -221,16 +204,3 @@ Since Henlo v0.5.0 we use PurgeCSS v4, the default configuration is already incl
   },
 },
 ```
-
-# CONTRIBUTING
-
-Contributions are always welcome, no matter how large or small. Before contributing,
-please read the [code of conduct](CODE_OF_CONDUCT.md).
-
-# Additional guides
-
-Here's a list of helpful articles that will help you with your first steps using Henlo!
-
-- [Efficient Netlify CMS config with Manual Initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization/)
-- [How to optimize SEO with Gatsby & Netlify](https://mrkaluzny.com/blog/how-to-optimize-seo-with-gatsby-netlify/)
-- [https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms/](https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms/)

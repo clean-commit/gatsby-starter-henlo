@@ -34,14 +34,16 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 1000,
+              quality: 72,
+              withWebp: true,
+              withAvif: true,
             },
           },
         ],
       },
     },
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img`,
@@ -61,7 +63,7 @@ module.exports = {
       options: {
         postCssPlugins: [
           tailwind,
-          require('./tailwind.config.js'), // Optional: Load custom Tailwind CSS configuration
+          require('./tailwind.config.js'),
         ],
       },
     },
@@ -69,21 +71,13 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
-        develop: false, // Enable while using `gatsby develop`
-        tailwind: true, // Enable tailwindcss support
-        whitelistPatterns: [],
-        whitelistPatternsChildren: [],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: '',
-          anonymize: true,
-        },
-        facebookPixel: {
-          pixelId: '',
+        develop: false, 
+        tailwind: true,
+        purgeCSSOptions: {
+          safelist: {
+            standard: [],
+            deep: [],
+          },
         },
       },
     },

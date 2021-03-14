@@ -2,7 +2,6 @@ const _ = require('lodash')
 const path = require('path')
 const fs = require('fs')
 const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -27,10 +26,9 @@ exports.createPages = ({ actions, graphql }) => {
   `).then((result) => {
     if (result.errors) {
       result.errors.forEach((e) => console.error(e.toString()))
-      // return Promise.reject(result.errors);
+      return Promise.reject(result.errors);
     }
 
-    // Filter out the footer, navbar, and meetups so we don't create pages for those
     const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) => {
       if (
         edge.node.frontmatter.layout == null ||
@@ -53,7 +51,6 @@ exports.createPages = ({ actions, graphql }) => {
         createPage({
           path: pathName,
           component,
-          // additional data can be passed via context
           context: {
             id,
           },
@@ -63,14 +60,10 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-// Implement the Gatsby API “onCreatePage”. This is
-// called after every page is created.
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
   const oldPage = Object.assign({}, page)
-  // Remove trailing slash unless page is /
   if (page.path !== oldPage.path) {
-    // Replace new page with old page
     deletePage(oldPage)
     createPage(page)
   }
@@ -78,7 +71,6 @@ exports.onCreatePage = ({ page, actions }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  fmImagesToRelative(node)
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
@@ -92,8 +84,23 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
-    node: {
-      fs: 'empty',
+    resolve: {
+      alias: {
+        path: require.resolve('path-browserify'),
+      },
+      fallback: {
+        fs: false,
+      },
     },
   })
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MarkdownRemarkFrontmatterSeo @infer {
+      title: String
+      description: String
+      image: File
+    }
+  `)
 }
