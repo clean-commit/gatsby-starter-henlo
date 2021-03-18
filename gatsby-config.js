@@ -18,6 +18,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-preload-fonts',
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-brotli',
     },
@@ -61,17 +62,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        postCssPlugins: [
-          tailwind,
-          require('./tailwind.config.js'),
-        ],
+        postCssPlugins: [tailwind, require('./tailwind.config.js')],
       },
     },
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
-        develop: false, 
+        develop: false,
         tailwind: true,
         purgeCSSOptions: {
           safelist: {

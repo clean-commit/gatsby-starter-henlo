@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1 - March 18, 2021
+
+**FIX**
+
+- Added gatsby-plugin-image to gatsby-config.js (issues with loading images)
+
 ## 0.5.0 - March 14, 2021
 
 **BREAKING CHANGES**
