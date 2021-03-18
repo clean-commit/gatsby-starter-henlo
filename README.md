@@ -1,4 +1,4 @@
-# Henlo (v0.5.0)
+# Henlo (v0.5.1)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
