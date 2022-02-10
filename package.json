@@ -30,7 +30,7 @@
     "lodash": "^4.17.21",
     "lodash-webpack-plugin": "^0.11.6",
     "netlify-cms-app": "^2.14.29",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "parcel-bundler": "^1.9.4",
     "path-browserify": "^1.0.1",
     "prop-types": "^15.6.0",
