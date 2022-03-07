@@ -1,9 +1,9 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { graphql, useStaticQuery } from 'gatsby'
-import { getSrc } from 'gatsby-plugin-image'
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { graphql, useStaticQuery } from 'gatsby';
+import { getSrc } from 'gatsby-plugin-image';
 
-function SEO({ data, children }) {
+function Seo({ data, children }) {
   const meta = useStaticQuery(graphql`
     query MetaDataQuery {
       site {
@@ -17,16 +17,16 @@ function SEO({ data, children }) {
         }
       }
     }
-  `)
+  `);
 
-  const metadata = meta.site.siteMetadata
-  const metaDescription = data.description || metadata.description
-  const title = data.title || metadata.title
+  const metadata = meta.site.siteMetadata;
+  const metaDescription = data.description || metadata.description;
+  const title = data.title || metadata.title;
   const image = data.image
     ? `${metadata.siteUrl}${getSrc(data.image)}`
-    : `${metadata.siteUrl}${metadata.image}`
+    : `${metadata.siteUrl}${metadata.image}`;
 
-  const fullTitle = `${title} ${metadata.separator} ${metadata.baseTitle}`
+  const fullTitle = `${title} ${metadata.separator} ${metadata.baseTitle}`;
 
   return (
     <Helmet
@@ -41,10 +41,10 @@ function SEO({ data, children }) {
       <meta name='twitter:image' content={image} />
       {children}
     </Helmet>
-  )
+  );
 }
 
-export default SEO
+export default Seo;
 
 export const query = graphql`
   fragment SEO on MarkdownRemarkFrontmatter {
@@ -63,4 +63,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.6.0 - March 7, 2021
+
+**BREAKING CHANGES**
+
+- Support for Gatsby v4 added
+- Tailwind updated to v3
+- Node changed to v16.13.0
+- Sitemap generation switched to `gatsby-plugin-sitemap`
+
+**Minor changes**
+
+- Removed unused styles
+
+**Features**
+
+- tailwind/typography plugin added
+- tailwind/forms plugin added
+- added support for darkmode
+
 ## 0.5.1 - March 18, 2021
 
 **FIX**

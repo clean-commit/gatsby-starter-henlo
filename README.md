@@ -1,10 +1,10 @@
-# Henlo (v0.5.1)
+# Henlo (v0.6.0)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
 [Official Website / Demo](https://henlo.netlify.app/)
 
-**Note:** This starter uses [Gatsby v3](https://www.gatsbyjs.com/blog/gatsby-v3/) with updated `gatsby-plugin-image`.
+**Note:** This starter uses [Gatsby v4](https://www.gatsbyjs.com/blog/gatsby-v4/) with updated `gatsby-plugin-image`.
 
 This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.com/docs/), and [Netlify CMS](https://www.netlifycms.org).
 
@@ -29,7 +29,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Prerequisites
 
-- Node 14.15.5
+- Node 16.13
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
 - [Netlify CLI](https://github.com/netlify/cli)
 
@@ -86,11 +86,11 @@ Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick
 Henlo uses Manual Initialization to take advantage of componetized approach to managing configuration for Netlify CMS. Thanks to that you don't have to control the CMS from centralized YAML file.
 
 ```javascript
-import CMS from 'netlify-cms-app'
-import pages from '@/cms/pages'
-import posts from '@/cms/collections/posts'
+import CMS from 'netlify-cms-app';
+import pages from '@/cms/pages';
+import posts from '@/cms/collections/posts';
 
-window.CMS_MANUAL_INIT = true
+window.CMS_MANUAL_INIT = true;
 
 CMS.init({
   config: {
@@ -103,13 +103,13 @@ CMS.init({
     public_folder: '/img',
     collections: [pages, posts],
   },
-})
+});
 ```
 
 #### Example configuration for Home Page
 
 ```javascript
-import seo from '@/cms/partials/seo'
+import seo from '@/cms/partials/seo';
 
 const page = {
   file: 'content/pages/home.md',
@@ -163,9 +163,9 @@ const page = {
     },
     seo,
   ],
-}
+};
 
-export default page
+export default page;
 ```
 
 ### Adding Favicons
@@ -231,6 +231,6 @@ please read the [code of conduct](CODE_OF_CONDUCT.md).
 
 Here's a list of helpful articles that will help you with your first steps using Henlo!
 
-- [Efficient Netlify CMS config with Manual Initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization/)
-- [How to optimize SEO with Gatsby & Netlify](https://mrkaluzny.com/blog/how-to-optimize-seo-with-gatsby-netlify/)
-- [https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms/](https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms/)
+- [Efficient Netlify CMS config with Manual Initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization?utm_source=GitHub&utm_medium=henlo-gatsby)
+- [How to optimize SEO with Gatsby & Netlify](https://mrkaluzny.com/blog/how-to-optimize-seo-with-gatsby-netlify?utm_source=GitHub&utm_medium=henlo-gatsby)
+- [https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms/](https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms?utm_source=GitHub&utm_medium=henlo-gatsby)
