@@ -1,10 +1,10 @@
-# Henlo (v0.5.1)
+# Henlo (v0.6.0)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
 [Official Website / Demo](https://henlo.netlify.app/)
 
-**Note:** This starter uses [Gatsby v3](https://www.gatsbyjs.com/blog/gatsby-v3/) with updated `gatsby-plugin-image`.
+**Note:** This starter uses [Gatsby v4](https://www.gatsbyjs.com/blog/gatsby-v4/) with updated `gatsby-plugin-image`.
 
 This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.com/docs/), and [Netlify CMS](https://www.netlifycms.org).
 

@@ -11,18 +11,20 @@ import Logo from '@/icons/Logo';
 const HomePageTemplate = ({ data }) => {
   return (
     <>
-      <div className='min-h-screen flex items-center justify-center'>
+      <div className='min-h-screen flex items-center justify-center dark:bg-zinc-900'>
         <div className='container px-5 sm:px-10'>
-          <section className='w-full py-20 px-5 rounded-lg shadow border-grey-lighter border'>
+          <section className='w-full py-20 px-5 rounded-lg shadow border-grey-lighter dark:border-zinc-600 border'>
             <div className='text-center mx-auto'>
               <div>
-                <Logo className='mx-auto w-auto h-8 w-auto' />
+                <Logo className='mx-auto h-8 w-auto dark:text-white' />
               </div>
-              <p className='text-xs mt-2'>{data.version}</p>
+              <p className='text-xs mt-2 text-black dark:text-white'>
+                {data.version}
+              </p>
             </div>
             <ReactMarkdown
               children={data.description}
-              className='text-center mt-6'
+              className='text-center mt-6 dark:text-white'
               allowDangerousHtml
             />
             {data.links.length > 0 ? (
@@ -34,7 +36,7 @@ const HomePageTemplate = ({ data }) => {
                       key={i}
                       target='_blank'
                       rel='noreferrer'
-                      className='text-sm m-2'>
+                      className='text-sm m-2 dark:text-white'>
                       {link.content}
                     </a>
                   );
