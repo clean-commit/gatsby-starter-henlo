@@ -1,5 +1,5 @@
-const path = require('path')
-const tailwind = require('tailwindcss')
+const path = require('path');
+const tailwind = require('tailwindcss');
 
 module.exports = {
   siteMetadata: {
@@ -95,7 +95,6 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    `gatsby-plugin-advanced-sitemap`,
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
-}
+};
