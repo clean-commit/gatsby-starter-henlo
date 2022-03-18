@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
 
-function Seo({ data, children }) {
+export default function Seo({ data, children }) {
   const meta = useStaticQuery(graphql`
     query MetaDataQuery {
       site {
@@ -43,8 +43,6 @@ function Seo({ data, children }) {
     </Helmet>
   );
 }
-
-export default Seo;
 
 export const query = graphql`
   fragment SEO on MarkdownRemarkFrontmatter {

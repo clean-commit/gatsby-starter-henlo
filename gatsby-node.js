@@ -1,10 +1,10 @@
-const _ = require('lodash')
-const path = require('path')
-const fs = require('fs')
-const { createFilePath } = require('gatsby-source-filesystem')
+const _ = require('lodash');
+const path = require('path');
+const fs = require('fs');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   return graphql(`
     {
@@ -16,6 +16,7 @@ exports.createPages = ({ actions, graphql }) => {
               slug
             }
             frontmatter {
+              uid
               layout
               type
             }
@@ -25,27 +26,23 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then((result) => {
     if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
+      result.errors.forEach((e) => console.error(e.toString()));
       return Promise.reject(result.errors);
     }
 
-    const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) => {
-      if (
-        edge.node.frontmatter.layout == null ||
-        edge.node.frontmatter.layout == 'hidden'
-      ) {
-        return false
-      } else {
-        return true
-      }
-    })
+    const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) =>
+      edge.node.frontmatter.layout == null ||
+      edge.node.frontmatter.layout == 'hidden'
+        ? false
+        : true,
+    );
 
     postOrPage.forEach((edge) => {
-      const id = edge.node.id
-      let pathName = edge.node.fields.slug
+      const id = edge.node.id;
+      let pathName = edge.node.fields.slug;
       let component = path.resolve(
         `src/templates/${String(edge.node.frontmatter.layout)}.js`,
-      )
+      );
 
       if (fs.existsSync(component)) {
         createPage({
@@ -54,33 +51,33 @@ exports.createPages = ({ actions, graphql }) => {
           context: {
             id,
           },
-        })
+        });
       }
-    })
-  })
-}
+    });
+  });
+};
 
 exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage } = actions
-  const oldPage = Object.assign({}, page)
+  const { createPage, deletePage } = actions;
+  const oldPage = Object.assign({}, page);
   if (page.path !== oldPage.path) {
-    deletePage(oldPage)
-    createPage(page)
+    deletePage(oldPage);
+    createPage(page);
   }
-}
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
       value,
-    })
+    });
   }
-}
+};
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -92,15 +89,22 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         fs: false,
       },
     },
-  })
-}
+  });
+};
 
 exports.createSchemaCustomization = ({ actions }) => {
-  actions.createTypes(`
-    type MarkdownRemarkFrontmatterSeo @infer {
-      title: String
-      description: String
-      image: File
-    }
-  `)
-}
+  const { createTypes } = actions;
+  const defs = `
+  type MarkdownRemarkFrontmatterSeo @infer {
+    title: String
+    description: String
+    image: File
+  }
+  type MarkdownRemarkFrontmatter @infer {
+    uid: String!
+  }
+  type AllMarkdownRemark @infer {
+    uid: String
+  }`;
+  createTypes(defs);
+};
