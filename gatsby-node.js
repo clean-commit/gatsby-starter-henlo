@@ -16,7 +16,6 @@ exports.createPages = ({ actions, graphql }) => {
               slug
             }
             frontmatter {
-              uid
               layout
               type
             }
@@ -26,19 +25,25 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then((result) => {
     if (result.errors) {
+      console.log('errors', results.errors);
       result.errors.forEach((e) => console.error(e.toString()));
       return Promise.reject(result.errors);
     }
 
-    const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) =>
-      edge.node.frontmatter.layout == null ||
-      edge.node.frontmatter.layout == 'hidden'
+    console.log(result.data.allMarkdownRemark.edges);
+
+    const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) => {
+      console.log(edge.node.frontmatter);
+      return edge.node.frontmatter.layout == null ||
+        edge.node.frontmatter.layout == 'hidden'
         ? false
-        : true,
-    );
+        : true;
+    });
 
     postOrPage.forEach((edge) => {
       const id = edge.node.id;
+      console.log(edge);
+      console.log(id);
       let pathName = edge.node.fields.slug;
       let component = path.resolve(
         `src/templates/${String(edge.node.frontmatter.layout)}.js`,
@@ -99,12 +104,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     title: String
     description: String
     image: File
-  }
-  type MarkdownRemarkFrontmatter @infer {
-    uid: String!
-  }
-  type AllMarkdownRemark @infer {
-    uid: String
   }`;
   createTypes(defs);
 };
