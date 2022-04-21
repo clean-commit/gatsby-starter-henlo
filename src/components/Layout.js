@@ -4,12 +4,13 @@ import DefaultSeo from '@/components/SEO/DefaultSeo';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
-const TemplateWrapper = ({ children }) => {
+const Layout = ({ nav = false, children }) => {
+  console.log(nav);
   return (
     <div>
       <DefaultSeo />
       <div className='h-screen'>
-        <Header />
+        {nav && <Header />}
         <main className='wrapper'>{children}</main>
         <Footer />
       </div>
@@ -17,4 +18,4 @@ const TemplateWrapper = ({ children }) => {
   );
 };
 
-export default TemplateWrapper;
+export default Layout;

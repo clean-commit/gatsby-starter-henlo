@@ -17,6 +17,7 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
               layout
+              slug
               type
             }
           }
@@ -42,14 +43,13 @@ exports.createPages = ({ actions, graphql }) => {
 
     postOrPage.forEach((edge) => {
       const id = edge.node.id;
-      console.log(edge);
-      console.log(id);
-      let pathName = edge.node.fields.slug;
+      let pathName = edge.node.frontmatter.slug || edge.node.fields.slug;
       let component = path.resolve(
         `src/templates/${String(edge.node.frontmatter.layout)}.js`,
       );
 
       if (fs.existsSync(component)) {
+        console.log(pathName);
         createPage({
           path: pathName,
           component,

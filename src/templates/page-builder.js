@@ -10,7 +10,7 @@ import SEO from '@/components/SEO/Seo';
 const Page = ({ data }) => {
   console.log(data);
   return (
-    <Layout hideNav={true}>
+    <Layout nav={true}>
       <SEO data={data.page.frontmatter.seo} />
       <PageBuilder blocks={data.page.frontmatter.blocks} />
     </Layout>

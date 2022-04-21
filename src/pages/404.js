@@ -4,7 +4,7 @@ import Layout from '@/components/Layout';
 const NotFoundPage = () => (
   <Layout>
     <section>
-      <div className='container h-screen flex justify-center items-center text-center'>
+      <div className='container mx-auto h-screen flex justify-center items-center text-center'>
         <div>
           <h1 className='text-3xl font-semibold'>404: Page Not Found</h1>
           <div className='mt-6 text-lg'>

@@ -1,4 +1,4 @@
-import seo from '@/cms/partials/seo'
+import seo from '../partials/seo';
 
 const collection = {
   name: 'blog',
@@ -59,6 +59,6 @@ const collection = {
     },
     seo,
   ],
-}
+};
 
-export default collection
+export default collection;
