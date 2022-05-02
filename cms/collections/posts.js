@@ -11,6 +11,7 @@ const collection = {
   slug: '{{slug}}',
   create: true,
   fields: [
+    { label: 'ID', name: 'id', widget: 'uuid' },
     {
       label: 'Type',
       name: 'type',
