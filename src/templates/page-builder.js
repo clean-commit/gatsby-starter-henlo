@@ -36,6 +36,7 @@ export const basicPageQuery = graphql`
       }
       html
       frontmatter {
+        id
         title
         ...Blocks
         ...SEO

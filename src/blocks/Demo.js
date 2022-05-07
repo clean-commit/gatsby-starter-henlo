@@ -12,15 +12,15 @@ export default function Demo({ data }) {
               <Logo className='mx-auto h-8 w-auto dark:text-white' />
             </div>
             <p className='text-xs mt-2 text-black dark:text-white'>
-              {data.version}
+              {data?.version}
             </p>
           </div>
           <ReactMarkdown
-            children={data.description}
+            children={data?.description}
             className='text-center mt-6 dark:text-white'
             allowDangerousHtml
           />
-          {data.links.length > 0 ? (
+          {data?.links.length > 0 ? (
             <div className='flex justify-center flex-wrap items-center mt-6'>
               {data.links.map(({ link }, i) => {
                 return (

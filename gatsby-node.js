@@ -16,8 +16,9 @@ exports.createPages = ({ actions, graphql }) => {
               slug
             }
             frontmatter {
+              id
               layout
-              slug
+              permalink
               type
             }
           }
@@ -43,7 +44,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     postOrPage.forEach((edge) => {
       const id = edge.node.id;
-      let pathName = edge.node.frontmatter.slug || edge.node.fields.slug;
+      let pathName = edge.node.frontmatter.permalink || edge.node.fields.slug;
       let component = path.resolve(
         `src/templates/${String(edge.node.frontmatter.layout)}.js`,
       );

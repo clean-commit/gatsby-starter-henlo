@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-henlo",
   "description": "Minimalistic starter for Gatsby v3, optimized for SEO & Performance.",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "author": "Wojciech Kałużny",
   "browserslist": [
     "defaults"
@@ -31,6 +31,7 @@
     "lodash": "^4.17.21",
     "lodash-webpack-plugin": "^0.11.6",
     "netlify-cms-app": "^2.14.29",
+    "netlify-cms-widget-uuid-v4": "^1.1.1",
     "parcel-bundler": "^1.9.4",
     "path-browserify": "^1.0.1",
     "prop-types": "^15.6.0",

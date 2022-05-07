@@ -1,8 +1,9 @@
 ---
 type: page
 layout: page-builder
-title: "Services "
-slug: services
+title: Services
+id: 4822297c-3a31-4b4a-8872-19770b61c687
+permalink: /services/
 blocks:
   - type: hero
     title: I offer great services!

@@ -1,8 +1,9 @@
 ---
+id: c39d7d74-7542-46f1-8a7b-83cd3ea6f16d
 type: page
 layout: page-builder
 title: Home Page
-slug: /
+permalink: /
 thumbnail: ''
 blocks:
   - type: demo
