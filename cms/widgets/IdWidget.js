@@ -40,7 +40,7 @@ UuidControl.defaultProps = {
 };
 
 export function UuidPreview({ value }) {
-  return <div>{value}</div>;
+  return false;
 }
 
 UuidPreview.propTypes = {

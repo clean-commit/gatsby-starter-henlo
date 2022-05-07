@@ -31,6 +31,16 @@ const collection = {
       default: '',
     },
     {
+      label: 'Permalink',
+      name: 'permalink',
+      widget: 'permalink',
+      default: '{{title}}',
+      required: true,
+      url: 'http://localhost:8000',
+      prefix: 'blog',
+      hint: 'The post URL (do not include folder or file extension)',
+    },
+    {
       label: 'Featured Image',
       name: 'thumbnail',
       widget: 'image',

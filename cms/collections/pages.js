@@ -4,9 +4,9 @@ import Blocks from '../blocks';
 const collection = {
   name: 'pages',
   label: 'Page',
-  editor: {
-    preview: false,
-  },
+  // editor: {
+  //   preview: false,
+  // },
   description: 'Custom pages',
   folder: 'content/pages',
   create: true,
@@ -15,6 +15,7 @@ const collection = {
     summary: '{{title}}',
   },
   fields: [
+    { label: 'ID', name: 'id', widget: 'uuid' },
     {
       label: 'Type',
       name: 'type',
@@ -34,15 +35,12 @@ const collection = {
       default: '',
     },
     {
-      label: 'Slug',
-      name: 'slug',
-      widget: 'string',
-      default: 'page-name',
+      label: 'Permalink',
+      name: 'permalink',
+      widget: 'permalink',
+      default: '{{title}}',
       required: true,
-      pattern: [
-        '^[/a-z0-9]+(?:-[a-z0-9]+)*$',
-        'A slug can have no spaces or special characters',
-      ],
+      url: 'http://localhost:8000',
       hint: 'The post URL (do not include folder or file extension)',
     },
     Blocks,
