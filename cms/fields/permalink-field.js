@@ -12,4 +12,4 @@ export function PermalinkField(prefix = '') {
   };
 }
 
-export default Field;
+export default PermalinkField;

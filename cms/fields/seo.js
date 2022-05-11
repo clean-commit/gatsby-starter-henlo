@@ -25,7 +25,7 @@ const partial = {
       name: 'image',
       widget: 'image',
       required: true,
-      default: '/img/clean-commit-default.jpg',
+      default: metadata.image,
     },
   ],
 };

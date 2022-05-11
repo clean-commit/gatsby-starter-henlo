@@ -1,6 +1,7 @@
 import seo from '../fields/seo';
 import { ID } from '../fields';
 import Blocks from '../blocks';
+import { PermalinkField } from '../fields/permalink-field';
 
 const collection = {
   name: 'pages',
