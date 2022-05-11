@@ -13,11 +13,11 @@ const Post = ({ data }) => {
       <SEO data={data.post.frontmatter.seo} />
 
       <section className='container mx-auto px-4 py-24'>
-        <h1 className='max-w-3xl mx-auto font-bold text-6xl my-12'>
+        <h1 className='max-w-3xl mx-auto font-bold text-6xl my-12 dark:text-white'>
           {data.post.frontmatter.title}
         </h1>
         <div
-          className='prose prose-lg mx-auto max-w-3xl'
+          className='prose prose-lg dark:prose-invert mx-auto max-w-3xl'
           dangerouslySetInnerHTML={{ __html: data?.post.html }}></div>
       </section>
     </Layout>

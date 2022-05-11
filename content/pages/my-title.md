@@ -10,6 +10,9 @@ blocks:
     content: |-
       # Blog
       Read a bit more about henlo
+    variant: default
+  - type: recentArticles
+    title: Recent Articles
 seo:
   image: /img/clean-commit-default.jpg
 ---

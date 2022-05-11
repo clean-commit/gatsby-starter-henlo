@@ -18,13 +18,13 @@ const collection = {
       label: 'Type',
       name: 'type',
       widget: 'hidden',
-      default: 'article',
+      default: 'post',
     },
     {
       label: 'Layout',
       name: 'layout',
       widget: 'hidden',
-      default: 'Article',
+      default: 'post',
     },
     {
       label: 'Title',

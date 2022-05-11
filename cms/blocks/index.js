@@ -20,6 +20,26 @@ export default {
           widget: 'markdown',
           required: false,
         },
+        {
+          label: 'Variant',
+          name: 'variant',
+          widget: 'select',
+          default: 'default',
+          options: ['default', 'full'],
+        },
+      ],
+    },
+    {
+      label: 'Recent Articles',
+      name: 'recentArticles',
+      widget: 'object',
+      fields: [
+        {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          required: false,
+        },
       ],
     },
     {

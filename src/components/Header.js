@@ -8,7 +8,7 @@ export default function Header() {
     <header className='h-16 flex dark:bg-black bg-white dark:text-white text-black'>
       <div className='container m-auto px-4 flex gap-20 items-center'>
         <Link to='/' className='text-2xl font-bold'>
-          Henlo
+          Henlo.
         </Link>
         <nav className='flex gap-4 '>
           {nav.nav.map((item, i) => (

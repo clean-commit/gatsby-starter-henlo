@@ -32,6 +32,7 @@ blocks:
 
 
       It lowers development and maintenance costs. Websites are tools that have to generate business value. The better system you build the longer it’ll last without any code changes.
+    variant: default
 thumbnail: ""
 date: 2022-04-11T22:00:00.000Z
 seo:

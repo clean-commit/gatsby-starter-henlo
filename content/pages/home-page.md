@@ -4,17 +4,17 @@ type: page
 layout: page-builder
 title: Home Page
 permalink: /
-thumbnail: ''
+thumbnail: ""
 blocks:
   - type: hero
-    title: ''
+    title: Henlo.
     content: |-
-      # Henlo.
       ## The most powerful minimalistic starter for Gatsby & Netlify CMS. 
 
       Optimized for SEO & Performance.
 
       Styled with Tailwind (v3) and SCSS
+    variant: full
 seo:
   image: /img/clean-commit-default.jpg
 ---
