@@ -7,6 +7,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-preload-fonts',
     'gatsby-plugin-image',
+    'gatsby-plugin-dark-mode',
     {
       resolve: 'gatsby-plugin-brotli',
     },
