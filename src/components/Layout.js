@@ -9,7 +9,7 @@ const Layout = ({ nav = false, children }) => {
   return (
     <div>
       <DefaultSeo />
-      <div className='h-screen'>
+      <div className='min-h-screen flex flex-col'>
         {nav && <Header />}
         <main className='wrapper'>{children}</main>
         <Footer />

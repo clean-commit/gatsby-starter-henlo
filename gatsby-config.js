@@ -2,18 +2,6 @@ const path = require('path');
 const tailwind = require('tailwindcss');
 
 module.exports = {
-  siteMetadata: {
-    title: 'Gatsby Starter',
-    separator: '|',
-    baseTitle: 'Henlo.',
-    lang: 'en',
-    twitterHandle: '@cleancommit',
-    siteUrl: `localhost:8000`,
-    image: '',
-    themeColor: '#fff',
-    keyword: 'gatsby-starter, blazing fast static site',
-    description: 'Blazing fast static site with Henlo',
-  },
   plugins: [
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

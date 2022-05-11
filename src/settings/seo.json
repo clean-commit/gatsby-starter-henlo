@@ -1,0 +1,12 @@
+{
+  "separator": "|",
+  "baseTitle": "Henlo.",
+  "siteUrl": "http://localhost:8000",
+  "keyword": "gatsby-starter, blazing fast static site",
+  "lang": "en_US",
+  "title": "The most powerful Gatsby & Netlify CMS Starter",
+  "themeColor": "#000",
+  "image": "/img/clean-commit-default.jpg",
+  "twitterHandle": "@mrkaluzny",
+  "description": "Blazing fast static site with Henlo"
+}

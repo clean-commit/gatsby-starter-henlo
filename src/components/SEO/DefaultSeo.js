@@ -1,27 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
-import { graphql, useStaticQuery } from 'gatsby';
+import metadata from '../../settings/seo.json';
 
 export default function DefaultSeo() {
-  const meta = useStaticQuery(graphql`
-    query DefaultSeoQuery {
-      site {
-        siteMetadata {
-          title
-          separator
-          baseTitle
-          twitterHandle
-          lang
-          description
-          keyword
-          image
-          themeColor
-        }
-      }
-    }
-  `);
-  const metadata = meta.site.siteMetadata;
   const title = metadata.title;
   const lang = metadata.lang;
   const { pathname } = useLocation();

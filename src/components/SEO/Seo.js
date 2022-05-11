@@ -1,25 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
+import * as seoData from '../../settings/seo.json';
 
 export default function Seo({ data, children }) {
-  const meta = useStaticQuery(graphql`
-    query MetaDataQuery {
-      site {
-        siteMetadata {
-          title
-          separator
-          baseTitle
-          description
-          keyword
-          image
-        }
-      }
-    }
-  `);
-
-  const metadata = meta.site.siteMetadata;
+  const metadata = seoData;
   const metaDescription = data.description || metadata.description;
   const title = data.title || metadata.title;
   const image = data.image

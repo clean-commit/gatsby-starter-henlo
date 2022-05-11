@@ -2,13 +2,15 @@ import seo from '../partials/seo';
 
 const collection = {
   name: 'blog',
-  label: 'Articles',
+  label: 'Posts',
   editor: {
     preview: false,
   },
-  description: 'Articles content',
+  description: 'Blog posts collection',
   folder: 'content/blog',
   slug: '{{slug}}',
+  summary:
+    "{{title}} - {{date | date('YYYY-MM-DD')}} – {{body | truncate(40, '***')}}",
   create: true,
   fields: [
     { label: 'ID', name: 'id', widget: 'uuid' },

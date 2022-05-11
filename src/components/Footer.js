@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className='py-5 absolute bottom-0 w-full'>
+    <footer className='mt-auto py-5 bottom-0 w-full'>
       <div className='container text-center mx-auto'>
         <a
           href='https://cleancommit.io?utm_source=HenloGatsby&utm_medium=referral'

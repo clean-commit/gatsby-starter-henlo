@@ -4,6 +4,8 @@ import { PermalinkControl, PermalinkPreview } from './widgets/PermalinkWidget';
 
 import pages from './collections/pages';
 import posts from './collections/posts';
+import settings from './collections/settings';
+import data from '../src/settings/seo.json';
 import PagePreview from '../src/previews/Page';
 
 window.CMS_MANUAL_INIT = true;
@@ -11,7 +13,7 @@ window.CMS_MANUAL_INIT = true;
 const config = {
   config: {
     load_config_file: false,
-    display_url: 'http://localhost:8000',
+    display_url: data.siteUrl,
     local_backend: true,
     backend: {
       name: 'git-gateway',
@@ -23,7 +25,7 @@ const config = {
     },
     media_folder: '/static/img',
     public_folder: '/img',
-    collections: [pages, posts],
+    collections: [pages, posts, settings],
   },
 };
 

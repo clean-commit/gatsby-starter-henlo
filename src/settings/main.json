@@ -1,0 +1,17 @@
+{
+  "nav": [
+    {
+      "name": "Services",
+      "permalink": "/services",
+      "children": []
+    },
+    {
+      "name": "About",
+      "permalink": "/welcome-to-site/something-better/"
+    },
+    {
+      "name": "Henlo",
+      "permalink": "/henlo"
+    }
+  ]
+}

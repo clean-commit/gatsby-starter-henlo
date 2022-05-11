@@ -1,3 +1,5 @@
+import metadata from '../../src/settings/seo.json';
+
 const partial = {
   label: 'SEO Settings',
   name: 'seo',
@@ -9,12 +11,14 @@ const partial = {
       name: 'title',
       widget: 'string',
       required: false,
+      hint: `Default title: ${metadata.title}, title template is '{title} ${metadata.separator} ${metadata.baseTitle}'`,
     },
     {
       label: 'Meta Description',
       name: 'description',
       widget: 'text',
       required: false,
+      hint: `Default description: ${metadata.description}`,
     },
     {
       label: 'Image',
@@ -24,6 +28,6 @@ const partial = {
       default: '/img/clean-commit-default.jpg',
     },
   ],
-}
+};
 
-export default partial
+export default partial;

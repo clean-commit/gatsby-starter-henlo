@@ -10,10 +10,6 @@ const collection = {
   description: 'Custom pages',
   folder: 'content/pages',
   create: true,
-  nested: {
-    depth: 100,
-    summary: '{{title}}',
-  },
   fields: [
     { label: 'ID', name: 'id', widget: 'uuid' },
     {
@@ -32,7 +28,6 @@ const collection = {
       label: 'Title',
       name: 'title',
       widget: 'string',
-      default: '',
     },
     {
       label: 'Permalink',
