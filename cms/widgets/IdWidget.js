@@ -5,6 +5,9 @@ import React from 'react';
 export class UuidControl extends React.Component {
   render() {
     const { forID, value, onChange, classNameWrapper } = this.props;
+    if (!value) {
+      onChange(v4());
+    }
 
     return (
       <div style={{ display: 'flex' }}>
@@ -12,7 +15,7 @@ export class UuidControl extends React.Component {
           type='hidden'
           id={forID}
           className={classNameWrapper}
-          value={value || v4()}
+          value={value}
           onChange={(e) => onChange(e.target.value.trim())}
         />
         <div>{value || v4()}</div>

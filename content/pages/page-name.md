@@ -3,11 +3,11 @@ excerpt: ""
 id: 857ff8b7-56fe-4089-9dfe-ed8dafb19daa
 type: page
 layout: page-builder
-title: My pagesss
-permalink: /welcome-to-site/something-better/
+title: About
+permalink: /about/
 blocks:
   - type: hero
-    title: My hero!
+    title: About Henlo.
     content: >-
       ## Wilkommen meine hero!
 
@@ -32,9 +32,6 @@ blocks:
 
 
       It lowers development and maintenance costs. Websites are tools that have to generate business value. The better system you build the longer it’ll last without any code changes.
-  - type: hero
-    title: Another Hero Block
-    content: Yay!
 thumbnail: ""
 date: 2022-04-11T22:00:00.000Z
 seo:

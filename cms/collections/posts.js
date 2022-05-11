@@ -57,6 +57,17 @@ const collection = {
       required: false,
     },
     {
+      label: 'Author',
+      name: 'author',
+      widget: 'relation',
+      collection: 'authors',
+      default: '',
+      search_fields: ['title'],
+      display_fields: ['title'],
+      value_field: 'id',
+      required: false,
+    },
+    {
       label: 'Excerpt',
       name: 'excerpt',
       widget: 'markdown',

@@ -4,6 +4,7 @@ import { PermalinkControl, PermalinkPreview } from './widgets/PermalinkWidget';
 
 import pages from './collections/pages';
 import posts from './collections/posts';
+import authors from './collections/authors';
 import settings from './collections/settings';
 import data from '../src/settings/seo.json';
 import PagePreview from '../src/previews/Page';
@@ -25,7 +26,7 @@ const config = {
     },
     media_folder: '/static/img',
     public_folder: '/img',
-    collections: [pages, posts, settings],
+    collections: [pages, posts, authors, settings],
   },
 };
 

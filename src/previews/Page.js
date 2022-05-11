@@ -4,11 +4,13 @@ import PageBuilder from '../components/PageBuilder';
 
 export default class PagePreview extends React.Component {
   render() {
-    const blocks = this.props.widgetsFor('blocks');
+    const blocks = this.props.widgetsFor('blocks').toJS();
+    console.log('js blocks', blocks);
+    console.log(' blocks type', Array.isArray(blocks));
     let blocksUpdated = [];
-    let hasBlocks = blocks.size > 0;
+    let hasBlocks = Array.isArray(blocks);
     if (hasBlocks) {
-      blocksUpdated = blocks.toJS().map((block) => block.data);
+      blocksUpdated = blocks.map((block) => block.data);
       console.log('blocks', blocksUpdated);
     }
 
