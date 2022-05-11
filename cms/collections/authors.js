@@ -1,3 +1,5 @@
+import { ID } from '../fields';
+
 const collection = {
   name: 'authors',
   label: 'Authors',
@@ -10,7 +12,7 @@ const collection = {
   summary: '{{title}}',
   create: true,
   fields: [
-    { label: 'ID', name: 'id', widget: 'uuid' },
+    ID,
     {
       label: 'Type',
       name: 'type',

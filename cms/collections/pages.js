@@ -1,17 +1,15 @@
-import seo from '../partials/seo';
+import seo from '../fields/seo';
+import { ID } from '../fields';
 import Blocks from '../blocks';
 
 const collection = {
   name: 'pages',
   label: 'Page',
-  // editor: {
-  //   preview: false,
-  // },
   description: 'Custom pages',
   folder: 'content/pages',
   create: true,
   fields: [
-    { label: 'ID', name: 'id', widget: 'uuid' },
+    ID,
     {
       label: 'Type',
       name: 'type',
@@ -29,15 +27,7 @@ const collection = {
       name: 'title',
       widget: 'string',
     },
-    {
-      label: 'Permalink',
-      name: 'permalink',
-      widget: 'permalink',
-      default: '{{title}}',
-      required: true,
-      url: 'http://localhost:8000',
-      hint: 'The post URL (do not include folder or file extension)',
-    },
+    PermalinkField(),
     Blocks,
     seo,
   ],

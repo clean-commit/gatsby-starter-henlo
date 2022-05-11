@@ -1,4 +1,6 @@
-import seo from '../partials/seo';
+import { PermalinkField } from '../fields/permalink-field';
+import seo from '../fields/seo';
+import { ID } from '../fields';
 
 const collection = {
   name: 'blog',
@@ -13,7 +15,7 @@ const collection = {
     "{{title}} - {{date | date('YYYY-MM-DD')}} – {{body | truncate(40, '***')}}",
   create: true,
   fields: [
-    { label: 'ID', name: 'id', widget: 'uuid' },
+    ID,
     {
       label: 'Type',
       name: 'type',
@@ -32,16 +34,7 @@ const collection = {
       widget: 'string',
       default: '',
     },
-    {
-      label: 'Permalink',
-      name: 'permalink',
-      widget: 'permalink',
-      default: '{{title}}',
-      required: true,
-      url: 'http://localhost:8000',
-      prefix: 'blog',
-      hint: 'The post URL (do not include folder or file extension)',
-    },
+    PermalinkField('blog'),
     {
       label: 'Featured Image',
       name: 'thumbnail',

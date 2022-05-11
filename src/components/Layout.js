@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
 const Layout = ({ nav = false, children }) => {
-  console.log(nav);
   return (
     <div>
       <DefaultSeo />

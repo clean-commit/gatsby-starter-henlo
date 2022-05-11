@@ -7,7 +7,7 @@ import posts from './collections/posts';
 import authors from './collections/authors';
 import settings from './collections/settings';
 import data from '../src/settings/seo.json';
-import PagePreview from '../src/previews/Page';
+import PagePreview from '../previews/Page';
 
 window.CMS_MANUAL_INIT = true;
 

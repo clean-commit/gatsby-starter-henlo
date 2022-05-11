@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from '@/icons/Logo';
 import ReactMarkdown from 'react-markdown';
 
 export default function Demo({ data }) {
@@ -8,9 +7,6 @@ export default function Demo({ data }) {
       <div className='container px-5 sm:px-10'>
         <section className='w-full py-20 px-5 rounded-lg shadow border-grey-lighter dark:border-zinc-600 border'>
           <div className='text-center mx-auto'>
-            <div>
-              <Logo className='mx-auto h-8 w-auto dark:text-white' />
-            </div>
             <p className='text-xs mt-2 text-black dark:text-white'>
               {data?.version}
             </p>

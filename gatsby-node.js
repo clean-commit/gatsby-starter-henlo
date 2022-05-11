@@ -32,10 +32,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    console.log(result.data.allMarkdownRemark.edges);
-
     const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) => {
-      console.log(edge.node.frontmatter);
       return edge.node.frontmatter.layout == null ||
         edge.node.frontmatter.layout == 'hidden'
         ? false
@@ -50,7 +47,6 @@ exports.createPages = ({ actions, graphql }) => {
       );
 
       if (fs.existsSync(component)) {
-        console.log(pathName);
         createPage({
           path: pathName,
           component,
