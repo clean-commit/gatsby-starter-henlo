@@ -2,12 +2,12 @@
   "nav": [
     {
       "name": "About",
-      "permalink": "/about",
+      "permalink": "/about/",
       "children": []
     },
     {
       "name": "Blog",
-      "permalink": "/blog"
+      "permalink": "/blog/"
     }
   ]
 }
