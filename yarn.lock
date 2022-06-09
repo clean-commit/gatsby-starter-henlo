@@ -905,6 +905,14 @@
     "@babel/helper-create-regexp-features-plugin" "^7.16.7"
     "@babel/helper-plugin-utils" "^7.16.7"
 
+"@babel/polyfill@^7.12.1":
+  version "7.12.1"
+  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.12.1.tgz#1f2d6371d1261bbd961f3c5d5909150e12d0bd96"
+  integrity sha512-X0pi0V6gxLi6lFZpGmeNa4zxtwEmCs42isWLNjZZDE0Y8yVfgu0T2OAHlzBbdYlqbW/YXVvoBHpATEM+goCj8g==
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.4"
+
 "@babel/preset-env@^7.15.4", "@babel/preset-env@^7.4.4":
   version "7.16.11"
   resolved "https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.16.11.tgz"
@@ -1817,14 +1825,6 @@
   dependencies:
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
-
-"@ncwidgets/id@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.npmjs.org/@ncwidgets/id/-/id-0.9.0.tgz"
-  integrity sha512-MtY7gqT2JIprsYFuyh2Z3LwIoTkgvDUOgR9J2S5w8YUiflkZ/p4mVETEX9WLjGDW5yWU6AD9uGUSUVR/TFa0Zg==
-  dependencies:
-    moment "^2.24.0"
-    shortid "^2.2.14"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -10960,7 +10960,7 @@ nan@^2.12.1, nan@^2.14.2:
 
 nanoid@^2.1.0:
   version "2.1.11"
-  resolved "https://registry.npmjs.org/nanoid/-/nanoid-2.1.11.tgz"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.1.11.tgz#ec24b8a758d591561531b4176a01e3ab4f0f0280"
   integrity sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA==
 
 nanoid@^3.3.1:
@@ -11267,6 +11267,14 @@ netlify-cms-widget-file@^2.11.1:
     common-tags "^1.8.0"
     react-sortable-hoc "^2.0.0"
 
+netlify-cms-widget-id@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/netlify-cms-widget-id/-/netlify-cms-widget-id-1.0.1.tgz#b37e04a2a3ab8017eadd56e4f6d53d4744b69c4c"
+  integrity sha512-OTLf852CozPTvJnD0RhJ032DULvo49QYv3thKfFQ2tfh6750ILCcoF+Fa7ems0BEaOM3fL0l9MBPhg3pmL3qUQ==
+  dependencies:
+    "@babel/polyfill" "^7.12.1"
+    shortid "^2.2.16"
+
 netlify-cms-widget-image@^2.8.1:
   version "2.8.1"
   resolved "https://registry.npmjs.org/netlify-cms-widget-image/-/netlify-cms-widget-image-2.8.1.tgz"
@@ -11319,6 +11327,13 @@ netlify-cms-widget-object@^2.7.1:
   version "2.7.1"
   resolved "https://registry.npmjs.org/netlify-cms-widget-object/-/netlify-cms-widget-object-2.7.1.tgz"
   integrity sha512-vgqAEj+mwt5oBh2wjaqLxya1lYAjeWlLUjDliwPCM9BQcQbRA78qyuEC7L3vtZ6py744AJCCoPwvGvfS4aO+Gw==
+
+netlify-cms-widget-permalink@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/netlify-cms-widget-permalink/-/netlify-cms-widget-permalink-1.0.2.tgz#bf893afbbd1519e6b0358ca88af79c6623f71ff9"
+  integrity sha512-ataxNL63NgvWdrkPqglZItflaN5gjLsvP4M7GxXWPSPc9jZdiGpEH05aiLRxWH+vddxm04cf6ulwfdaXwc61ZQ==
+  dependencies:
+    "@babel/polyfill" "^7.12.1"
 
 netlify-cms-widget-relation@^2.11.0:
   version "2.11.0"
@@ -14894,9 +14909,9 @@ shell-quote@1.7.2:
   resolved "https://registry.npmjs.org/shell-quote/-/shell-quote-1.7.2.tgz"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
-shortid@^2.2.14:
+shortid@^2.2.16:
   version "2.2.16"
-  resolved "https://registry.npmjs.org/shortid/-/shortid-2.2.16.tgz"
+  resolved "https://registry.yarnpkg.com/shortid/-/shortid-2.2.16.tgz#b742b8f0cb96406fd391c76bfc18a67a57fe5608"
   integrity sha512-Ugt+GIZqvGXCIItnsL+lvFJOiN7RYqlGy7QE41O3YC1xbNSeDGIRO7xg2JJXIAj1cAGnOeC1r7/T9pgrtQbv4g==
   dependencies:
     nanoid "^2.1.0"

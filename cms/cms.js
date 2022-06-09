@@ -1,6 +1,6 @@
 import CMS from 'netlify-cms-app';
-import { UuidControl, UuidPreview } from './widgets/IdWidget';
-import { PermalinkControl, PermalinkPreview } from './widgets/PermalinkWidget';
+import { Widget as UuidWidget } from 'netlify-cms-widget-id';
+import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink';
 
 import pages from './collections/pages';
 import posts from './collections/posts';
@@ -33,7 +33,7 @@ const config = {
 CMS.registerPreviewStyle('../commons.css');
 CMS.registerPreviewTemplate('pages', PagePreview);
 
-CMS.registerWidget('uuid', UuidControl, UuidPreview);
-CMS.registerWidget('permalink', PermalinkControl, PermalinkPreview);
+CMS.registerWidget(UuidWidget);
+CMS.registerWidget(PermalinkWidget);
 
 CMS.init(config);
