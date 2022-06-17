@@ -5,7 +5,7 @@ import { getSrc } from 'gatsby-plugin-image';
 import * as seoData from '../../settings/seo.json';
 
 export default function Seo({ data, children }) {
-  const metadata = seoData;
+  const metadata = { ...seoData, siteUrl: process.env.GATSBY_APP_URL };
   const metaDescription = data.description || metadata.description;
   const title = data.title || metadata.title;
   const image = data.image

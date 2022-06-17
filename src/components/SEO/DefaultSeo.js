@@ -4,6 +4,7 @@ import { useLocation } from '@reach/router';
 import metadata from '../../settings/seo.json';
 
 export default function DefaultSeo() {
+  metadata.siteUrl = process.env.GATSBY_APP_URL;
   const title = metadata.title;
   const lang = metadata.lang;
   const { pathname } = useLocation();

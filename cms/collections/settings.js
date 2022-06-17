@@ -24,12 +24,6 @@ const collection = {
       },
       fields: [
         {
-          label: 'Site URL',
-          name: 'siteUrl',
-          widget: 'string',
-          required: false,
-        },
-        {
           label: 'Base title',
           name: 'baseTitle',
           widget: 'string',
