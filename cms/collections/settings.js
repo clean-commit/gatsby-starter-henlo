@@ -15,6 +15,15 @@ const collection = {
       fields: [navigationField()],
     },
     {
+      label: 'Footer Navigation',
+      name: 'footer',
+      file: 'src/settings/footer.json',
+      editor: {
+        preview: false,
+      },
+      fields: [navigationField()],
+    },
+    {
       label: 'Site Metadata & SEO Settings',
       name: 'seo',
       file: 'src/settings/seo.json',
