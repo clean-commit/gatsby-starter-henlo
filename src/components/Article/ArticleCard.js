@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import Link from '../../resolvers/Link';
 
 export default function ArticleCard({ data }) {
   const { node: post } = data;
