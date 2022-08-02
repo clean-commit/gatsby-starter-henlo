@@ -15,7 +15,7 @@ export default function Hero({ data }) {
           <h1 className='text-4xl md:text-6xl mb-4 font-bold'>{data?.title}</h1>
         )}
         <Text className='text-lg'>{data?.content}</Text>
-        {data?.buttons.length > 0 && <Buttons buttons={data?.buttons} />}
+        {data?.buttons && <Buttons buttons={data?.buttons} />}
       </Container>
     </section>
   );
