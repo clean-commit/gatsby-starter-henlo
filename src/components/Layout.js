@@ -6,14 +6,14 @@ import Header from '@/components/Header';
 
 const Layout = ({ nav = false, children }) => {
   return (
-    <div>
+    <>
       <DefaultSeo />
       <div className='min-h-screen flex flex-col dark:bg-black bg-white '>
         {nav && <Header />}
         <main className='wrapper'>{children}</main>
         <Footer />
       </div>
-    </div>
+    </>
   );
 };
 

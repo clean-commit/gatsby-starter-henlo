@@ -11,7 +11,9 @@ const Page = ({ data }) => {
   console.log(data);
   return (
     <Layout nav={true}>
-      <SEO data={data.page.frontmatter.seo} />
+      <SEO data={data.page.frontmatter.seo}>
+        <meta property='og:type' content='website' />
+      </SEO>
       <PageBuilder blocks={data.page.frontmatter.blocks} />
     </Layout>
   );

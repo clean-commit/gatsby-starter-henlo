@@ -10,7 +10,9 @@ const Post = ({ data }) => {
   console.log(data);
   return (
     <Layout nav={true}>
-      <SEO data={data.post.frontmatter.seo} />
+      <SEO data={data.post.frontmatter.seo}>
+        <meta property='og:type' content='article' />
+      </SEO>
 
       <section className='container mx-auto px-4 py-24'>
         <h1 className='max-w-3xl mx-auto font-bold text-6xl my-12 dark:text-white'>

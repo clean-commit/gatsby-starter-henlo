@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Hero from '@/blocks/Hero';
-import Demo from '@/blocks/Demo';
 import RecentArticles from '../blocks/RecentArticles';
 
 export default function PageBuilder({ blocks, preview = false }) {
@@ -15,10 +14,14 @@ export default function PageBuilder({ blocks, preview = false }) {
               return <Hero key={i} data={block} />;
             case 'recentArticles':
               return <RecentArticles key={i} data={block} preview={preview} />;
-            case 'demo':
-              return <Demo key={i} data={block} />;
             default:
-              return 'sections some?';
+              return (
+                <div className='container mx-auto'>
+                  <div className='text-center'>
+                    Missing Section {block.type}
+                  </div>
+                </div>
+              );
           }
         })}
     </>
@@ -29,11 +32,9 @@ export const query = graphql`
   fragment Blocks on MarkdownRemarkFrontmatter {
     blocks {
       type
-      variant
       title
       content
-      version
-      description
+      variant
       links {
         link {
           content

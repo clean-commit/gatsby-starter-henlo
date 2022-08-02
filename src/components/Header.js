@@ -3,12 +3,13 @@ import nav from '../settings/main.json';
 import Link from '../resolvers/Link';
 
 import DarkmodeToggle from './DarkmodeToggle';
+import Container from './UI/Container';
 
 export default function Header() {
   console.log(nav);
   return (
     <header className='h-16 flex dark:bg-black bg-white dark:text-white text-black'>
-      <div className='container m-auto px-4 flex gap-20 items-center justify-between'>
+      <Container className='m-auto flex gap-20 items-center justify-between'>
         <Link to='/' className='text-2xl font-bold'>
           Henlo.
         </Link>
@@ -43,7 +44,7 @@ export default function Header() {
             </a>
           </div>
         </div>
-      </div>
+      </Container>
     </header>
   );
 }

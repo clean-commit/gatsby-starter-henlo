@@ -1,3 +1,5 @@
+import { Buttons, VariantField } from '../fields';
+
 export default {
   label: 'Blocks',
   name: 'blocks',
@@ -20,13 +22,8 @@ export default {
           widget: 'markdown',
           required: false,
         },
-        {
-          label: 'Variant',
-          name: 'variant',
-          widget: 'select',
-          default: 'default',
-          options: ['default', 'full'],
-        },
+        Buttons,
+        VariantField('default', ['default', 'full']),
       ],
     },
     {
@@ -39,60 +36,6 @@ export default {
           name: 'title',
           widget: 'string',
           required: false,
-        },
-      ],
-    },
-    {
-      label: 'Demo',
-      name: 'demo',
-      widget: 'object',
-      fields: [
-        {
-          label: 'Title',
-          name: 'title',
-          widget: 'string',
-          default: '',
-          required: false,
-        },
-        {
-          label: 'Version',
-          name: 'version',
-          widget: 'string',
-          default: '',
-          required: false,
-        },
-        {
-          label: 'Description',
-          name: 'description',
-          widget: 'markdown',
-          default: '',
-          required: false,
-        },
-        {
-          label: 'Links',
-          name: 'links',
-          widget: 'list',
-          fields: [
-            {
-              label: 'Link',
-              name: 'link',
-              widget: 'object',
-              fields: [
-                {
-                  label: 'Content',
-                  name: 'content',
-                  widget: 'string',
-                  required: false,
-                },
-                {
-                  label: 'URL',
-                  name: 'url',
-                  widget: 'string',
-                  required: false,
-                },
-              ],
-            },
-          ],
         },
       ],
     },

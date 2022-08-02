@@ -27,12 +27,12 @@ blocks:
       If you’re here with a problem, thinking that no one gets it, I’ve been there. Don’t waste time, let’s jump on a call and see if we’re a good match.
   - type: demo
     title: Demo
-    version: "21"
+    version: '21'
     description: Demo
     links:
       - link:
           content: Link
           url: Link
 seo:
-  image: /img/clean-commit-default.jpg
+  ogimage: /img/clean-commit-default.jpg
 ---

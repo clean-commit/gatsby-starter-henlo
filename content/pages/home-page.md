@@ -4,7 +4,7 @@ type: page
 layout: page-builder
 title: Home Page
 permalink: /
-thumbnail: ""
+thumbnail: ''
 blocks:
   - type: hero
     title: Henlo.
@@ -17,8 +17,8 @@ blocks:
 
 
 
-      [About](/about) [Clean Commit](https://cleancommit.io) 
+      [About](/about) [Clean Commit](https://cleancommit.io)
     variant: full
 seo:
-  image: /img/clean-commit-default.jpg
+  ogimage: /img/clean-commit-default.jpg
 ---

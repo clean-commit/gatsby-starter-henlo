@@ -22,7 +22,7 @@ const partial = {
     },
     {
       label: 'Image',
-      name: 'image',
+      name: 'ogimage',
       widget: 'image',
       required: true,
       default: metadata.image,

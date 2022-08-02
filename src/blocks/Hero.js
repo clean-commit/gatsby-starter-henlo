@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import Container from '../components/UI/Container';
+import Text from '../components/UI/Text';
 
 export default function Hero({ data }) {
   return (
@@ -7,14 +8,12 @@ export default function Hero({ data }) {
       className={`py-12 lg:py-24 dark:bg-black dark:text-white ${
         data?.variant == 'full' ? 'min-h-screen flex items-center' : ''
       }`}>
-      <div className='container mx-auto px-4'>
+      <Container>
         {data?.title && (
           <h1 className='text-4xl md:text-6xl mb-4 font-bold'>{data?.title}</h1>
         )}
-        <ReactMarkdown className='prose prose-lg dark:prose-invert'>
-          {data?.content}
-        </ReactMarkdown>
-      </div>
+        <Text className='text-lg'>{data?.content}</Text>
+      </Container>
     </section>
   );
 }

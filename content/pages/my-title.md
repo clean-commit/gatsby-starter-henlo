@@ -6,7 +6,7 @@ title: Blog
 permalink: /blog/
 blocks:
   - type: hero
-    title: ""
+    title: ''
     content: |-
       # Blog
       Read a bit more about henlo
@@ -14,5 +14,5 @@ blocks:
   - type: recentArticles
     title: Recent Articles
 seo:
-  image: /img/clean-commit-default.jpg
+  ogimage: /img/clean-commit-default.jpg
 ---
