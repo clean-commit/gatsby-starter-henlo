@@ -1,6 +1,6 @@
-import { Buttons, VariantField } from '../fields';
+import { Buttons, Title, Content, VariantField, ImageField } from '../fields';
 
-export default {
+const Config = {
   label: 'Blocks',
   name: 'blocks',
   widget: 'list',
@@ -10,18 +10,8 @@ export default {
       name: 'hero',
       widget: 'object',
       fields: [
-        {
-          label: 'Title',
-          name: 'title',
-          widget: 'string',
-          required: false,
-        },
-        {
-          label: 'Content',
-          name: 'content',
-          widget: 'markdown',
-          required: false,
-        },
+        Title,
+        Content,
         Buttons,
         VariantField('default', ['default', 'full']),
       ],
@@ -30,14 +20,39 @@ export default {
       label: 'Recent Articles',
       name: 'recentArticles',
       widget: 'object',
+      fields: [Title],
+    },
+    {
+      label: 'Content with Image',
+      name: 'content_image',
+      widget: 'object',
+      summary: '{{fields.title}}',
+      fields: [
+        ImageField(),
+        Title,
+        Content,
+        Buttons,
+        VariantField('default', ['default', 'reversed']),
+      ],
+    },
+    {
+      label: 'Form',
+      name: 'form',
+      widget: 'object',
       fields: [
         {
-          label: 'Title',
-          name: 'title',
-          widget: 'string',
+          label: 'Form',
+          name: 'form',
+          widget: 'relation',
+          collection: 'forms',
+          search_fields: ['title'],
+          display_fields: ['{{id}} - {{title}}'],
+          value_field: 'id',
           required: false,
         },
       ],
     },
   ],
 };
+
+export default Config;

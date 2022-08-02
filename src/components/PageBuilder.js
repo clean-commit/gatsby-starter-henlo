@@ -35,10 +35,11 @@ export const query = graphql`
       title
       content
       variant
-      links {
-        link {
+      buttons {
+        button {
           content
           url
+          variant
         }
       }
     }
