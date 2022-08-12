@@ -34,5 +34,5 @@ blocks:
           content: Link
           url: Link
 seo:
-  ogimage: /img/clean-commit-default.jpg
+  ogimage: /img/henlo-cover.png
 ---

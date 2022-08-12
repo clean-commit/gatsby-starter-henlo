@@ -14,5 +14,5 @@ blocks:
   - type: recentArticles
     title: Recent Articles
 seo:
-  ogimage: /img/clean-commit-default.jpg
+  ogimage: /img/henlo-cover.png
 ---

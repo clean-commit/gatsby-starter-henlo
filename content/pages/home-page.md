@@ -4,7 +4,7 @@ type: page
 layout: page-builder
 title: Home Page
 permalink: /
-thumbnail: ""
+thumbnail: ''
 blocks:
   - type: hero
     title: Henlo.
@@ -32,18 +32,21 @@ blocks:
         content: Create forms with Netlify CMS, powered by
           [react-hook-form](https://react-hook-form.com/).
       - title: Integrated Previews
-        content: Blocks created by developers are instantly available for previews from
+        content:
+          Blocks created by developers are instantly available for previews from
           Netlify CMS layout
       - title: Permalink-based page generation
-        content: "Automatically generated pages based on permalinks. "
+        content: 'Automatically generated pages based on permalinks. '
       - title: Modify Navigation with ease
-        content: Navigation can be modified with ease, without a need for changing the
+        content:
+          Navigation can be modified with ease, without a need for changing the
           code base
-    content: ""
+    content: ''
   - type: content_image
     variant: reversed
     title: Block-based page creator with Previews
-    content: Create blocks and reuse them across different pages that can be created
+    content:
+      Create blocks and reuse them across different pages that can be created
       using Netlify CMS UI. Previews will be generated automatically for all
       blocks!
     buttons:
@@ -57,7 +60,7 @@ blocks:
   - type: content_image
     variant: default
     photo:
-      alt: ""
+      alt: ''
     title: Premade components & Netlify CMS settings
     content: >-
       We've created a collection of basic UI elements, so you can quickly create
@@ -79,5 +82,5 @@ blocks:
 
       Admins of the site can setup options using Netlify CMS's UI instead. This allows for reusable themes & templates
 seo:
-  ogimage: /img/clean-commit-default.jpg
+  ogimage: /img/henlo-cover.png
 ---
