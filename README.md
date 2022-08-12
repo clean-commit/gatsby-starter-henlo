@@ -17,17 +17,14 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 - Battle-tested starting point for small & large web projects
 - Example pages, collections, CMS configuration with Netlify CMS & hooks
 - Easy Netlify CMS configuration using [Manual Initialization](https://www.netlifycms.org/docs/beta-features/#manual-initialization)
-- Form Builder that enables Admins to create multiple forms with ease!
-- TailwindCSS support with PostCSS processing
+- Form Builder that enables Admins to create multiple forms with ease & Netlify Forms integration.
+- TailwindCSS support with PostCSS processing & PurgeCSS
 - Support for Gatsby API functions
-- Built in sitemaps
-- Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
-- Uses `gatsby-plugin-image`
+- Sitemaps using `gatsby-plugin-sitemap`
+- `gatsby-plugin-image`
 - Netlify deploy configuration
-- Netlify function support, see `lambda` folder
-- Support for async Netlify forms
 - Complete SEO configuration with graphql fragment and reusable components
-- Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
+- Perfect score on Lighthouse for SEO, Accessibility and Performance
 - Readme template for custom projects
 - ..and more
 
@@ -63,12 +60,14 @@ $ cd [REPO_NAME]
 $ yarn && yarn start
 ```
 
-To test the CMS locally, you'll need run a production build of the site & run local instance of Netlify CMS
+To test the CMS locally, you'll need run a production build of the site & [run local instance of Netlify CMS](https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository)
 
 ```
-$ yarn build
-$ netlify dev # or ntl dev
+$ yarn start
+$ npx netlify-cms-proxy-server
 ```
+
+Your admin configuration will be available at http://localhost:8000/admin
 
 ### Deployment
 
@@ -80,93 +79,165 @@ $ yarn deploy:prod
 
 The website will build locally and then deploy to production.
 
+### Folder structure
+
+```
+├── cms                      # Netlify CMS configuration
+│   ├── blocks
+│   ├── collections
+│   ├── fields
+│   ├── previews
+│   └── cms.js
+├── content                  # Your content lives here
+│   ├── authors
+│   ├── blog
+│   ├── forms
+│   ├── pages
+│   └── dont-remove.md
+├── public
+├── src
+│   ├── api                  # Gatsby functions should be placed here
+│   ├── blocks               # Blocks that create sections
+│   ├── components           # Reusable components
+│   ├── hooks                # Hooks used in the project
+│   ├── lib                  # misc
+│   ├── pages
+│   ├── resolvers
+│   │   ├── Image.js         # Required for previews
+│   │   └── Link.js          # Resolves links to gatsby and outside links
+│   ├── settings             # Place for theme settings
+│   ├── styles
+│   └── templates            # Templates used to render page types
+│       ├── page-builder.js
+│       └── post.js
+├── static
+├── _headers
+├── gatsby-config.js         # Config files for gatsby
+├── gatsby-node.js           # Page generation setup
+└── tailwind.config.js       # Tailwind configuration
+```
+
 ### Setting up the CMS
 
 Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting.
 
+CMS configuration was placed within `cms` directory in the root of the project. This allows us to work efficiently on fields and collections without mixing CMS config with Gatsby code.
+
 Henlo uses Manual Initialization to take advantage of componetized approach to managing configuration for Netlify CMS. Thanks to that you don't have to control the CMS from centralized YAML file.
+
+To ensure best experience we use 2 custom widgets that are maintained by us -> [ID Widget](https://github.com/clean-commit/netlify-cms-widget-id) that provides unmutable IDs for content items and [Permalink Widget](https://github.com/clean-commit/netlify-cms-widget-permalink) that enables you to create custom permalinks with ease.
 
 ```javascript
 import CMS from 'netlify-cms-app';
-import pages from '@/cms/pages';
-import posts from '@/cms/collections/posts';
+import { Widget as UuidWidget } from 'netlify-cms-widget-id';
+import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink';
+
+import pages from './collections/pages';
+import posts from './collections/posts';
+import authors from './collections/authors';
+import settings from './collections/settings';
+import PagePreview from './previews/Page'; // Preview for all PageBuilder based pages
 
 window.CMS_MANUAL_INIT = true;
 
-CMS.init({
+const config = {
   config: {
     load_config_file: false,
+    display_url: process.env.GATSBY_APP_URL, // Enables urls based on env variable
+    local_backend: true,
     backend: {
       name: 'git-gateway',
-      branch: 'master',
+    },
+    slug: {
+      encoding: 'ascii',
+      clean_accents: true,
     },
     media_folder: '/static/img',
     public_folder: '/img',
-    collections: [pages, posts],
+    collections: [pages, posts, authors, settings],
   },
-});
-```
-
-#### Example configuration for Home Page
-
-```javascript
-import seo from '@/cms/partials/seo';
-
-const page = {
-  file: 'content/pages/home.md',
-  label: 'Home',
-  name: 'Home',
-  fields: [
-    {
-      label: 'Layout',
-      name: 'layout',
-      widget: 'hidden',
-      default: 'index',
-    },
-    {
-      label: 'Type',
-      name: 'type',
-      widget: 'hidden',
-      default: 'page',
-    },
-    {
-      label: 'Title',
-      name: 'title',
-      widget: 'string',
-      default: '',
-      required: false,
-    },
-    {
-      label: 'Links',
-      name: 'links',
-      widget: 'list',
-      fields: [
-        {
-          label: 'Link',
-          name: 'link',
-          widget: 'object',
-          fields: [
-            {
-              label: 'Content',
-              name: 'content',
-              widget: 'string',
-              required: false,
-            },
-            {
-              label: 'URL',
-              name: 'url',
-              widget: 'string',
-              required: false,
-            },
-          ],
-        },
-      ],
-    },
-    seo,
-  ],
 };
 
-export default page;
+CMS.registerPreviewStyle('../commons.css');
+CMS.registerPreviewTemplate('pages', PagePreview);
+
+CMS.registerWidget(UuidWidget);
+CMS.registerWidget(PermalinkWidget);
+
+CMS.init(config);
+```
+
+#### Adding blocks
+
+Blocks are defined in `cms/blocks/index.js` file. We're leveraging use of exported functions and variables from other fields to avoid repetition within the code.
+
+This is extremely important due to the way GraphQL works with Markdown based files. Each field will have to be present on all page queries -> we can't differetiate between different sections.
+
+That's why it's important to reuse names of fields, hence usage of imports.
+
+```javascript
+import { Buttons, Title, Content, VariantField, ImageField } from '../fields';
+
+const Config = {
+  label: 'Blocks',
+  name: 'blocks',
+  widget: 'list',
+  types: [
+    {
+      label: 'Hero',
+      name: 'hero',
+      widget: 'object',
+      fields: [
+        Title,
+        Content,
+        Buttons,
+        VariantField('default', ['default', 'centered', 'full']),
+      ],
+    },
+...
+```
+
+To add new block you have tp add new `Type` to `cms/blocks/index.js` file, and modify `Blocks` fragment located in `src/components/PageBuilder.js`
+
+As you can see below we're adding all fields used by all sections. This causes issues with Gatsby's [Schema Inference](https://www.gatsbyjs.com/docs/schema-inference/). Gatsby needs an example of the field to know what type of field it is.
+
+That's why we rely on `dont-remove.md` this file contains all possible fields used in the starter, so you're never encounter a problem with types inference!
+
+```
+export const query = graphql`
+  fragment Blocks on MarkdownRemarkFrontmatter {
+    blocks {
+      type
+      title
+      content
+      columns {
+        title
+        content
+      }
+      photo {
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              width: 800
+              quality: 72
+              placeholder: DOMINANT_COLOR
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        alt
+      }
+      variant
+      buttons {
+        button {
+          content
+          url
+          variant
+        }
+      }
+    }
+  }
+`
 ```
 
 ### Adding Favicons
@@ -185,20 +256,6 @@ yarn preload-fonts
 ## Browser support
 
 Gatsby tends to add a lot of polyfills to support older browser versions. In package.json file you can adjust which sites your project should support. As default Henlo will use `defaults` setting. If you want to learn more about the browser support visit official [Gatsby How-To Guide on this subject](https://www.gatsbyjs.com/docs/how-to/custom-configuration/browser-support/)
-
-## Debugging
-
-Windows users might encounter `node-gyp` errors when trying to npm install.
-To resolve, make sure that you have both Python 2.7 and the Visual C++ build environment installed.
-
-```
-npm config set python python2.7
-npm install --global --production windows-build-tools
-```
-
-[Full details here](https://www.npmjs.com/package/node-gyp 'NPM node-gyp page')
-
-MacOS users might also encounter some errors, for more info check [node-gyp](https://github.com/nodejs/node-gyp). We recommend using the latest stable node version.
 
 ## PurgeCSS
 
