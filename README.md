@@ -15,18 +15,18 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 ## Features
 
 - 💪 Battle-tested starting point for small & large web projects
-- Example pages, collections, CMS configuration with Netlify CMS & hooks
-- Easy Netlify CMS configuration using [Manual Initialization](https://www.netlifycms.org/docs/beta-features/#manual-initialization)
 - 📄 Form Builder that enables Admins to create multiple forms with ease & Netlify Forms integration.
-- TailwindCSS support with PostCSS processing & PurgeCSS
 - 🌗 Darkmode support
-- Support for Gatsby API functions
 - 🗺 Sitemaps using `gatsby-plugin-sitemap`
-- `gatsby-plugin-image`
-- Netlify deploy configuration
-- Complete SEO configuration with graphql fragment and reusable components
 - 🔥 Perfect score on Lighthouse for SEO, Accessibility and Performance
+- 💇‍♀️ TailwindCSS support with PostCSS processing & PurgeCSS
+- 🔌 Support for Gatsby API functions
+- 🎇 Crazy fast images with `gatsby-plugin-image`
+- 🕵️‍♂️ Complete SEO configuration with graphql fragment and reusable components
+- Netlify deploy configuration
+- Example pages, collections, CMS configuration with Netlify CMS & hooks
 - Readme template for custom projects
+- Easy Netlify CMS configuration using [Manual Initialization](https://www.netlifycms.org/docs/beta-features/#manual-initialization)
 - ..and more
 
 ## Prerequisites
