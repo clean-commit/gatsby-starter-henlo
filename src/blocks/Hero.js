@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import Buttons from '../components/UI/Buttons';
 import Container from '../components/UI/Container';
@@ -5,17 +6,37 @@ import Text from '../components/UI/Text';
 
 export default function Hero({ data }) {
   console.log(data);
+  const isCentered = data?.variant === 'centered';
+  const isFull = data?.variant === 'full';
   return (
     <section
-      className={`py-12 lg:py-24 dark:bg-black dark:text-white ${
-        data?.variant == 'full' ? 'min-h-screen flex items-center' : ''
-      }`}>
+      className={classNames(
+        'py-12 dark:bg-black dark:text-white lg:py-24',
+        {
+          'flex min-h-screen items-center': isFull,
+        },
+        {
+          'flex justify-center py-20 text-center lg:py-44': isCentered,
+        },
+      )}>
       <Container>
         {data?.title && (
-          <h1 className='text-4xl md:text-6xl mb-4 font-bold'>{data?.title}</h1>
+          <h1
+            className={classNames('mb-4 text-4xl font-bold md:text-6xl', {
+              'mx-auto': isCentered,
+            })}>
+            {data?.title}
+          </h1>
         )}
-        <Text className='text-lg'>{data?.content}</Text>
-        {data?.buttons && <Buttons buttons={data?.buttons} />}
+        <Text className={classNames('text-lg', { 'mx-auto': isCentered })}>
+          {data?.content}
+        </Text>
+        {data?.buttons && (
+          <Buttons
+            buttons={data?.buttons}
+            className={classNames('mt-6', { 'justify-center': isCentered })}
+          />
+        )}
       </Container>
     </section>
   );

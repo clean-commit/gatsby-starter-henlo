@@ -3,9 +3,9 @@
   "baseTitle": "Henlo.",
   "keyword": "gatsby-starter, blazing fast static site",
   "lang": "en_US",
-  "title": "The most powerful Gatsby & Netlify CMS Starter",
+  "title": "The most advanced starter for Gatsby & Netlify CMS.",
   "themeColor": "#000",
-  "image": "/img/clean-commit-default.jpg",
-  "twitterHandle": "@mrkaluzny",
-  "description": "Blazing fast static site with Henlo"
+  "image": "/img/henlo-cover.png",
+  "twitterHandle": "@cleancommit",
+  "description": "Think lightweight WordPress. Extensible, block based starter for Netlify CMS. Built with performance in mind, styled with TailwindCSS. "
 }

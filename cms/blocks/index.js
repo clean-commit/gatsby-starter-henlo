@@ -13,14 +13,14 @@ const Config = {
         Title,
         Content,
         Buttons,
-        VariantField('default', ['default', 'full']),
+        VariantField('default', ['default', 'centered', 'full']),
       ],
     },
     {
-      label: 'Recent Articles',
-      name: 'recentArticles',
+      label: 'Content',
+      name: 'content',
       widget: 'object',
-      fields: [Title],
+      fields: [Content],
     },
     {
       label: 'Content with Image',
@@ -34,6 +34,29 @@ const Config = {
         Buttons,
         VariantField('default', ['default', 'reversed']),
       ],
+    },
+    {
+      label: 'Perks',
+      name: 'perks',
+      summary: '{{fields.title}}',
+      widget: 'object',
+      fields: [
+        Title,
+        Content,
+        {
+          label: 'Columns',
+          name: 'columns',
+          widget: 'list',
+          summary: '{{fields.title}}',
+          fields: [Title, Content],
+        },
+      ],
+    },
+    {
+      label: 'Recent Articles',
+      name: 'recentArticles',
+      widget: 'object',
+      fields: [Title],
     },
     {
       label: 'Form',

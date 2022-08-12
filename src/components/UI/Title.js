@@ -8,7 +8,7 @@ export default function Title({
   className,
   ...props
 }) {
-  let style = 'font-serif dark:text-white font-semibold';
+  let style = 'dark:text-white font-semibold';
   switch (variant) {
     case 'hero':
       style = `${style} text-5xl lg:text-7xl max-w-5xl mb-4 md:mb-8 hero-title`;

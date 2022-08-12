@@ -5,7 +5,7 @@ export default function Label({ htmlFor, props, children }) {
     <label
       htmlFor={htmlFor}
       {...props}
-      className='block font-bold mb-2 cursor-pointer text-dark-500 dark:text-white'>
+      className='text-dark-500 mb-2 block cursor-pointer font-bold dark:text-white'>
       {children}
     </label>
   );

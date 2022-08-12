@@ -8,9 +8,9 @@ import Container from './UI/Container';
 export default function Header() {
   console.log(nav);
   return (
-    <header className='h-16 flex dark:bg-black bg-white dark:text-white text-black'>
-      <Container className='m-auto flex gap-20 items-center justify-between'>
-        <Link to='/' className='text-2xl font-bold'>
+    <header className='flex h-16 border-b bg-white text-black dark:border-zinc-800 dark:bg-black dark:text-white'>
+      <Container className='m-auto flex items-center justify-between gap-20'>
+        <Link to='/' className='text-2xl font-bold '>
           Henlo.
         </Link>
         <div className='flex items-center'>
@@ -22,12 +22,12 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className='flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800'>
+          <div className='ml-6 flex items-center border-l border-slate-200 pl-6 dark:border-zinc-800'>
             <DarkmodeToggle />
             <a
               href='https://github.com/clean-commit/gatsby-starter-henlo'
               target='_blank'
-              className='ml-4 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300 transition-colors'>
+              className='ml-4 block text-slate-400 transition-colors hover:text-slate-500 dark:hover:text-slate-300'>
               <div className='sr-only'>Henlo on GitHub</div>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
