@@ -1,20 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-import DefaultSeo from '@/components/SEO/DefaultSeo'
-import Footer from '@/components/Footer'
-// import Navbar from '@/components/Navbar'
+import DefaultSeo from '@/components/SEO/DefaultSeo';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
-const TemplateWrapper = ({ children }) => {
+const Layout = ({ nav = false, children }) => {
   return (
-    <div>
+    <>
       <DefaultSeo />
-      <div className='h-screen'>
-        {/* <Navbar /> */}
+      <div className='min-h-screen flex flex-col dark:bg-black bg-white '>
+        {nav && <Header />}
         <main className='wrapper'>{children}</main>
         <Footer />
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default TemplateWrapper
+export default Layout;

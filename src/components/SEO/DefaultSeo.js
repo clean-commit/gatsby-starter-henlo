@@ -1,31 +1,14 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { useLocation } from '@reach/router'
-import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useLocation } from '@reach/router';
+import metadata from '../../settings/seo.json';
 
-function DefaultSeo() {
-  const meta = useStaticQuery(graphql`
-    query DefaultSeoQuery {
-      site {
-        siteMetadata {
-          title
-          separator
-          baseTitle
-          twitterHandle
-          lang
-          description
-          keyword
-          image
-          themeColor
-        }
-      }
-    }
-  `)
-  const metadata = meta.site.siteMetadata
-  const title = metadata.title
-  const lang = metadata.lang
-  const { pathname } = useLocation()
-  const image = `${metadata.siteUrl}${metadata.image}`
+export default function DefaultSeo() {
+  metadata.siteUrl = process.env.GATSBY_APP_URL;
+  const title = metadata.title;
+  const lang = metadata.lang;
+  const { pathname } = useLocation();
+  const image = `${metadata.siteUrl}${metadata.image}`;
   return (
     <Helmet
       title={title}
@@ -128,7 +111,5 @@ function DefaultSeo() {
         content='/img/favicons/ms-icon-144x144.png'
       />
     </Helmet>
-  )
+  );
 }
-
-export default DefaultSeo

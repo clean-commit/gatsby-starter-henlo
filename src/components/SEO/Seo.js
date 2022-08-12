@@ -1,29 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
+import * as seoData from '../../settings/seo.json';
 
-function Seo({ data, children }) {
-  const meta = useStaticQuery(graphql`
-    query MetaDataQuery {
-      site {
-        siteMetadata {
-          title
-          separator
-          baseTitle
-          description
-          keyword
-          image
-        }
-      }
-    }
-  `);
-
-  const metadata = meta.site.siteMetadata;
+export default function Seo({ data, children }) {
+  const metadata = { ...seoData, siteUrl: process.env.GATSBY_APP_URL };
   const metaDescription = data.description || metadata.description;
   const title = data.title || metadata.title;
-  const image = data.image
-    ? `${metadata.siteUrl}${getSrc(data.image)}`
+  const image = data?.ogimage?.childImageSharp
+    ? `${metadata.siteUrl}${getSrc(data.ogimage)}`
     : `${metadata.siteUrl}${metadata.image}`;
 
   const fullTitle = `${title} ${metadata.separator} ${metadata.baseTitle}`;
@@ -44,14 +30,12 @@ function Seo({ data, children }) {
   );
 }
 
-export default Seo;
-
 export const query = graphql`
   fragment SEO on MarkdownRemarkFrontmatter {
     seo {
       title
       description
-      image {
+      ogimage {
         childImageSharp {
           gatsbyImageData(
             width: 1200

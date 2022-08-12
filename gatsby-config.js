@@ -1,24 +1,33 @@
 const path = require('path');
-const tailwind = require('tailwindcss');
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter',
-    separator: '|',
-    baseTitle: 'Henlo.',
-    lang: 'en',
-    twitterHandle: '@cleancommit',
-    siteUrl: `localhost:8000`,
-    image: '',
-    themeColor: '#fff',
-    keyword: 'gatsby-starter, blazing fast static site',
-    description: 'Blazing fast static site with Henlo',
+    siteUrl: process.env.GATSBY_APP_URL,
   },
   plugins: [
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-preload-fonts',
     'gatsby-plugin-image',
+    'gatsby-plugin-dark-mode',
+    'gatsby-plugin-postcss',
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: false,
+        tailwind: true,
+        purgeCSSOptions: {
+          safelist: {
+            standard: [],
+            deep: [],
+          },
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-brotli',
     },
@@ -45,6 +54,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        resolveSiteUrl: () => process.env.GATSBY_APP_URL,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img`,
@@ -60,26 +75,6 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        postCssPlugins: [tailwind, require('./tailwind.config.js')],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,
-        develop: false,
-        tailwind: true,
-        purgeCSSOptions: {
-          safelist: {
-            standard: [],
-            deep: [],
-          },
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-root-import',
       options: {
         '@': path.join(__dirname, 'src'),
@@ -92,7 +87,7 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         manualInit: true,
-        modulePath: `${__dirname}/src/cms/cms.js`,
+        modulePath: `${__dirname}/cms/cms.js`,
       },
     },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
