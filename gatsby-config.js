@@ -4,6 +4,9 @@ require('dotenv').config({
 });
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: process.env.GATSBY_APP_URL,
+  },
   plugins: [
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
