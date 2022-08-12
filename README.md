@@ -1,21 +1,25 @@
-# Henlo (v0.6.0)
+![Henlo Starter](https://repository-images.githubusercontent.com/270961687/4085d990-9083-451d-b39b-5316579adf09)
+
+# Gatsby Starter Henlo (v1.0.0)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
-[Official Website / Demo](https://henlo.netlify.app/)
+[Official Website / Demo](http://henlo.cleancommit.io)
 
-**Note:** This starter uses [Gatsby v4](https://www.gatsbyjs.com/blog/gatsby-v4/) with updated `gatsby-plugin-image`.
+Gatsby Starter Henlo is the most advanced Netlify CMS starter for Gatsby.js. We built it with Page Builder setup in mind. All pages are created out of programmable blocks, aiming to provide the best DX & admin UX possible.
 
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.com/docs/), and [Netlify CMS](https://www.netlifycms.org).
+This repo contains an example website that is built with [Gatsby](https://www.gatsbyjs.com/docs/), and [Netlify CMS](https://www.netlifycms.org).
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
 ## Features
 
 - Battle-tested starting point for small & large web projects
-- Starter for pages and collections CMS configuration with Netlify CMS
+- Example pages, collections, CMS configuration with Netlify CMS & hooks
 - Easy Netlify CMS configuration using [Manual Initialization](https://www.netlifycms.org/docs/beta-features/#manual-initialization)
-- Built in Tailwind with SCSS and `purge-css-plugin`
+- Form Builder that enables Admins to create multiple forms with ease!
+- TailwindCSS support with PostCSS processing
+- Support for Gatsby API functions
 - Built in sitemaps
 - Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
 - Uses `gatsby-plugin-image`
@@ -35,7 +39,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Getting Started (Recommended)
 
-Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [Gatsby Starter Netlify CMS](https://github.com/netlify-templates/gatsby-starter-netlify-cms)). Use the button below to build and deploy your own copy of the repository:
+Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. Use the button below to build and deploy your own copy of the repository:
 
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/clean-commit/gatsby-starter-henlo"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
@@ -56,13 +60,10 @@ Pulldown a local copy of the Github repository Netlify created for you, with the
 ```
 $ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
 $ cd [REPO_NAME]
-$ yarn
-$ netlify dev
+$ yarn && yarn start
 ```
 
-This uses the new [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=blog&utm_medium=netlifycms&utm_campaign=devex) CLI feature to serve any functions you have in the `lambda` folder.
-
-To test the CMS locally, you'll need run a production build of the site:
+To test the CMS locally, you'll need run a production build of the site & run local instance of Netlify CMS
 
 ```
 $ yarn build
