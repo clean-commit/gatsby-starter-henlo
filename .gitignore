@@ -7,6 +7,9 @@ public/
 static/admin/*.bundle.*
 .DS_Store
 yarn-error.log
+.env.*
+!.env.example
+!.env.development
 
 # Local Netlify folder
 .netlify

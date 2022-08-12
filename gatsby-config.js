@@ -1,5 +1,4 @@
 const path = require('path');
-const tailwind = require('tailwindcss');
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -11,6 +10,21 @@ module.exports = {
     'gatsby-plugin-preload-fonts',
     'gatsby-plugin-image',
     'gatsby-plugin-dark-mode',
+    'gatsby-plugin-postcss',
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: false,
+        tailwind: true,
+        purgeCSSOptions: {
+          safelist: {
+            standard: [],
+            deep: [],
+          },
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-brotli',
     },
@@ -37,6 +51,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        resolveSiteUrl: () => process.env.GATSBY_APP_URL,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img`,
@@ -51,26 +71,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        postCssPlugins: [tailwind, require('./tailwind.config.js')],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,
-        develop: false,
-        tailwind: true,
-        purgeCSSOptions: {
-          safelist: {
-            standard: [],
-            deep: [],
-          },
-        },
-      },
-    },
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
