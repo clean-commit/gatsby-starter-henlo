@@ -8,7 +8,10 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(
+        limit: 3000
+        filter: { frontmatter: { layout: { nin: ["hidden", null] } } }
+      ) {
         edges {
           node {
             id
@@ -33,10 +36,9 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) => {
-      return edge.node.frontmatter.layout == null ||
-        edge.node.frontmatter.layout == 'hidden'
-        ? false
-        : true;
+      let layout = edge.node.frontmatter.layout;
+      const excludes = [null, 'hidden', 'Category'];
+      return excludes.indexOf(layout) === -1 ? true : false;
     });
 
     postOrPage.forEach((edge) => {
