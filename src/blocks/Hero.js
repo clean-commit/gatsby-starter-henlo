@@ -5,7 +5,6 @@ import Container from '../components/UI/Container';
 import Text from '../components/UI/Text';
 
 export default function Hero({ data }) {
-  console.log(data);
   const isCentered = data?.variant === 'centered';
   const isFull = data?.variant === 'full';
   return (

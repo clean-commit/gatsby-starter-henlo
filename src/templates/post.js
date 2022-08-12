@@ -7,7 +7,6 @@ import Layout from '@/components/Layout';
 import SEO from '@/components/SEO/Seo';
 
 const Post = ({ data }) => {
-  console.log(data);
   return (
     <Layout nav={true}>
       <SEO data={data.post.frontmatter.seo}>

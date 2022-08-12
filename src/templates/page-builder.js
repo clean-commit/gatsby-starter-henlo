@@ -8,7 +8,6 @@ import PageBuilder from '@/components/PageBuilder';
 import SEO from '@/components/SEO/Seo';
 
 const Page = ({ data }) => {
-  console.log(data);
   return (
     <Layout nav={true}>
       <SEO data={data.page.frontmatter.seo}>

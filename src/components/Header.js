@@ -6,7 +6,6 @@ import DarkmodeToggle from './DarkmodeToggle';
 import Container from './UI/Container';
 
 export default function Header() {
-  console.log(nav);
   return (
     <header className='flex h-16 border-b bg-white text-black dark:border-zinc-800 dark:bg-black dark:text-white'>
       <Container className='m-auto flex items-center justify-between gap-20'>
