@@ -7898,7 +7898,7 @@ gatsby-plugin-root-import@^2.0.6:
   resolved "https://registry.npmjs.org/gatsby-plugin-root-import/-/gatsby-plugin-root-import-2.0.8.tgz"
   integrity sha512-y07q3c+Pz1qoW3XdkAvl5PbO2+gc0GhcfZYq+Msw2JBe5M+FSByhQVDhZYCVMRVZz0qx6L4qr3w3i04/k4S2HA==
 
-gatsby-plugin-sharp@^4.9.0:
+gatsby-plugin-sharp@^4.24.0:
   version "4.24.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.24.0.tgz#30fa66295105096b476371dfb36062c1dc7456db"
   integrity sha512-wVs8F9zLeiLf02yLi8vjse1vqSrZsx2u3RsMhoSv1bEinyaI5bcoLZ7mMJCsEeZe2G9mvNrPi4Ymhh/YzgxYCg==
@@ -8115,7 +8115,7 @@ gatsby-worker@^1.24.0:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@^4.9.2:
+gatsby@^4.24.0:
   version "4.24.4"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.24.4.tgz#48db456e812cc6ffd1f8180d393a5b01f4a9e03e"
   integrity sha512-jUC5X3xspNKTGp5ADlwP7q1I9kZai9mS+cPkEZJvSetdAB5AZjYY867OxwBgj0awt/E1+f8AG255zanK7Nvwtg==
