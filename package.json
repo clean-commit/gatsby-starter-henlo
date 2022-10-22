@@ -7,7 +7,7 @@
     "defaults"
   ],
   "dependencies": {
-    "babel-preset-gatsby": "^1.0.0",
+    "babel-preset-gatsby": "^2.24.0",
     "classnames": "^2.2.6",
     "gatsby": "^4.24.0",
     "gatsby-plugin-brotli": "^2.1.0",
