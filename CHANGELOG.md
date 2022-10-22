@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.0.1 - October 22, 2022
+
+**Minor changes**
+
+- Packages bumped
+- Dependabot changes
+
+## 1.0.0 - August 12, 2022
+
+Complete overhaul of the previous starters.
+
+New features:
+
+- 💪 Battle-tested starting point for small & large web projects
+- 📄 Form Builder that enables Admins to create multiple forms with ease & Netlify Forms integration.
+- 🌗 Darkmode support
+- 🗺 Sitemaps using `gatsby-plugin-sitemap`
+- 💇‍♀️ TailwindCSS support with PostCSS processing & PurgeCSS
+- 🔌 Support for Gatsby API functions
+- 🕵️‍♂️ Complete SEO configuration with graphql fragment and reusable components
+  ..and more
+
 ## 0.6.0 - March 7, 2021
 
 **BREAKING CHANGES**
