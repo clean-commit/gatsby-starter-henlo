@@ -6,7 +6,7 @@ export const useRecentArticles = () => {
     graphql`
       query RecentArticlesQuery {
         allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
+          sort: { frontmatter: { date: DESC } }
           filter: { frontmatter: { type: { eq: "post" } } }
           limit: 3
         ) {
