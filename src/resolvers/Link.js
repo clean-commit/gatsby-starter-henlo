@@ -1,12 +1,18 @@
-import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
+import React from 'react'
+import { Link as GatsbyLink } from 'gatsby'
 
 export default function Link({ to, className, children, ...props }) {
-  const internal = /^\/(?!\/)/.test(to);
+  const internal = /^\/(?!\/)/.test(to)
   return (
     <>
       {!internal ? (
-        <a href={to} className={className} target='_blank' {...props}>
+        <a
+          href={to}
+          className={className}
+          target="_blank"
+          {...props}
+          rel="noopener noreferrer"
+        >
           {children}
         </a>
       ) : (
@@ -15,5 +21,5 @@ export default function Link({ to, className, children, ...props }) {
         </GatsbyLink>
       )}
     </>
-  );
+  )
 }

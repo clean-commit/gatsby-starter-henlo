@@ -36,7 +36,7 @@ export default function DefaultHead({ data, children }) {
       <meta name="theme-color" content={metadata.themeColor} />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="canonical" href={`${metadata.siteUrl}${pathname}`} />
-      <link rel="manifest" href="/img/favicons/site.webmanifest" />
+      <link rel="manifest" href="/img/favicons/manifest.json" />
       <link
         rel="apple-touch-icon"
         sizes="57x57"

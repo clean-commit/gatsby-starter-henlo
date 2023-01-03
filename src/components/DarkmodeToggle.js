@@ -7,7 +7,7 @@ export default function DarkmodeToggle() {
       {({ theme, toggleTheme }) => {
         return (
           <button
-            onClick={(e) => toggleTheme(theme == 'light' ? 'dark' : 'light')}
+            onClick={(e) => toggleTheme(theme === 'light' ? 'dark' : 'light')}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
