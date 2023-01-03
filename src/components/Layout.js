@@ -1,20 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import DefaultSeo from '@/components/SEO/DefaultSeo';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 
 const Layout = ({ nav = false, children }) => {
   return (
     <>
-      <DefaultSeo />
-      <div className='min-h-screen flex flex-col dark:bg-black bg-white '>
+      <div className="min-h-screen flex flex-col dark:bg-black bg-white ">
         {nav && <Header />}
-        <main className='wrapper'>{children}</main>
+        <main className="wrapper">{children}</main>
         <Footer />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

@@ -1,22 +1,18 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 
-import Layout from '@/components/Layout';
-import PageBuilder from '@/components/PageBuilder';
-
-import SEO from '@/components/SEO/Seo';
+import Layout from '@/components/Layout'
+import PageBuilder from '@/components/PageBuilder'
+import DefaultHead from '../components/Head/DefaultHead'
 
 const Page = ({ data }) => {
   return (
     <Layout nav={true}>
-      <SEO data={data.page.frontmatter.seo}>
-        <meta property='og:type' content='website' />
-      </SEO>
       <PageBuilder blocks={data.page.frontmatter.blocks} />
     </Layout>
-  );
-};
+  )
+}
 
 Page.propTypes = {
   data: PropTypes.shape({
@@ -24,9 +20,15 @@ Page.propTypes = {
       frontmatter: PropTypes.object,
     }),
   }),
-};
+}
 
-export default Page;
+export default Page
+
+export const Head = ({ data }) => (
+  <DefaultHead data={data.page.frontmatter.seo}>
+    <meta id="type" property="og:type" content="website" />
+  </DefaultHead>
+)
 
 export const basicPageQuery = graphql`
   query BasicPage($id: String!) {
@@ -40,8 +42,8 @@ export const basicPageQuery = graphql`
         id
         title
         ...Blocks
-        ...SEO
+        ...Seo
       }
     }
   }
-`;
+`

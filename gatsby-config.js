@@ -1,11 +1,14 @@
-const path = require('path');
+const path = require('path')
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.GATSBY_APP_URL,
+  },
+  flags: {
+    DEV_SSR: true,
   },
   plugins: [
     'gatsby-plugin-sharp',
@@ -14,20 +17,6 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-dark-mode',
     'gatsby-plugin-postcss',
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,
-        develop: false,
-        tailwind: true,
-        purgeCSSOptions: {
-          safelist: {
-            standard: [],
-            deep: [],
-          },
-        },
-      },
-    },
     {
       resolve: 'gatsby-plugin-brotli',
     },
@@ -56,7 +45,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        resolveSiteUrl: () => process.env.GATSBY_APP_URL,
+        resolveSiteUrl: () =>
+          process.env.GATSBY_APP_URL || 'https://www.example.com',
       },
     },
     {
@@ -73,7 +63,6 @@ module.exports = {
         name: 'pages',
       },
     },
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
@@ -92,4 +81,4 @@ module.exports = {
     },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
-};
+}
