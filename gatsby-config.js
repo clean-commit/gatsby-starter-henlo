@@ -5,7 +5,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: process.env.GATSBY_APP_URL,
+    siteUrl: process.env.GATSBY_APP_URL || 'http://localhost:8000',
   },
   flags: {
     DEV_SSR: true,
