@@ -20,7 +20,7 @@ blocks:
       - button:
           variant: default
           content: Documentation
-          url: /docs/
+          url: https://github.com/clean-commit/gatsby-starter-henlo
   - type: perks
     title: Features
     columns:
