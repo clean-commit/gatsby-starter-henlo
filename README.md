@@ -1,6 +1,6 @@
 ![Henlo Starter](https://repository-images.githubusercontent.com/270961687/4085d990-9083-451d-b39b-5316579adf09)
 
-# Gatsby Starter Henlo (v1.0.0)
+# Gatsby Starter Henlo (v1.1.0)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
@@ -14,15 +14,16 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Features
 
+- Support for Gatsby v5
 - 💪 Battle-tested starting point for small & large web projects
 - 📄 Form Builder that enables Admins to create multiple forms with ease & Netlify Forms integration.
 - 🌗 Darkmode support
 - 🗺 Sitemaps using `gatsby-plugin-sitemap`
 - 🔥 Perfect score on Lighthouse for SEO, Accessibility and Performance
-- 💇‍♀️ TailwindCSS support with PostCSS processing & PurgeCSS
+- 💇‍♀️ TailwindCSS support with PostCSS
 - 🔌 Support for Gatsby API functions
 - 🎇 Crazy fast images with `gatsby-plugin-image`
-- 🕵️‍♂️ Complete SEO configuration with graphql fragment and reusable components
+- 🕵️‍♂️ Complete SEO configuration with graphql fragment and reusable components based on Head API
 - Netlify deploy configuration
 - Example pages, collections, CMS configuration with Netlify CMS & hooks
 - Readme template for custom projects
@@ -31,7 +32,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Prerequisites
 
-- Node 16.13
+- Node 18
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
 - [Netlify CLI](https://github.com/netlify/cli)
 
@@ -48,7 +49,7 @@ After clicking that button, you’ll authenticate with GitHub and choose a repos
 ```
 $ gatsby new [SITE_DIRECTORY_NAME] https://github.com/clean-commit/gatsby-starter-henlo
 $ cd [SITE_DIRECTORY_NAME]
-$ yarn start
+$ yarn dev
 ```
 
 ### Access Locally
@@ -58,13 +59,13 @@ Pulldown a local copy of the Github repository Netlify created for you, with the
 ```
 $ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
 $ cd [REPO_NAME]
-$ yarn && yarn start
+$ yarn && yarn dev
 ```
 
 To test the CMS locally, you'll need run a production build of the site & [run local instance of Netlify CMS](https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository)
 
 ```
-$ yarn start
+$ yarn dev
 $ npx netlify-cms-proxy-server
 ```
 
@@ -113,6 +114,7 @@ The website will build locally and then deploy to production.
 │       └── post.js
 ├── static
 ├── _headers
+├── .env.example             # Example env -> GATSBY_APP_URL is required to run the app
 ├── gatsby-config.js         # Config files for gatsby
 ├── gatsby-node.js           # Page generation setup
 └── tailwind.config.js       # Tailwind configuration
@@ -121,6 +123,9 @@ The website will build locally and then deploy to production.
 ### Setting up the CMS
 
 Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting.
+
+**Important**
+This template can be mostly changed by the user within the CMS itself (Settings type). For sitemaps to work correctly, you'll need to provide ENV variable `GATSBY_APP_URL` which defaults to https://example.com, this url will be used in setting up meta values in the head of the documents and links URL in the CMS.
 
 CMS configuration was placed within `cms` directory in the root of the project. This allows us to work efficiently on fields and collections without mixing CMS config with Gatsby code.
 
@@ -250,7 +255,7 @@ Favicons can be generated using this [Favicon Generator](https://www.favicon-gen
 Since 0.4.0 Henlo supports [`gatsby-plugin-preload-fonts`](https://www.gatsbyjs.com/plugins/gatsby-plugin-preload-fonts/) plugin out of the box. To create the preload cache you need to start development server and then run `preload-fonts` command. This will generate the `font-preload-cache.json` file in the root of your project. When your projects builds fonts will be added automatically to head of the document.
 
 ```
-yarn start
+yarn dev
 yarn preload-fonts
 ```
 
@@ -258,28 +263,6 @@ yarn preload-fonts
 
 Gatsby tends to add a lot of polyfills to support older browser versions. In package.json file you can adjust which sites your project should support. As default Henlo will use `defaults` setting. If you want to learn more about the browser support visit official [Gatsby How-To Guide on this subject](https://www.gatsbyjs.com/docs/how-to/custom-configuration/browser-support/)
 
-## PurgeCSS
-
-This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [Tailwind](https://tailwindcss.com/). The builds are usually ~780K but reduced 98% by purgecss. Normally our websites won't cross 30Kb of CSS.
-
-Since Henlo v0.5.0 we use PurgeCSS v4, the default configuration is already included, to learn more [check purgecss docs](https://purgecss.com/configuration.html) or [check gatsby-plugin-purgecss documentation](https://www.gatsbyjs.com/plugins/gatsby-plugin-purgecss/)
-
-```javascript
-{
-  resolve: `gatsby-plugin-purgecss`,
-  options: {
-    printRejected: true,
-    develop: false,
-    tailwind: true,
-    purgeCSSOptions: {
-      safelist: {
-        standard: [],
-        deep: [],
-      },
-    },
-  },
-},
-```
 
 # CONTRIBUTING
 

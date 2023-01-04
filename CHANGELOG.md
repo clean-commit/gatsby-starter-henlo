@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.1.0 - January 4, 2022
+
+**BREAKING CHANGES**
+- Support for Gatsby v5 added
+- `react-helmet` removed, SEO partials moved to Head API
+- `yarn start` renamed to `yarn dev`
+
+**Minor changes**
+- `classnames` removed, `clsx` added
+- Language definition added to `gatsby-ssr.js`
+- Removed unnused packages
+
+**Bug Fixes**
+- Improved darkmode toggle component - issue with hydration
+- Resolved minor warnings issues
+
 ## 1.0.1 - October 22, 2022
 
 **Minor changes**
