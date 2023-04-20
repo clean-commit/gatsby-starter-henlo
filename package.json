@@ -17,7 +17,7 @@
     "gatsby-plugin-postcss": "^6.3.0",
     "gatsby-plugin-preload-fonts": "^4.3.1",
     "gatsby-plugin-root-import": "^2.0.6",
-    "gatsby-plugin-sharp": "^5.3.2",
+    "gatsby-plugin-sharp": "^5.8.1",
     "gatsby-plugin-sitemap": "^6.3.1",
     "gatsby-plugin-svgr-loader": "^0.1.0",
     "gatsby-remark-copy-linked-files": "^6.3.0",
