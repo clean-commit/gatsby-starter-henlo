@@ -115,7 +115,7 @@ The website will build locally and then deploy to production.
 ├── _headers
 ├── .env.example             # Example env -> GATSBY_APP_URL is required to run the app
 ├── gatsby-config.js         # Config files for gatsby
-├── gatsby-node.js           # Page generation setup
+├── gatsby-node.js           # Page generation setup & types interferrence
 └── tailwind.config.js       # Tailwind configuration
 ```
 
