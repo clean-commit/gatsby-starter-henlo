@@ -1,6 +1,10 @@
 {
   "nav": [
     {
+      "name": "Example Blog",
+      "permalink": "/blog/"
+    },
+    {
       "name": "Documentation",
       "permalink": "https://github.com/clean-commit/gatsby-starter-henlo"
     }

@@ -3,6 +3,38 @@ const path = require('path');
 const fs = require('fs');
 const { createFilePath } = require('gatsby-source-filesystem');
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const defs = `
+  type MarkdownRemark implements Node {
+      frontmatter: MarkdownRemarkFrontmatter
+  }
+  
+  type MarkdownRemarkFrontmatter {
+    id: String
+    title: String
+    seo: MarkdownRemarkFrontmatterSeo
+    blocks: [MarkdownRemarkFrontmatterBlocks]
+  }
+  
+  type MarkdownRemarkFrontmatterBlocks {
+    type: String
+    photo: MarkdownRemarkFrontmatterBlocksPhoto
+  }
+
+  type MarkdownRemarkFrontmatterBlocksPhoto @dontInfer  {
+    alt: String
+    image: File @fileByRelativePath
+  }
+
+  type MarkdownRemarkFrontmatterSeo {
+    title: String
+    description: String
+    ogimage: File @fileByRelativePath
+  }`;
+  createTypes(defs);
+};
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
@@ -94,15 +126,4 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       },
     },
   });
-};
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-  const defs = `
-  type MarkdownRemarkFrontmatterSeo @infer {
-    title: String
-    description: String
-    image: File
-  }`;
-  createTypes(defs);
 };
