@@ -13,6 +13,4 @@ blocks:
     variant: default
   - type: recentArticles
     title: Recent Articles
-seo:
-  ogimage: /img/henlo-cover.png
 ---
