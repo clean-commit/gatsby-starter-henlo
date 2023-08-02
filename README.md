@@ -94,8 +94,7 @@ The website will build locally and then deploy to production.
 │   ├── authors
 │   ├── blog
 │   ├── forms
-│   ├── pages
-│   └── dont-remove.md
+│   └── pages
 ├── public
 ├── src
 │   ├── api                  # Gatsby functions should be placed here
