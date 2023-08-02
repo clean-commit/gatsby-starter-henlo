@@ -4,18 +4,12 @@ type: post
 layout: post
 title: Philosophy behind Henlo.
 permalink: /blog/hello-world/
-thumbnail: /img/tezos-wpn1xnccgpw-unsplash.jpg
+thumbnail: /img/henlo-cover.png
 date: 2022-05-11T19:16:41.067Z
 author: a1d1172a-8736-47c1-831d-3e508729fee2
 excerpt: If you’re a WordPress developer then you must have heard about a plugin
   called Advanced Custom Fields and a Flexible Content field that allows editors
   to generate new pages easily.
-seo:
-  ogimage: /img/tezos-wpn1xnccgpw-unsplash.jpg
-  title: Hello World
-  description: If you’re a WordPress developer then you must have heard about a
-    plugin called Advanced Custom Fields and a Flexible Content field that
-    allows editors to generate new pages easily.
 ---
 
 If you’re a WordPress developer then you must have heard about a plugin called Advanced Custom Fields and a Flexible Content field that allows editors to generate new pages easily.
