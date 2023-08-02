@@ -1,6 +1,6 @@
 ![Henlo Starter](https://repository-images.githubusercontent.com/270961687/4085d990-9083-451d-b39b-5316579adf09)
 
-# Gatsby Starter Henlo (v1.1.0)
+# Gatsby Starter Henlo (v1.1.1)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
