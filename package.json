@@ -8,7 +8,7 @@
   ],
   "dependencies": {
     "clsx": "^1.2.1",
-    "gatsby": "^5.3.3",
+    "gatsby": "^5.9.1",
     "gatsby-plugin-brotli": "^2.1.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-image": "^3.3.2",
