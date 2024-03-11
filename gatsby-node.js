@@ -13,8 +13,34 @@ exports.createSchemaCustomization = ({ actions }) => {
   type MarkdownRemarkFrontmatter {
     id: String
     title: String
+    author: String
+    thumbnail: File @fileByRelativePath @dontInfer
     seo: MarkdownRemarkFrontmatterSeo
+    rows: [MarkdownRemarkFrontmatterRows]
     blocks: [MarkdownRemarkFrontmatterBlocks]
+  }
+
+  type MarkdownRemarkFrontmatterRows {
+    position: String
+    fields: [MarkdownRemarkFrontmatterRowsFields]
+  }
+
+  type MarkdownRemarkFrontmatterRowsFields {
+    type: String
+    input_type: String
+    required: Boolean
+    label: String
+    autocomplete: String
+    content: String
+    value: String
+    placeholder: String
+    button: MarkdownRemarkFrontmatterRowsFieldsButton
+  }
+
+  type MarkdownRemarkFrontmatterRowsFieldsButton {
+    variant: String
+    content: String
+    url: String
   }
   
   type MarkdownRemarkFrontmatterBlocks {
