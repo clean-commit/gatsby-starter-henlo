@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from '@/components/UI/Container'
+import Section from '@/components/UI/Section'
 import Text from '@/components/UI/Text'
 
 export default function Content({ data }) {

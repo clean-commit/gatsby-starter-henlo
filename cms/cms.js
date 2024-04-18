@@ -1,12 +1,13 @@
-import CMS from 'decap-cms-app';
-import { Widget as UuidWidget } from 'netlify-cms-widget-id';
-import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink';
-
-import pages from './collections/pages';
-import posts from './collections/posts';
-import authors from './collections/authors';
-import settings from './collections/settings';
-import PagePreview from './previews/Page';
+import CMS from 'decap-cms-app'
+import { Widget as UuidWidget } from 'netlify-cms-widget-id'
+import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink'
+import authors from './collections/authors'
+import forms from './collections/forms'
+import pages from './collections/pages'
+import posts from './collections/posts'
+import settings from './collections/settings'
+import FormPreview from './previews/FormPreview'
+import PagePreview from './previews/Page'
 
 const config = {
   config: {
@@ -23,9 +24,14 @@ const config = {
     },
     media_folder: '/static/img',
     public_folder: '/img',
-    collections: [pages, posts, authors, settings],
+    collections: [pages, posts, authors, forms, settings],
   },
-};
+}
+
+
+CMS.registerPreviewStyle('../commons.css')
+CMS.registerPreviewTemplate('pages', PagePreview)
+CMS.registerPreviewTemplate('forms', FormPreview)
 
 const injectCustomStyle = () => {
   const style = document.createElement('style')
@@ -39,10 +45,7 @@ const injectCustomStyle = () => {
 
 injectCustomStyle()
 
-CMS.registerPreviewStyle('../commons.css');
-CMS.registerPreviewTemplate('pages', PagePreview);
+CMS.registerWidget(UuidWidget)
+CMS.registerWidget(PermalinkWidget)
 
-CMS.registerWidget(UuidWidget);
-CMS.registerWidget(PermalinkWidget);
-
-CMS.init(config);
+CMS.init(config)

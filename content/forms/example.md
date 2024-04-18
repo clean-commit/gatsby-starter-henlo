@@ -51,14 +51,5 @@ rows:
   - fields:
       - type: submit
         label: Take the first step
-      - type: button
-        button:
-          variant: default
-          content: Let's go to google!!
-          url: 'https://google.com'
     position: center
-  - position: bottom
-    fields:
-      - type: text
-        content: Yo yo yo
 ---
