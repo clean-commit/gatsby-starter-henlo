@@ -6,6 +6,12 @@
 
 - VariantField renamed to SelectField
 
+** Fixes **
+
+- Adding Forms components
+- Forms preview is now working
+- Forms collection added to the CMS
+
 **Improvments**
 
 - Updated packages to Decap CMS
