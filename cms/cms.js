@@ -1,4 +1,4 @@
-import CMS from 'netlify-cms-app';
+import CMS from 'decap-cms-app';
 import { Widget as UuidWidget } from 'netlify-cms-widget-id';
 import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink';
 
@@ -7,8 +7,6 @@ import posts from './collections/posts';
 import authors from './collections/authors';
 import settings from './collections/settings';
 import PagePreview from './previews/Page';
-
-window.CMS_MANUAL_INIT = true;
 
 const config = {
   config: {

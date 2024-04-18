@@ -1,3 +1,8 @@
+import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export const cn = (...classes) => twMerge(clsx(...classes))
+
 export function slugify(str, replace = '-') {
   return str
     .normalize('NFD')
@@ -6,19 +11,19 @@ export function slugify(str, replace = '-') {
     .trim()
     .replace(/[^\w^/\s-]/g, '')
     .replace(/[\s_-]+/g, replace)
-    .replace(/^-+|-+$/g, '');
+    .replace(/^-+|-+$/g, '')
 }
 
 export function handleGoal(id) {
-  if (!id) return false;
-  let val = 0;
+  if (!id) return false
+  let val = 0
   if (typeof window === 'undefined' || typeof window.fathom === 'undefined') {
-    return;
+    return
   }
 
   if (typeof fathom === 'object') {
-    window.fathom.trackGoal(id, val);
+    window.fathom.trackGoal(id, val)
   } else {
-    window.fathom('trackGoal', id, val);
+    window.fathom('trackGoal', id, val)
   }
 }

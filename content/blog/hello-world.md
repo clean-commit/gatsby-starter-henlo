@@ -16,9 +16,9 @@ If you’re a WordPress developer then you must have heard about a plugin called
 
 When I started to move more into JAMStack I wanted to recreate ACF’s Flexible Content field in Gatsby. It's possible to use WordPress as a headless CMS and some headless CMS have implemented some sort of an alternative. Prismic has Slices (unfortunately you can’t create multiple repeatable fields within fields).
 
-For smaller projects WordPress or Prismic may be too complex. In such cases, I usually go with my favorite flat-file CMS - Netlify CMS.
+For smaller projects WordPress or Prismic may be too complex. In such cases, I usually go with my favorite flat-file CMS - Decap CMS.
 
-Netlify CMS offers everything you need, it’s open-source and free to use. The only thing missing? Flexible Content field. Fortunately, with beta features - Manual Initialization and Variable Types for List fields we can easily create a solution that copies ACF's Flexible Content.
+Decap CMS offers everything you need, it’s open-source and free to use. The only thing missing? Flexible Content field. Fortunately, with beta features - Manual Initialization and Variable Types for List fields we can easily create a solution that copies ACF's Flexible Content.
 
 ## Why using flexible content is a great idea?
 

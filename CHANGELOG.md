@@ -1,18 +1,40 @@
 # Changelog
 
+## 1.2.0 - April 18, 2024
+
+**BREAKING CHANGES**
+
+- VariantField renamed to SelectField
+
+**Improvments**
+
+- Updated packages to Decap CMS
+- Updated Readme urls to reflect the changes
+- Node version changed to v20.11.0
+- Section component added to support custom spacing for sections
+- Added support for tailwind-merge with new `cn()` helper function
+- Prettier config added fo
+
+**Minor changes**
+
+- Bumped Gatsby to 5.13.4
+
 ## 1.1.0 - January 4, 2022
 
 **BREAKING CHANGES**
+
 - Support for Gatsby v5 added
 - `react-helmet` removed, SEO partials moved to Head API
 - `yarn start` renamed to `yarn dev`
 
 **Minor changes**
+
 - `classnames` removed, `clsx` added
 - Language definition added to `gatsby-ssr.js`
 - Removed unnused packages
 
 **Bug Fixes**
+
 - Improved darkmode toggle component - issue with hydration
 - Resolved minor warnings issues
 

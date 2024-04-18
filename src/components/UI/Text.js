@@ -1,6 +1,6 @@
-import clsx from 'clsx'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import { cn } from '@/lib/helper'
 
 export default function Text({ children, className, ...props }) {
   return (
@@ -12,7 +12,7 @@ export default function Text({ children, className, ...props }) {
           </a>
         ),
       }}
-      className={clsx('prose dark:prose-invert ', className)}
+      className={cn('prose dark:prose-invert ', className)}
       {...props}
     >
       {children}

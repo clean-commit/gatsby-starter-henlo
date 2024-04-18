@@ -1,9 +1,8 @@
 import React from 'react'
-import nav from '../settings/main.json'
-import Link from '../resolvers/Link'
-
 import DarkmodeToggle from './DarkmodeToggle'
 import Container from './UI/Container'
+import Link from '@/resolvers/Link'
+import nav from '@/settings/main.json'
 
 export default function Header() {
   return (
