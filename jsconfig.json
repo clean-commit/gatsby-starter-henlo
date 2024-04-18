@@ -4,7 +4,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "~/*": ["./*"],
-      "img": ["./static/img/*"]
+      "img/*": ["./static/img/*"]
     }
   },
   "exclude": ["node_modules"]
