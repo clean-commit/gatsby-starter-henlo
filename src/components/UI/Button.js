@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from '../../resolvers/Link'
-import clsx from 'clsx'
+import { cn } from '@/lib/helper'
+import Link from '@/resolvers/Link'
 
 export default function Button({ className, button, children, ...props }) {
   let buttonStyle = 'group inline-block font-bold text-dark-500 dark:text-white'
@@ -20,13 +20,13 @@ export default function Button({ className, button, children, ...props }) {
       {button?.url ? (
         <Link
           to={button?.url}
-          className={clsx(buttonStyle, className)}
+          className={cn(buttonStyle, className)}
           {...props}
         >
           {children}
         </Link>
       ) : (
-        <button className={clsx(buttonStyle, className)} {...props}>
+        <button className={cn(buttonStyle, className)} {...props}>
           {children}
         </button>
       )}

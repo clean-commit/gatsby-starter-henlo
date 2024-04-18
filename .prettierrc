@@ -1,0 +1,24 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "semi": false,
+  "importOrder": [
+    "<BUILTIN_MODULES>",
+    "react",
+    "<THIRD_PARTY_MODULES>",
+    "^[./]",
+    "^(.*components.*)$",
+    "^(.*lib.*)$",
+    "^(.*resolvers.*)$",
+    "^(.*hooks.*)$",
+    "^(.*settings.*)$"
+  ],
+  "tailwindFunctions": [
+    "cn"
+  ],
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ]
+}

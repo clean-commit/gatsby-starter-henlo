@@ -1,10 +1,10 @@
-const _ = require('lodash');
-const path = require('path');
-const fs = require('fs');
-const { createFilePath } = require('gatsby-source-filesystem');
+const _ = require('lodash')
+const path = require('path')
+const fs = require('fs')
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
+  const { createTypes } = actions
   const defs = `
   type MarkdownRemark implements Node {
       frontmatter: MarkdownRemarkFrontmatter
@@ -17,7 +17,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     thumbnail: File @fileByRelativePath @dontInfer
     seo: MarkdownRemarkFrontmatterSeo
     rows: [MarkdownRemarkFrontmatterRows]
-    blocks: [MarkdownRemarkFrontmatterBlocks]
+    blocks: [Blocks]
   }
 
   type MarkdownRemarkFrontmatterRows {
@@ -43,12 +43,21 @@ exports.createSchemaCustomization = ({ actions }) => {
     url: String
   }
   
-  type MarkdownRemarkFrontmatterBlocks {
+  type Blocks {
     type: String
-    photo: MarkdownRemarkFrontmatterBlocksPhoto
+    photo: Photo
+    settings: Settings
   }
 
-  type MarkdownRemarkFrontmatterBlocksPhoto @dontInfer  {
+  type Settings {
+    variant: String
+    padding_top: String
+    padding_bottom: String
+    margin_top: String
+    margin_bottom: String
+  }
+
+  type Photo @dontInfer  {
     alt: String
     image: File @fileByRelativePath
   }
@@ -57,12 +66,12 @@ exports.createSchemaCustomization = ({ actions }) => {
     title: String
     description: String
     ogimage: File @fileByRelativePath
-  }`;
-  createTypes(defs);
-};
+  }`
+  createTypes(defs)
+}
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   return graphql(`
     {
@@ -88,23 +97,23 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then((result) => {
     if (result.errors) {
-      console.log('errors', results.errors);
-      result.errors.forEach((e) => console.error(e.toString()));
-      return Promise.reject(result.errors);
+      console.log('errors', results.errors)
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
     }
 
     const postOrPage = result.data.allMarkdownRemark.edges.filter((edge) => {
-      let layout = edge.node.frontmatter.layout;
-      const excludes = [null, 'hidden', 'Category'];
-      return excludes.indexOf(layout) === -1 ? true : false;
-    });
+      let layout = edge.node.frontmatter.layout
+      const excludes = [null, 'hidden', 'Category']
+      return excludes.indexOf(layout) === -1 ? true : false
+    })
 
     postOrPage.forEach((edge) => {
-      const id = edge.node.id;
-      let pathName = edge.node.frontmatter.permalink || edge.node.fields.slug;
+      const id = edge.node.id
+      let pathName = edge.node.frontmatter.permalink || edge.node.fields.slug
       let component = path.resolve(
         `src/templates/${String(edge.node.frontmatter.layout)}.js`,
-      );
+      )
 
       if (fs.existsSync(component)) {
         createPage({
@@ -113,33 +122,33 @@ exports.createPages = ({ actions, graphql }) => {
           context: {
             id,
           },
-        });
+        })
       }
-    });
-  });
-};
+    })
+  })
+}
 
 exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage } = actions;
-  const oldPage = Object.assign({}, page);
+  const { createPage, deletePage } = actions
+  const oldPage = Object.assign({}, page)
   if (page.path !== oldPage.path) {
-    deletePage(oldPage);
-    createPage(page);
+    deletePage(oldPage)
+    createPage(page)
   }
-};
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
       value,
-    });
+    })
   }
-};
+}
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -151,5 +160,5 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         fs: false,
       },
     },
-  });
-};
+  })
+}

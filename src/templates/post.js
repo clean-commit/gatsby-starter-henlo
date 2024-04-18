@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-
+import DefaultHead from '@/components/Head/DefaultHead'
 import Layout from '@/components/Layout'
-import DefaultHead from '../components/Head/DefaultHead'
 
 const Post = ({ data }) => {
   return (

@@ -1,11 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-
-import Hero from '@/blocks/Hero';
-import RecentArticles from '../blocks/RecentArticles';
-import ContentImage from '../blocks/ContentImage';
-import Perks from '../blocks/Perks';
-import Content from '../blocks/Content';
+import React from 'react'
+import Content from '@/blocks/Content'
+import ContentImage from '@/blocks/ContentImage'
+import Hero from '@/blocks/Hero'
+import Perks from '@/blocks/Perks'
+import RecentArticles from '@/blocks/RecentArticles'
+import { graphql } from 'gatsby'
 
 export default function PageBuilder({ blocks, preview = false }) {
   return (
@@ -14,27 +13,27 @@ export default function PageBuilder({ blocks, preview = false }) {
         blocks.map((block, i) => {
           switch (block.type) {
             case 'hero':
-              return <Hero key={i} data={block} />;
+              return <Hero key={i} data={block} />
             case 'recentArticles':
-              return <RecentArticles key={i} data={block} preview={preview} />;
+              return <RecentArticles key={i} data={block} preview={preview} />
             case 'content_image':
-              return <ContentImage key={i} data={block} preview={preview} />;
+              return <ContentImage key={i} data={block} preview={preview} />
             case 'perks':
-              return <Perks key={i} data={block} preview={preview} />;
+              return <Perks key={i} data={block} preview={preview} />
             case 'content':
-              return <Content key={i} data={block} preview={preview} />;
+              return <Content key={i} data={block} preview={preview} />
             default:
               return (
-                <div className='container mx-auto'>
-                  <div className='text-center'>
+                <div className="container mx-auto">
+                  <div className="text-center">
                     Missing Section {block.type}
                   </div>
                 </div>
-              );
+              )
           }
         })}
     </>
-  );
+  )
 }
 
 export const query = graphql`
@@ -68,6 +67,13 @@ export const query = graphql`
           variant
         }
       }
+      settings {
+        variant
+        padding_top
+        padding_bottom
+        margin_top
+        margin_bottom
+      }
     }
   }
-`;
+`

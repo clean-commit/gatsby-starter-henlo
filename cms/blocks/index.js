@@ -1,4 +1,11 @@
-import { Buttons, Title, Content, VariantField, ImageField } from '../fields';
+import {
+  Buttons,
+  Title,
+  Content,
+  SelectField,
+  ImageField,
+  SettingsGroup,
+} from '../fields';
 
 const Config = {
   label: 'Blocks',
@@ -13,7 +20,8 @@ const Config = {
         Title,
         Content,
         Buttons,
-        VariantField('default', ['default', 'centered', 'full']),
+        SelectField('default', ['default', 'centered', 'full']),
+        SettingsGroup,
       ],
     },
     {
@@ -32,7 +40,8 @@ const Config = {
         Title,
         Content,
         Buttons,
-        VariantField('default', ['default', 'reversed']),
+        SelectField('default', ['default', 'reversed']),
+        SettingsGroup,
       ],
     },
     {
@@ -50,13 +59,14 @@ const Config = {
           summary: '{{fields.title}}',
           fields: [Title, Content],
         },
+        SettingsGroup,
       ],
     },
     {
       label: 'Recent Articles',
       name: 'recentArticles',
       widget: 'object',
-      fields: [Title],
+      fields: [Title, SettingsGroup],
     },
     {
       label: 'Form',
@@ -73,6 +83,7 @@ const Config = {
           value_field: 'id',
           required: false,
         },
+        SettingsGroup,
       ],
     },
   ],

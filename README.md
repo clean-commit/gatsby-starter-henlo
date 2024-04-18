@@ -1,14 +1,14 @@
 ![Henlo Starter](https://repository-images.githubusercontent.com/270961687/4085d990-9083-451d-b39b-5316579adf09)
 
-# Gatsby Starter Henlo (v1.1.1)
+# Gatsby Starter Henlo (v1.2.0)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
 [Official Website / Demo](http://henlo.cleancommit.io)
 
-Gatsby Starter Henlo is the most advanced Netlify CMS starter for Gatsby.js. We built it with Page Builder setup in mind. All pages are created out of programmable blocks, aiming to provide the best DX & admin UX possible.
+Gatsby Starter Henlo is the most advanced Decap CMS starter for Gatsby.js. We built it with Page Builder setup in mind. All pages are created out of programmable blocks, aiming to provide the best DX & admin UX possible.
 
-This repo contains an example website that is built with [Gatsby](https://www.gatsbyjs.com/docs/), and [Netlify CMS](https://www.netlifycms.org).
+This repo contains an example website that is built with [Gatsby](https://www.gatsbyjs.com/docs/), and [Decap CMS](https://decapcms.org/docs/intro/).
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
@@ -20,25 +20,25 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 - 🌗 Darkmode support
 - 🗺 Sitemaps using `gatsby-plugin-sitemap`
 - 🔥 Perfect score on Lighthouse for SEO, Accessibility and Performance
-- 💇‍♀️ TailwindCSS support with PostCSS
+- 💇‍♀️ TailwindCSS support with PostCSS & Tailwind Merge
 - 🔌 Support for Gatsby API functions
 - 🎇 Crazy fast images with `gatsby-plugin-image`
 - 🕵️‍♂️ Complete SEO configuration with graphql fragment and reusable components based on Head API
 - Netlify deploy configuration
-- Example pages, collections, CMS configuration with Netlify CMS & hooks
+- Example pages, collections, CMS configuration with Decap CMS & hooks
 - Readme template for custom projects
-- Easy Netlify CMS configuration using [Manual Initialization](https://www.netlifycms.org/docs/beta-features/#manual-initialization)
+- Easy Decap CMS configuration using [Manual Initialization](https://decapcms.org/docs/manual-initialization/#gatsby-focus-wrapper)
 - ..and more
 
 ## Prerequisites
 
-- Node 18
+- Node 20
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
 - [Netlify CLI](https://github.com/netlify/cli)
 
 ## Getting Started (Recommended)
 
-Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. Use the button below to build and deploy your own copy of the repository:
+Decap CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. Use the button below to build and deploy your own copy of the repository:
 
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/clean-commit/gatsby-starter-henlo"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
@@ -62,18 +62,20 @@ $ cd [REPO_NAME]
 $ yarn && yarn dev
 ```
 
-To test the CMS locally, you'll need run a production build of the site & [run local instance of Netlify CMS](https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository)
+To test the CMS locally, you'll need to start your local development server & [run local instance of Decap CMS](https://decapcms.org/docs/working-with-a-local-git-repository)
 
 ```
 $ yarn dev
-$ npx netlify-cms-proxy-server
+$ yarn cms
+// or
+$ npx decap-server
 ```
 
 Your admin configuration will be available at http://localhost:8000/admin
 
 ### Deployment
 
-We've added additional commands for quick deployments with Netlify CLI. To deploy the website to netlify cms simply run.
+We've added additional commands for quick deployments with Netlify CLI. To deploy the website to Netlify simply run.
 
 ```
 $ yarn deploy:prod
@@ -81,10 +83,15 @@ $ yarn deploy:prod
 
 The website will build locally and then deploy to production.
 
+Before deploying to Netlify, you need to:
+
+- Define GATSBY_APP_URL to your domain
+- Update redirects in netlify.toml to reflect your website (example is set up)
+
 ### Folder structure
 
 ```
-├── cms                      # Netlify CMS configuration
+├── cms                      # Decap CMS configuration
 │   ├── blocks
 │   ├── collections
 │   ├── fields
@@ -100,6 +107,7 @@ The website will build locally and then deploy to production.
 │   ├── api                  # Gatsby functions should be placed here
 │   ├── blocks               # Blocks that create sections
 │   ├── components           # Reusable components
+│   │   └── UI               # UI specialized components
 │   ├── hooks                # Hooks used in the project
 │   ├── lib                  # misc
 │   ├── pages
@@ -121,29 +129,28 @@ The website will build locally and then deploy to production.
 
 ### Setting up the CMS
 
-Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting.
+Follow the [Decap CMS Quick Start Guide](https://decapcms.org/docs/gatsby/#enable-identity-and-git-gateway) to set up authentication, and hosting.
 
 **Important**
 This template can be mostly changed by the user within the CMS itself (Settings type). For sitemaps to work correctly, you'll need to provide ENV variable `GATSBY_APP_URL` which defaults to https://example.com, this url will be used in setting up meta values in the head of the documents and links URL in the CMS.
 
 CMS configuration was placed within `cms` directory in the root of the project. This allows us to work efficiently on fields and collections without mixing CMS config with Gatsby code.
 
-Henlo uses Manual Initialization to take advantage of componetized approach to managing configuration for Netlify CMS. Thanks to that you don't have to control the CMS from centralized YAML file.
+Henlo uses Manual Initialization to take advantage of componetized approach to managing configuration for Decap CMS. Thanks to that you don't have to control the CMS from centralized YAML file.
 
 To ensure best experience we use 2 custom widgets that are maintained by us -> [ID Widget](https://github.com/clean-commit/netlify-cms-widget-id) that provides unmutable IDs for content items and [Permalink Widget](https://github.com/clean-commit/netlify-cms-widget-permalink) that enables you to create custom permalinks with ease.
 
 ```javascript
-import CMS from 'netlify-cms-app';
-import { Widget as UuidWidget } from 'netlify-cms-widget-id';
-import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink';
+import CMS from 'decap-cms-app'
+import { Widget as UuidWidget } from 'netlify-cms-widget-id'
+import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink'
+import authors from './collections/authors'
+import pages from './collections/pages'
+import posts from './collections/posts'
+import settings from './collections/settings'
+import PagePreview from './previews/Page'
 
-import pages from './collections/pages';
-import posts from './collections/posts';
-import authors from './collections/authors';
-import settings from './collections/settings';
-import PagePreview from './previews/Page'; // Preview for all PageBuilder based pages
-
-window.CMS_MANUAL_INIT = true;
+// Preview for all PageBuilder based pages
 
 const config = {
   config: {
@@ -161,15 +168,15 @@ const config = {
     public_folder: '/img',
     collections: [pages, posts, authors, settings],
   },
-};
+}
 
-CMS.registerPreviewStyle('../commons.css');
-CMS.registerPreviewTemplate('pages', PagePreview);
+CMS.registerPreviewStyle('../commons.css')
+CMS.registerPreviewTemplate('pages', PagePreview)
 
-CMS.registerWidget(UuidWidget);
-CMS.registerWidget(PermalinkWidget);
+CMS.registerWidget(UuidWidget)
+CMS.registerWidget(PermalinkWidget)
 
-CMS.init(config);
+CMS.init(config)
 ```
 
 #### Adding blocks
@@ -181,7 +188,7 @@ This is extremely important due to the way GraphQL works with Markdown based fil
 That's why it's important to reuse names of fields, hence usage of imports.
 
 ```javascript
-import { Buttons, Title, Content, VariantField, ImageField } from '../fields';
+import { Buttons, Title, Content, SelectField, ImageField } from '../fields';
 
 const Config = {
   label: 'Blocks',
@@ -196,7 +203,7 @@ const Config = {
         Title,
         Content,
         Buttons,
-        VariantField('default', ['default', 'centered', 'full']),
+        SelectField('default', ['default', 'centered', 'full']),
       ],
     },
 ...
@@ -245,6 +252,8 @@ export const query = graphql`
 `
 ```
 
+To keep the GraphQL query small, we opt to reuse the field names across blocks, but if new type is added it has to be defined in graphql using createSchemaCustomization function. **Without the definition you may encounter errors** during build process.
+
 ### Adding Favicons
 
 Favicons can be generated using this [Favicon Generator](https://www.favicon-generator.org/) After generating the icons, drop the contents of downloaded file into `static/img/favicons` directory
@@ -262,7 +271,6 @@ yarn preload-fonts
 
 Gatsby tends to add a lot of polyfills to support older browser versions. In package.json file you can adjust which sites your project should support. As default Henlo will use `defaults` setting. If you want to learn more about the browser support visit official [Gatsby How-To Guide on this subject](https://www.gatsbyjs.com/docs/how-to/custom-configuration/browser-support/)
 
-
 # CONTRIBUTING
 
 Contributions are always welcome, no matter how large or small. Before contributing,
@@ -272,6 +280,6 @@ please read the [code of conduct](CODE_OF_CONDUCT.md).
 
 Here's a list of helpful articles that will help you with your first steps using Henlo!
 
-- [Efficient Netlify CMS config with Manual Initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization?utm_source=GitHub&utm_medium=henlo-gatsby)
+- [Efficient Decap CMS config with Manual Initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization?utm_source=GitHub&utm_medium=henlo-gatsby)
 - [How to optimize SEO with Gatsby & Netlify](https://mrkaluzny.com/blog/how-to-optimize-seo-with-gatsby-netlify?utm_source=GitHub&utm_medium=henlo-gatsby)
-- [https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms/](https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms?utm_source=GitHub&utm_medium=henlo-gatsby)
+- [Full Text Search with Gatsby & Decap CMS](https://mrkaluzny.com/blog/full-text-search-with-gatsby-and-netlify-cms?utm_source=GitHub&utm_medium=henlo-gatsby)

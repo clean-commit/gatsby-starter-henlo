@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cn } from '@/lib/helper'
 
 export default function Title({
   children,
@@ -34,7 +34,7 @@ export default function Title({
     <>
       {children && (
         <Tag
-          className={clsx(style, className)}
+          className={cn(style, className)}
           dangerouslySetInnerHTML={{ __html: children }}
           {...props}
         />

@@ -11,7 +11,7 @@ export default function DarkmodeToggle() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 block dark:hidden"
+              className="block h-6 w-6 dark:hidden"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -25,7 +25,7 @@ export default function DarkmodeToggle() {
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 dark:block hidden"
+              className="hidden h-6 w-6 dark:block"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

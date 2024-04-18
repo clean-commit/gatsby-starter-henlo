@@ -1,9 +1,9 @@
-import React from 'react';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import React from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 export default function Image({ src, alt = '', ...props }) {
-  const isRemote = typeof src === 'string';
-  const image = !isRemote ? getImage(src) : [];
+  const isRemote = typeof src === 'string'
+  const image = !isRemote ? getImage(src) : []
   return (
     <>
       {isRemote ? (
@@ -12,5 +12,5 @@ export default function Image({ src, alt = '', ...props }) {
         <GatsbyImage image={image} alt={alt} {...props} />
       )}
     </>
-  );
+  )
 }

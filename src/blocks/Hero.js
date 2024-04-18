@@ -1,15 +1,17 @@
-import clsx from 'clsx'
 import React from 'react'
-import Buttons from '../components/UI/Buttons'
-import Container from '../components/UI/Container'
-import Text from '../components/UI/Text'
+import Buttons from '@/components/UI/Buttons'
+import Container from '@/components/UI/Container'
+import Section from '@/components/UI/Section'
+import Text from '@/components/UI/Text'
+import { cn } from '@/lib/helper'
 
 export default function Hero({ data }) {
   const isCentered = data?.variant === 'centered'
   const isFull = data?.variant === 'full'
   return (
-    <section
-      className={clsx(
+    <Section
+      settings={data?.settings}
+      className={cn(
         'py-12 dark:bg-black dark:text-white lg:py-24',
         {
           'flex min-h-screen items-center': isFull,
@@ -22,23 +24,23 @@ export default function Hero({ data }) {
       <Container>
         {data?.title && (
           <h1
-            className={clsx('mb-4 text-4xl font-bold md:text-6xl', {
+            className={cn('mb-4 text-4xl font-bold md:text-6xl', {
               'mx-auto': isCentered,
             })}
           >
             {data?.title}
           </h1>
         )}
-        <Text className={clsx('text-lg', { 'mx-auto': isCentered })}>
+        <Text className={cn('text-lg', { 'mx-auto': isCentered })}>
           {data?.content}
         </Text>
         {data?.buttons && (
           <Buttons
             buttons={data?.buttons}
-            className={clsx('mt-6', { 'justify-center': isCentered })}
+            className={cn('mt-6', { 'justify-center': isCentered })}
           />
         )}
       </Container>
-    </section>
+    </Section>
   )
 }

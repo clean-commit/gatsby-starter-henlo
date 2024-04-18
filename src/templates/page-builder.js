@@ -1,10 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-
+import DefaultHead from '@/components/Head/DefaultHead'
 import Layout from '@/components/Layout'
 import PageBuilder from '@/components/PageBuilder'
-import DefaultHead from '../components/Head/DefaultHead'
 
 const Page = ({ data }) => {
   return (
