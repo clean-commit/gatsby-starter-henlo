@@ -45,10 +45,12 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "gatsby serve",
+    "start": "gatsby develop",
     "dev": "npm run develop",
     "develop": "npm run clean && gatsby develop",
     "build": "npm run clean && gatsby build",
+    "cms": "npx decap-server",
+    "serve": "gatsby serve",
     "serve:prod": "npm run clean && gatsby build && gatsby serve",
     "build:prod": "netlify build",
     "init": "netlify init",

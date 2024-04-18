@@ -13,7 +13,8 @@
 - Node version changed to v20.11.0
 - Section component added to support custom spacing for sections
 - Added support for tailwind-merge with new `cn()` helper function
-- Prettier config added fo
+- Prettier config added for imports ordering and tailwind classes ordering
+- GraphQL Schema Customization definitions added
 
 **Minor changes**
 

@@ -66,6 +66,8 @@ To test the CMS locally, you'll need to start your local development server & [r
 
 ```
 $ yarn dev
+$ yarn cms
+// or
 $ npx decap-server
 ```
 
@@ -139,15 +141,16 @@ Henlo uses Manual Initialization to take advantage of componetized approach to m
 To ensure best experience we use 2 custom widgets that are maintained by us -> [ID Widget](https://github.com/clean-commit/netlify-cms-widget-id) that provides unmutable IDs for content items and [Permalink Widget](https://github.com/clean-commit/netlify-cms-widget-permalink) that enables you to create custom permalinks with ease.
 
 ```javascript
-import CMS from 'decap-cms-app';
-import { Widget as UuidWidget } from 'netlify-cms-widget-id';
-import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink';
+import CMS from 'decap-cms-app'
+import { Widget as UuidWidget } from 'netlify-cms-widget-id'
+import { Widget as PermalinkWidget } from 'netlify-cms-widget-permalink'
+import authors from './collections/authors'
+import pages from './collections/pages'
+import posts from './collections/posts'
+import settings from './collections/settings'
+import PagePreview from './previews/Page'
 
-import pages from './collections/pages';
-import posts from './collections/posts';
-import authors from './collections/authors';
-import settings from './collections/settings';
-import PagePreview from './previews/Page'; // Preview for all PageBuilder based pages
+// Preview for all PageBuilder based pages
 
 const config = {
   config: {
@@ -165,15 +168,15 @@ const config = {
     public_folder: '/img',
     collections: [pages, posts, authors, settings],
   },
-};
+}
 
-CMS.registerPreviewStyle('../commons.css');
-CMS.registerPreviewTemplate('pages', PagePreview);
+CMS.registerPreviewStyle('../commons.css')
+CMS.registerPreviewTemplate('pages', PagePreview)
 
-CMS.registerWidget(UuidWidget);
-CMS.registerWidget(PermalinkWidget);
+CMS.registerWidget(UuidWidget)
+CMS.registerWidget(PermalinkWidget)
 
-CMS.init(config);
+CMS.init(config)
 ```
 
 #### Adding blocks
