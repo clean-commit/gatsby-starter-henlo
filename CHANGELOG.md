@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 - December 3, 2024
+
+- Gatsby bumped to 5.14.0
+- Tailwindcss updated
+- Minor packages updates
+
 ## 1.2.0 - April 18, 2024
 
 **BREAKING CHANGES**
