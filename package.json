@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-henlo",
   "description": "Minimalistic starter for Gatsby v5, optimized for SEO & Performance.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Wojciech Kałużny <wk@cleancommit.io>",
   "browserslist": [
     "defaults"
