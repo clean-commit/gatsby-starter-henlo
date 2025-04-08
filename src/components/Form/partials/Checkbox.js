@@ -24,7 +24,7 @@ export default function Checkbox({
               value={true}
               aria-invalid={error ? 'true' : 'false'}
               required={data?.required}
-              className="border-black-300 relative cursor-pointer rounded-sm bg-zinc-100  focus:ring-0"
+              className="border-black-300 relative cursor-pointer rounded-xs bg-zinc-100  focus:ring-0"
             />
           </div>
           <div className="text-dark-500 text-sm font-normal">{data?.label}</div>
