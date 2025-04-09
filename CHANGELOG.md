@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 - April 9, 2025
+
+- Support for Tailwind V4 added
+- Packages updates
+
 ## 1.2.1 - December 3, 2024
 
 - Gatsby bumped to 5.14.0
