@@ -1,6 +1,6 @@
 ![Henlo Starter](https://repository-images.githubusercontent.com/270961687/4085d990-9083-451d-b39b-5316579adf09)
 
-# Gatsby Starter Henlo (v1.2.1)
+# Gatsby Starter Henlo (v1.3.0)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43532afb-3488-432b-8185-a745645a90d8/deploy-status)](https://app.netlify.com/sites/henlo/deploys)
 
@@ -14,13 +14,13 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Features
 
+- 💇‍♀️ TailwindCSS V4 support with PostCSS & Tailwind Merge
 - Support for Gatsby v5
 - 💪 Battle-tested starting point for small & large web projects
 - 📄 Form Builder that enables Admins to create multiple forms with ease & Netlify Forms integration.
 - 🌗 Darkmode support
 - 🗺 Sitemaps using `gatsby-plugin-sitemap`
 - 🔥 Perfect score on Lighthouse for SEO, Accessibility and Performance
-- 💇‍♀️ TailwindCSS support with PostCSS & Tailwind Merge
 - 🔌 Support for Gatsby API functions
 - 🎇 Crazy fast images with `gatsby-plugin-image`
 - 🕵️‍♂️ Complete SEO configuration with graphql fragment and reusable components based on Head API
